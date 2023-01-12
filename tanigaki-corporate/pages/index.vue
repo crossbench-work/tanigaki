@@ -1,13 +1,29 @@
 <template lang="pug">
-	header.c-globalHeader01
-		p aaaa
+	div
+		c-globalHeader01
+		c-topMainvisualSet01
+		c-topIndustrySet01
+		
+
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 
+
+
 export default Vue.extend({
 	name: 'IndexPage',
-	layout: "l-mainWrapper01"
+	layout: "l-mainWrapper01",
+	mounted() {
+	}
 })
 </script>
+
+<style lang="stylus">
+	
+
+</style>
+
+
+

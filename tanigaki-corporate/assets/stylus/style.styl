@@ -4,6 +4,25 @@
 @import "_s_mixin"    
 @import "_s_base"
 
+.l-contentsWrapper
+    max-width 1340px
+    margin 0 auto
+
+    &>.l-mqWrapper
+        +MQ_MAX(1340px)
+            padding 0 10px
+
+    &.is-middle
+        max-width 1340px
+
+// .l-mqWrapper
+//     .l-contentsWrapper &
+        
+    // +MQ_MAX(PC_RES_WID01)
+    //     padding 0 10px
+    // +MQ_MAX(SP_RES_WID01)
+    //     padding 0 15px
+
 // body
 // 	background-color #F00
 

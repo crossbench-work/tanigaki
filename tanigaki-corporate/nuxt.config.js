@@ -1,3 +1,6 @@
+const containerQueryPolyfill = `if (!("container" in document.documentElement.style)) {import("https://unpkg.com/container-query-polyfill@^0.2.0");}`
+
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -16,9 +19,20 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    ],
+    script: [
+      {
+        type: 'module',
+        hid: 'containerQueryPolyfill',
+        innerHTML: containerQueryPolyfill
+      },
+      { src: 'https://pixijs.download/release/pixi.js' }
+    ],
+    __dangerouslyDisableSanitizersByTagID: {
+      'containerQueryPolyfill': ['innerHTML'],
+    },
+    
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     { src: '~/assets/stylus/style.styl' },
@@ -26,6 +40,8 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    { src: '~/plugins/globalSet', mode: 'client' },
+    // { src: '~/plugins/pixiPlugins', ssr: false },
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,5 +59,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+      // vendor: ['pixi.js']
   }
 }
