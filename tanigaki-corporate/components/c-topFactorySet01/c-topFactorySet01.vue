@@ -36,6 +36,7 @@
 	}
 </script>
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
 	.c-topFactorySet01
@@ -53,6 +54,11 @@
 			background-repeat no-repeat
 			background-size cover
 			background-position center
+
+			+MQ_MAX(SP_RES_WID01)
+				max-height 600px
+				+MQ_MAX(450px)
+					max-height 400px
 
 			&::before
 				content ""
@@ -74,7 +80,10 @@
 						&.is-en
 							color rgba(#FFF, 0.2)
 			
-			.block.is-text	
+			.block.is-text
+				position relative
+				z-index 100
+				
 				.m-largeText01
 					span
 						color #FFF

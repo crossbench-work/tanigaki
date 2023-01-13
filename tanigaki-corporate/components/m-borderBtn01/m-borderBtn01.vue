@@ -163,6 +163,7 @@
 							height 100% !important
 					
 					&.is-text
+						pointer-events none
 						position relative
 						z-index 100
 						color #E02400

@@ -6,9 +6,14 @@
 			
 			.block.is-text
 				h2.title
-					span CONNECT TO THE
+					span.is-pc CONNECT TO THE
 						br
 						| NEXT GENERATION
+					span.is-sp CONNECT TO
+						br
+						| THE NEXT
+						br
+						| GENERATION
 				p.text テクノロジーのたゆまぬ進化によって、私たちの生活は「機能的」に豊かになりました。私たちの日常に溶け込む家具やインテリアは「感情的」な豊かさを形成する一部を担っていると考えます。変わりゆく時代の中で、確かな伝統と技術をもって人々の心を豊かにする居住空間をご提供いたします。
 			
 			.block.is-scroll
@@ -19,7 +24,7 @@
 
 	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 	let _g, mainvisual;
-	let canvas, app, mainvisualTitle, mainvisualBg01, mainvisualBg02, mainvisualTexture01;
+	let canvas, app, mainvisualTitle, mainvisualBg01, mainvisualBg02, mainvisualTexture01, mainvisualLogo01;
 	let width = 400, height = 200, scale = 1.0;
 
 	export default {
@@ -37,13 +42,16 @@
 			canvas = document.getElementById('topMainvisualBg01');
 			mainvisual = document.querySelector('.c-topMainvisualSet01');
 
+			console.log(mainvisual.clientHeight);
+
 			app = new PIXI.Application({
 				width: _g.GLOBAL_WIDTH * 2,
 				height: mainvisual.clientHeight * 2,
-				backgroundColor: 0x222222,
+				// backgroundColor: 0x222222,
 				resolution: 1,
 				autoDensity: true,
-				resizeTo: window
+				resizeTo: mainvisual,
+				backgroundAlpha: 0
 			});
 
 			canvas.appendChild(app.view);
@@ -56,6 +64,8 @@
 			mainvisualBg02 = PIXI.Sprite.from('/images/contents/top_mainvisual_bg01.png');
 			mainvisualBg02.anchor.x = 0.5;
 			mainvisualBg02.anchor.y = 0.5;
+
+			mainvisualLogo01 = PIXI.Sprite.from('/images/contents/top_mainvisual_logo01.png');
 			
 			const texture = PIXI.Texture.from('/images/contents/top_mainvisual_texture01.png');
 
@@ -74,6 +84,7 @@
 			app.stage.addChild(mainvisualBg01);
 			app.stage.addChild(mainvisualTexture01);
 			app.stage.addChild(mainvisualBg02);
+			app.stage.addChild(mainvisualLogo01);
 			app.stage.addChild(mainvisualTitle);
 			
 		
@@ -93,6 +104,12 @@
 					mainvisualBg02.width = app.renderer.height * 1400 / 900;
 				}
 
+				mainvisualLogo01.width = app.renderer.width * 0.5;
+				mainvisualLogo01.height = app.renderer.width * 0.6;
+
+				mainvisualLogo01.x = 0;
+				mainvisualLogo01.y = app.renderer.height - mainvisualLogo01.height*0.85;
+
 				mainvisualBg01.x = app.renderer.width / 2;
 				mainvisualBg01.y = app.renderer.height / 2;
 
@@ -102,11 +119,35 @@
 				mainvisualTexture01.width = app.renderer.width;
 				mainvisualTexture01.height = app.renderer.height;
 
-				mainvisualTitle.style.fontSize = app.renderer.width * 0.1;
-				mainvisualTitle.style.lineHeight = app.renderer.width * 0.11;
-				mainvisualTitle.style.wordWrapWidth = app.renderer.width * 0.8;
-				mainvisualTitle.x = app.renderer.width * 0.05;
-				mainvisualTitle.y = app.renderer.height * 0.35;
+				if(app.renderer.width < 850) {
+					if(app.renderer.width < 460) {
+						mainvisualTitle.style.fontSize = 60;
+						mainvisualTitle.style.lineHeight = 60;
+						mainvisualTitle.style.wordWrapWidth = 360;	
+					} else if(app.renderer.width < 640) {
+						mainvisualTitle.style.fontSize = 80;
+						mainvisualTitle.style.lineHeight = 82;
+						mainvisualTitle.style.wordWrapWidth = 450;
+					} else {
+						mainvisualTitle.style.fontSize = 110;
+						mainvisualTitle.style.lineHeight = 110;
+						mainvisualTitle.style.wordWrapWidth = 640;	
+					}
+					
+					
+					mainvisualTitle.x = app.renderer.width * 0.05;
+					mainvisualTitle.y = app.renderer.height * 0.2;
+
+				} else {
+					mainvisualTitle.style.fontSize = app.renderer.width * 0.1;
+					mainvisualTitle.style.lineHeight = app.renderer.width * 0.11;
+					mainvisualTitle.style.wordWrapWidth = app.renderer.width * 0.8;	
+					mainvisualTitle.x = app.renderer.width * 0.05;
+					mainvisualTitle.y = app.renderer.height * 0.25;
+				}
+
+				
+				
 
 				if (scale < 1.2) {
 					scale += 0.0005
@@ -124,7 +165,7 @@
 			// app.ticker.autoStart = false;
 			// app.ticker.stop();
 
-			console.log(mainvisualBg01)
+			// console.log(mainvisualBg01)
 
 			
 
@@ -151,6 +192,7 @@
 	}
 </script>
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
 	section.c-topMainvisualSet01
@@ -159,9 +201,12 @@
 
 		width 100%
 		height 100svh
-		min-height 600px
+		min-height 700px
 		max-height 800px
 		background-color #0E0BA3
+
+		+MQ_MAX(SP_RES_WID01)
+			max-height 100%
 		
 		.componentWrapper
 			
@@ -172,10 +217,15 @@
 				z-index 0
 			
 			.block.is-text
+				
 				position absolute
-				top 35.2%
+				top 25.2%
 				left 5.0%
 				z-index 100
+
+				+MQ_MAX(SP_RES_WID01)
+					top 19.6%
+					width 90%
 
 				.title
 					color transparent
@@ -186,11 +236,46 @@
 					vertical-align top
 					z-index 0
 
+					+MQ_MAX(SP_RES_WID01)
+						max-width 640px
+						font-size 11.0rem
+						line-height 1.03
+						
+						+MQ_MAX(640px)
+							max-width 460px
+							font-size 7.8rem
+							line-height 1.1
+
+						+MQ_MAX(460px)
+							font-size 6.2rem
+							line-height 1.01
+
+					span
+						&.is-pc
+							+MQ_MAX(SP_RES_WID01)
+								display none
+
+						&.is-sp
+							display none
+							+MQ_MAX(SP_RES_WID01)
+								display block
+
 				.text
 					width 76%
-					margin-top 2%
+					margin-top 3%
 					font-size 1.0cqw
 					color #FFF
+
+					+MQ_MAX(SP_RES_WID01)
+					
+						width 100%
+						font-size 1.8rem
+						+MQ_MAX(640px)
+							width 100%
+							font-size 1.6rem
+
+						+MQ_MAX(460px)
+							font-size 3.0cqw
 
 			.block.is-scroll
 				position absolute
@@ -206,6 +291,16 @@
 				// background-color #F00
 				// border-radius 200px
 				z-index 100
+
+				+MQ_MAX(SP_RES_WID01)
+					bottom 14svw
+					width 30svw
+					min-width 150px
+					max-width 300px
+
+					height 30svw
+					min-height 150px
+					max-height 300px
 
 				@keyframes rotation
 					0%

@@ -1,5 +1,5 @@
 <template lang="pug">
-	div
+	div.c-topPageContents
 		c-globalHeader01(current = "home")
 		c-topMainvisualSet01
 		c-topNewsSet01

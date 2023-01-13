@@ -41,6 +41,7 @@
 										.block.is-text
 											h3.title 造作家具設計施工
 											p.text 建築内装・船舶内装における造作家具を自社工場で設計・製作します。既製品では出来ない自由な設計と、船舶内装で培った堅牢な家具をご提供します。
+					
 					.block.is-pager
 						.m-topIndustrySet01_count01
 							.block.is-bg
@@ -70,7 +71,8 @@
 	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 
 	let _g;
-	let slideBgCanvas, app = [], sliderBg = [], bgMask01 = [], texture01 = [], bgTexture01 = [], sliderCount, sliderCountNum, sliderCountApp, sliderCountLine01, sliderCountLine02;
+	let topIndustry;
+	let slideBgCanvas, app = [], sliderBg = [], bgMask01 = [], texture01 = [], bgTexture01 = [], sliderCount, sliderCountNum, sliderCountApp, sliderCountLine01, sliderCountLine02, hover = [], scale = [];
 	let SLIDER_LENGTH = 3, SLIDER_CURRENT = 1;
 
 	export default {
@@ -78,10 +80,14 @@
 		
 		mounted() {
 
+			_g = window.GLOBAL;
+
 			inView({
 				className: '.c-topIndustrySet01',
 				reverse: true
 			});
+
+			topIndustry = document.querySelector('.c-topIndustrySet01');
 
 			slideBgCanvas = document.querySelectorAll('.m-topIndustrySet01_slide01 .block.is-bg');
 
@@ -95,7 +101,6 @@
 					nextEl: ".swiper-button-next",
 					prevEl: ".swiper-button-prev",
 				},
-
 				on: { // イベントを登録する
 					afterInit: (swiper) => {
 						[].slice.call(slideBgCanvas).forEach(function(element, i) {
@@ -110,6 +115,8 @@
 								backgroundAlpha: 0
 								// resizeTo: window
 							});
+
+							scale[i] = 1.0;
 							
 							element.appendChild(app[i].view);
 
@@ -145,11 +152,49 @@
 
 								sliderBg[i].width = app[i].renderer.width;
 								sliderBg[i].height = app[i].renderer.width * 600 / 500;
+
+								if(hover[i] == false) {
+									sliderBg[i].width = app[i].renderer.width - scale;
+									if (scale[i] > 1.0) {
+										scale[i] -= 0.005;
+									}
+									sliderBg[i].scale.x = scale[i];
+									sliderBg[i].scale.y = scale[i];
+								} else if (hover[i] == true){
+									if (scale[i] < 1.1) {
+										scale[i] += 0.005;
+									}
+									sliderBg[i].scale.x = scale[i];
+									sliderBg[i].scale.y = scale[i];	
+								}
+
+								
+								sliderBg[i].x = app[i].renderer.width / 2;
+								sliderBg[i].y = app[i].renderer.height / 2;
+								bgTexture01[i].width = app[i].renderer.width;
+								bgTexture01[i].height = app[i].renderer.height;
+								
 							});
-							sliderBg[i].x = app[i].renderer.width / 2;
-							sliderBg[i].y = app[i].renderer.height / 2;
-							bgTexture01[i].width = app[i].renderer.width;
-							bgTexture01[i].height = app[i].renderer.height;
+
+							// app[i].ticker.autoStart = false;
+							// app[i].ticker.stop();
+
+							// _g.scroll(function(){
+							// 	if(topIndustry.classList.contains('is-inview') ) {
+							// 		app[i].ticker.start();;
+							// 	} else {
+							// 		app[i].ticker.stop();
+							// 	}
+							// })
+							
+							
+							element.addEventListener('mouseenter',function(e){
+								hover[i] = true;
+							});
+
+							element.addEventListener('mouseleave',function(e){
+								hover[i] = false;
+							});
 
 						});
 
@@ -213,6 +258,7 @@
 	}
 </script>
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
 	.c-topIndustrySet01
@@ -230,12 +276,24 @@
 		
 		.block.is-slider
 			position relative
-			width 45%
+			width 37%
 			z-index 50
+
+			+MQ_MAX(SP_RES_WID01)
+				width 53%
+
+				+MQ_MAX(450px)
+					width 80%
 
 			.swiper-slide
 				width 40vw
 				max-width 500px
+
+				+MQ_MAX(SP_RES_WID01)
+					width 50vw
+
+					+MQ_MAX(450px)
+						width 75vw
 				
 				&:nth-of-type(2)
 					.m-topIndustrySet01_slide01
@@ -260,11 +318,14 @@
 			transform translate3d(0, clamp(-120px, -20svw, -200px), 0)
 			z-index 1000
 
+			+MQ_MAX(SP_RES_WID01)
+				transform translate3d(0, clamp(-40px, -6svw, -100px), 0)
+
 		.block.is-btn
 			display flex
 			justify-content flex-end
 			flex-wrap wrap
-			margin-top 100px
+			margin-top 5%
 
 	.m-topIndustrySet01_slide01
 		container-type inline-size
@@ -273,6 +334,7 @@
 		a
 			display block
 			position relative
+			color inherit
 
 			&:hover
 				.block.is-more
@@ -280,6 +342,7 @@
 
 		.block.is-more
 			opacity 0
+			pointer-events none
 			display flex
 			position absolute
 			top 35%
@@ -431,6 +494,9 @@
 		height 10px
 		transform translate3d(0, -100%, 0)
 
+		+MQ_MAX(SP_RES_WID01)
+			display none
+
 		ul
 			display flex
 			justify-content space-between
@@ -439,6 +505,8 @@
 				cursor pointer
 				position static !important
 				width 40%
+
+
 				&::after
 					content none
 

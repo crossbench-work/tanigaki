@@ -5,8 +5,14 @@
 				.l-mqWrapper
 					.block.is-logo
 						.l-contentsWrapper.is-middle
-							p.logo
-								img(src="~/assets/images/common/common_logo01.svg" alt="谷垣工業株式会社").is-white
+							.area.is-logo
+								p.logo
+									img(src="~/assets/images/common/common_logo01.svg" alt="谷垣工業株式会社").is-white
+							.area.is-text
+								p.address 〒655-0003 兵庫県神戸市垂水区小束山本町1丁目5番1号
+								ul.tel
+									li FAX:078-782-6270
+									li TEL:078-784-0111 
 					.block.is-map
 						.map
 					.block.is-nav
@@ -46,6 +52,7 @@
 </script>
 
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
 	.c-globalFooter01
@@ -58,22 +65,54 @@
 
 			.block.is-logo
 				box-sizing border-box
-				p.logo
-					width 22%
-					max-width 295px
-					height 100%
-					img
-						width 100%
-						height auto
 
-						&.is-white
-							filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
+				.l-contentsWrapper
+					container-type inline-size
+					display flex
+					justify-content space-between
+
+					+MQ_MAX(SP_RES_WID01)
+						flex-direction column
+						gap 3svw
+
+					.area.is-logo
+						p.logo
+							width 100%
+							max-width 295px
+							height 100%
+
+							+MQ_MAX(SP_RES_WID01)
+								max-width 200px
+							img
+								width 100%
+								height auto
+
+								&.is-white
+									filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(137deg) brightness(103%) contrast(101%);
+					
+					.area.is-text
+						color #FFF
+						font-size clamp(1.0rem, 6cqw, 1.4rem)
+
+						+MQ_MAX(SP_RES_WID01)
+							font-size clamp(1.0rem, 2.5cqw, 1.4rem)
+						.tel
+							display flex
+							flex-wrap wrap
+							gap 20px
+							margin-top 2%
+
+							+MQ_MAX(SP_RES_WID01)
+								margin-top 1%
 			.block.is-map
 				margin-top 3%
 				.map
 					width 100%
 					height 460px
 					background-color #DFDFDF
+
+					+MQ_MAX(SP_RES_WID01)
+						height 300px
 			
 			.block.is-nav
 				margin-top 3%
@@ -82,7 +121,14 @@
 					ul
 						display flex
 						column-gap 6%
+						flex-wrap wrap
+
+						+MQ_MAX(SP_RES_WID01)
+							column-gap 0
+							row-gap 2svw
 					li
+						+MQ_MAX(SP_RES_WID01)
+							width 50%
 						a
 							color #FFF
 							text-decoration none

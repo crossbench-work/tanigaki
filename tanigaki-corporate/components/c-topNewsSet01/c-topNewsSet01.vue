@@ -12,8 +12,6 @@
 					span
 					span
 					span
-					
-					
 
 </template>
 
@@ -30,8 +28,8 @@
 	}
 </script>
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
-
 
 	.c-topNewsSet01
 		display flex
@@ -49,7 +47,6 @@
 			max-width 720px
 			min-width 500px
 			
-			
 			height 15svw
 			min-height 130px
 			max-height 180px
@@ -58,7 +55,16 @@
 			box-shadow 0 4px 20px rgba(#000, 0.1)
 			transform translate3d(0, -50%, 0)
 
+			+MQ_MAX(SP_RES_WID01)
+				width 90%
+				height 8svw
+				min-width 0
+				min-height 80px
+				max-height 130px
+				transform translate3d(0, -80%, 0)
+
 			.block
+				container-type inline-size
 				display flex
 				align-items center
 				&.is-date
@@ -67,11 +73,15 @@
 					background-color #E02400
 					justify-content center
 					font-weight bold
+					font-size clamp(1.1rem, 2cqw, 1.4rem)
+
 				&.is-text
 					width 70%
 					padding 0 4%
 					background-color #FFF
 					box-sizing border-box
+					font-size clamp(1.1rem, 2cqw, 1.4rem)
+
 				&.is-btn
 					justify-content center
 					width 10%

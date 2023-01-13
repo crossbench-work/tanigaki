@@ -12,49 +12,54 @@
 					.block.is-slider
 						.swiper-wrapper
 							.swiper-slide
-								.m-topAchievementSet01_slide01
-									.block.is-image
-										img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
-									.block.is-text
-										h3.title 実績先を記入
-										p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
+								a(href="") 
+									.m-topAchievementSet01_slide01
+										.block.is-image
+											img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
+										.block.is-text
+											h3.title 実績先を記入
+											p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
 							.swiper-slide
+								a(href="") 
+									.m-topAchievementSet01_slide01
+										.block.is-image
+											img(src="~/assets/images/contents/top_achievement_image02.png", alt="")
+										.block.is-text
+											h3.title 実績先を記入
+											p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
+							.swiper-slide
+								a(href="") 
+									.m-topAchievementSet01_slide01
+										.block.is-image
+											img(src="~/assets/images/contents/top_achievement_image03.png", alt="")
+										.block.is-text
+											h3.title 実績先を記入
+											p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
+							.swiper-slide
+								a(href="") 
+									.m-topAchievementSet01_slide01
+										.block.is-image
+											img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
+										.block.is-text
+											h3.title 実績先を記入
+											p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
+							.swiper-slide
+								a(href="") 
+									.m-topAchievementSet01_slide01
+										.block.is-image
+											img(src="~/assets/images/contents/top_achievement_image02.png", alt="")
+										.block.is-text
+											h3.title 実績先を記入
+											p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
+							.swiper-slide
+								a(href="") 
+									.m-topAchievementSet01_slide01
+										.block.is-image
+											img(src="~/assets/images/contents/top_achievement_image03.png", alt="")
+										.block.is-text
+											h3.title 実績先を記入
+											p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
 								
-								.m-topAchievementSet01_slide01
-									.block.is-image
-										img(src="~/assets/images/contents/top_achievement_image02.png", alt="")
-									.block.is-text
-										h3.title 実績先を記入
-										p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							.swiper-slide
-								.m-topAchievementSet01_slide01
-									.block.is-image
-										img(src="~/assets/images/contents/top_achievement_image03.png", alt="")
-									.block.is-text
-										h3.title 実績先を記入
-										p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							.swiper-slide
-								.m-topAchievementSet01_slide01
-									.block.is-image
-										img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
-									.block.is-text
-										h3.title 実績先を記入
-										p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							.swiper-slide
-								
-								.m-topAchievementSet01_slide01
-									.block.is-image
-										img(src="~/assets/images/contents/top_achievement_image02.png", alt="")
-									.block.is-text
-										h3.title 実績先を記入
-										p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							.swiper-slide
-								.m-topAchievementSet01_slide01
-									.block.is-image
-										img(src="~/assets/images/contents/top_achievement_image03.png", alt="")
-									.block.is-text
-										h3.title 実績先を記入
-										p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
 
 					.block.is-progress
 						span
@@ -76,7 +81,8 @@
 
 			const mainContentsSlider = new Swiper(".c-topAchievementSet01 .block.is-slider", {
 				slidesPerView: 'auto',
-				spaceBetween: 6 + '%',
+				spaceBetween: 3 + '%',
+				centeredSlides: true,
 				on: {
 					afterInit: (swiper) => {
 						SLIDER_CURRENT = swiper.realIndex + 1;
@@ -94,8 +100,8 @@
 	}
 </script>
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
-
 
 	.c-topAchievementSet01
 		&>.componentWrapper
@@ -109,8 +115,22 @@
 				z-index 100
 
 			.block.is-slider
-				width 33vw
-				max-width 580px
+				width 37%
+
+				+MQ_MAX(SP_RES_WID01)
+					width 77%
+
+				.swiper-slide
+					width 33vw
+					max-width 580px
+
+					+MQ_MAX(SP_RES_WID01)
+						width 70vw
+					
+					a
+						display block
+						color inherit
+						text-decoration none
 			
 			.block.is-progress
 				overflow hidden
@@ -135,6 +155,13 @@
 
 	.m-topAchievementSet01_slide01
 		container-type inline-size
+		width 100%
+
+		&:hover
+			.block.is-image
+				img
+					transform scale(1.05)
+
 		
 		.block.is-image
 			overflow hidden
@@ -144,6 +171,7 @@
 			img
 				width 100%
 				height auto
+				transition all 0.3s ease
 		
 		.block.is-text
 			.title

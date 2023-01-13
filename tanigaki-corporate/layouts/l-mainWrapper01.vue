@@ -7,6 +7,7 @@
 
 </template>
 <style lang="stylus">
-	
+	#l-contentsTop
+		overflow hidden
 
 </style>

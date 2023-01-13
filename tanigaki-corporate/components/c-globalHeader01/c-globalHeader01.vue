@@ -35,6 +35,11 @@
 							a(href="")
 								span.is-en CONTACT
 								span.is-jp お問合せ
+			.block.is-btn
+				.btn
+					span
+					span
+					span
 </template>
 
 <script>
@@ -49,6 +54,7 @@
 	}
 </script>
 <style lang="stylus">
+	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
 	.c-globalHeader01
@@ -59,21 +65,32 @@
 
 		width 100%
 
+		+MQ_MAX(SP_RES_WID01)
+			padding-top 3%
+
 		.componentWrapper
 			display flex
 			justify-content space-between
 			align-items center
 			flex-wrap wrap
 			padding-left 50px
+
+			+MQ_MAX(SP_RES_WID01)
+				padding-left 3%
 			
 			.block.is-logo
 				width 22%
 				height 100%
 
 				box-sizing border-box
+
+				+MQ_MAX(SP_RES_WID01)
+					width 40%
+
 				p.logo
 					max-width 295px
 					width 100%
+					min-width 180px
 					img
 						width 100%
 						height auto
@@ -83,10 +100,8 @@
 			
 			.block.is-nav
 				width 75%
-
-				@media (max-width: 850px) {
+				+MQ_MAX(SP_RES_WID01)
 					display none
-				}
 
 				nav
 					ul
@@ -151,6 +166,48 @@
 							&.is-jp
 								margin-top 10%
 								font-size clamp(1.0rem, 11cqw, 1.3rem)
-	
+			
+			.block.is-btn
+				display none
+				cursor pointer
+				position absolute
+				top 0
+				right 0
+				width 14svw
+				min-width 60px
+				height 14svw
+				min-height 60px
+				background-color #000
+
+				+MQ_MAX(SP_RES_WID01)
+					display block
+
+				.btn
+					position absolute
+					top 50%
+					left 50%
+					width 30%
+					padding-top 24%
+					transform translate3d(-50%, -50%, 0)
+
+					span
+						display block
+						position absolute
+						left 0
+						width 100%
+						height 2px
+						background-color #FFF
+						border-radius 100px
+
+						&:nth-of-type(1)
+							top 0
+
+						&:nth-of-type(2)
+							top 50%
+							transform translate3d(0, -50%, 0)
+
+						&:nth-of-type(3)
+							bottom 0
+
 	
 </style>
