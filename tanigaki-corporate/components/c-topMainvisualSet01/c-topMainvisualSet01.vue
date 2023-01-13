@@ -16,9 +16,11 @@
 </template>
 
 <script>
+
+	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 	let _g, mainvisual;
 	let canvas, app, mainvisualTitle, mainvisualBg01, mainvisualBg02, mainvisualTexture01;
-	let width = 400, height = 200;
+	let width = 400, height = 200, scale = 1.0;
 
 	export default {
 		name: 'c-topMainvisualSet',
@@ -26,6 +28,11 @@
 		mounted() {
 
 			_g = window.GLOBAL;
+
+			inView({
+				className: '.c-topMainvisualSet01',
+				reverse: true
+			});
 
 			canvas = document.getElementById('topMainvisualBg01');
 			mainvisual = document.querySelector('.c-topMainvisualSet01');
@@ -100,7 +107,34 @@
 				mainvisualTitle.style.wordWrapWidth = app.renderer.width * 0.8;
 				mainvisualTitle.x = app.renderer.width * 0.05;
 				mainvisualTitle.y = app.renderer.height * 0.35;
+
+				if (scale < 1.2) {
+					scale += 0.0005
+				} else {
+					scale = 1
+				}
+				
+				mainvisualBg01.scale.x = scale
+				mainvisualBg01.scale.y = scale
+				mainvisualBg02.scale.x = scale
+				mainvisualBg02.scale.y = scale
+
 			});
+
+			// app.ticker.autoStart = false;
+			// app.ticker.stop();
+
+			console.log(mainvisualBg01)
+
+			
+
+			_g.scroll(function(){
+				if(mainvisual.classList.contains('is-inview') ) {
+					app.ticker.start();;
+				} else {
+					app.ticker.stop();
+				}
+			})
 			
 
 			// bgImg = new Image();

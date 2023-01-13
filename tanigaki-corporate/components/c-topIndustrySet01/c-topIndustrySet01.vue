@@ -67,6 +67,8 @@
 <script>
 	import Swiper from 'swiper/swiper-bundle.min'
 	import 'swiper/swiper-bundle.css'
+	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
+
 	let _g;
 	let slideBgCanvas, app = [], sliderBg = [], bgMask01 = [], texture01 = [], bgTexture01 = [], sliderCount, sliderCountNum, sliderCountApp, sliderCountLine01, sliderCountLine02;
 	let SLIDER_LENGTH = 3, SLIDER_CURRENT = 1;
@@ -75,6 +77,11 @@
 		name: 'c-topIndustrySet01',
 		
 		mounted() {
+
+			inView({
+				className: '.c-topIndustrySet01',
+				reverse: true
+			});
 
 			slideBgCanvas = document.querySelectorAll('.m-topIndustrySet01_slide01 .block.is-bg');
 

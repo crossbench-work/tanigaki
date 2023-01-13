@@ -1,6 +1,6 @@
 <template lang="pug">
 	div
-		c-globalHeader01
+		c-globalHeader01(current = "home")
 		c-topMainvisualSet01
 		c-topNewsSet01
 		c-topIndustrySet01
@@ -8,9 +8,6 @@
 		c-topAchievementSet01
 		c-contactSet01
 		c-globalFooter01
-		
-		
-		
 
 </template>
 

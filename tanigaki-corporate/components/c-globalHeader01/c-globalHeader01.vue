@@ -7,31 +7,31 @@
 			.block.is-nav
 				nav.is-global
 					ul
-						li
+						li(v-bind:class="[current == 'home' ? 'is-current' : '']")
 							a(href="")
 								span.is-en HOME
 								span.is-jp ホーム
-						li
+						li(v-bind:class="[current == 'company' ? 'is-current' : '']")
 							a(href="")
 								span.is-en COMPANY
 								span.is-jp 会社案内
-						li
+						li(v-bind:class="[current == 'industry' ? 'is-current' : '']")
 							a(href="")
 								span.is-en INDUSTRY
 								span.is-jp 事業内容
-						li
+						li(v-bind:class="[current == 'achievements' ? 'is-current' : '']")
 							a(href="")
 								span.is-en ACHIEVEMENTS
 								span.is-jp 施工実績
-						li
+						li(v-bind:class="[current == 'factory' ? 'is-current' : '']")
 							a(href="")
 								span.is-en FACTORY
 								span.is-jp 工場紹介
-						li
+						li(v-bind:class="[current == 'news' ? 'is-current' : '']")
 							a(href="")
 								span.is-en NEWS
 								span.is-jp 新着情報
-						li.is-contact
+						li.is-contact(v-bind:class="[current == 'contact' ? 'is-current' : '']")
 							a(href="")
 								span.is-en CONTACT
 								span.is-jp お問合せ
@@ -40,6 +40,12 @@
 <script>
 	export default {
 		name: 'c-globalHeader01',
+		props: {
+			current: {
+				type: String,
+				default: 'home'
+			},
+		},
 	}
 </script>
 <style lang="stylus">
@@ -101,6 +107,14 @@
 								background-color #000000
 								border none
 
+								&:hover
+									background-color #e02400
+						
+						&.is-current
+							a
+								background-color rgba(#000, 0.1)
+
+
 						a
 							container-type inline-size
 
@@ -115,9 +129,16 @@
 							width 100%
 							height 100%
 							color inherit
+							background-color rgba(#000, 0)
 							border-bottom 1px solid rgba(#FFFFFF, 0.2)
 							border-left 1px solid rgba(#FFFFFF, 0.2)
 							text-decoration none
+
+							transition all 0.3s ease
+
+							&:hover
+								background-color rgba(#000, 0.6)
+
 
 						span
 							display block

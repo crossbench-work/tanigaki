@@ -20,7 +20,7 @@
 					
 					.block.is-btn
 						.l-contentsWrapper.is-middle
-							m-borderBtn01
+							m-borderBtn01(className ="is-white")
 </template>
 
 <script>
@@ -81,6 +81,11 @@
 			
 			.block.is-btn
 				position relative
+				margin-top 5%
 				z-index 100
+
+				a
+					span
+						color #FFF
 
 </style>
