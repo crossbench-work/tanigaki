@@ -5,12 +5,11 @@
 				.area.is-canvas#topMainvisualBg01
 			
 			.block.is-text
-				.area.is-title
-					h2.title
-						span CONNECT TO THE
-							br
-							| NEXT GENERATION
-					p.text テクノロジーのたゆまぬ進化によって、私たちの生活は「機能的」に豊かになりました。私たちの日常に溶け込む家具やインテリアは「感情的」な豊かさを形成する一部を担っていると考えます。変わりゆく時代の中で、確かな伝統と技術をもって人々の心を豊かにする居住空間をご提供いたします。
+				h2.title
+					span CONNECT TO THE
+						br
+						| NEXT GENERATION
+				p.text テクノロジーのたゆまぬ進化によって、私たちの生活は「機能的」に豊かになりました。私たちの日常に溶け込む家具やインテリアは「感情的」な豊かさを形成する一部を担っていると考えます。変わりゆく時代の中で、確かな伝統と技術をもって人々の心を豊かにする居住空間をご提供いたします。
 			
 			.block.is-scroll
 				p.scroll
@@ -121,6 +120,7 @@
 	@import "~/assets/stylus/_s_mixin"
 
 	section.c-topMainvisualSet01
+		container-type inline-size
 		position relative
 
 		width 100%
@@ -138,7 +138,86 @@
 				z-index 0
 			
 			.block.is-text
-				position relative
+				position absolute
+				top 35.2%
+				left 5.0%
 				z-index 100
+
+				.title
+					color transparent
+					font-family 'Oswald', sans-serif
+					font-size 10cqw
+					font-weight bold
+					line-height 1.0
+					vertical-align top
+					z-index 0
+
+				.text
+					width 76%
+					margin-top 2%
+					font-size 1.0cqw
+					color #FFF
+
+			.block.is-scroll
+				position absolute
+				right -2%
+				bottom 6svw
+				width 15svw
+				min-width 140px
+				max-width 200px
+				height 15svw
+				min-height 140px
+				max-height 200px
+				
+				// background-color #F00
+				// border-radius 200px
+				z-index 100
+
+				@keyframes rotation
+					0%
+						transform rotate(0)
+					100%
+						transform rotate(360deg)
+
+				.scroll
+					position absolute
+					top 0
+					left 0
+					width 100%
+					height 100%
+
+					&::before
+						content ""
+						display block
+						position absolute
+						top 50%
+						left 50%
+						width 10%
+						height 10%
+						background-image url('~/assets/images/contents/top_mainvisual_arrow01.svg')
+						background-position center
+						background-repeat no-repeat
+						background-size contain
+						transform translate3d(-50%, -50%, 0)
+					
+					&::after
+						content ""
+						display block
+						position absolute
+						top 0
+						left 0
+						width 100%
+						height 100%
+						background-image url('~/assets/images/contents/top_mainvisual_scroll01.png')
+						background-position center
+						background-repeat no-repeat
+						background-size contain
+
+						animation-name rotation
+						animation-duration 30.0s
+						animation-timing-function linear
+						animation-iteration-count infinite
+
+
 	
 </style>

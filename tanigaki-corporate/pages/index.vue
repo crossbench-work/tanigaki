@@ -2,10 +2,12 @@
 	div
 		c-globalHeader01
 		c-topMainvisualSet01
+		c-topNewsSet01
 		c-topIndustrySet01
 		c-topFactorySet01
 		c-topAchievementSet01
 		c-contactSet01
+		c-globalFooter01
 		
 		
 		

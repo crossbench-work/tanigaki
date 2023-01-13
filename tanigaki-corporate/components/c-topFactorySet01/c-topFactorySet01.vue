@@ -17,6 +17,10 @@
 									| ワンストップオーダーが可能な
 									br
 									| 自社工場をご紹介します。
+					
+					.block.is-btn
+						.l-contentsWrapper.is-middle
+							m-borderBtn01
 </template>
 
 <script>
@@ -38,13 +42,45 @@
 		&>.componentWrapper
 			container-type inline-size
 
+			position relative
+
 			height 100svh
 			max-height 800px
 			padding clamp(60px, 10cqw, 190px) 0
 			box-sizing border-box
 			background-color #DFDFDF
+			background-image url('~/assets/images/contents/top_factory_bg01.png')
+			background-repeat no-repeat
+			background-size cover
+			background-position center
+
+			&::before
+				content ""
+				display block
+				position absolute
+				top 0
+				left 0
+				width 100%
+				height 100%
+				background-image url('~/assets/images/contents/top_factory_texture01.png')
 
 			.block.is-title
 				margin-bottom clamp(30px, 6cqw, 60px)
+				
+				.m-sectionTitle01
+					span
+						&.is-jp
+							color rgba(#FFF, 0.8)
+						&.is-en
+							color rgba(#FFF, 0.2)
+			
+			.block.is-text	
+				.m-largeText01
+					span
+						color #FFF
+			
+			.block.is-btn
+				position relative
+				z-index 100
 
 </style>

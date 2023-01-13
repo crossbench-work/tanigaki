@@ -3,7 +3,7 @@
 		.componentWrapper
 			.block.is-logo
 				p.logo
-					img(src="~/assets/images/common/common_header_logo01.svg" alt="谷垣工業株式会社").is-white
+					img(src="~/assets/images/common/common_logo01.svg" alt="谷垣工業株式会社").is-white
 			.block.is-nav
 				nav.is-global
 					ul
