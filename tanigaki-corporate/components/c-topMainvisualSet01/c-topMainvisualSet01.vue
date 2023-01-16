@@ -42,18 +42,19 @@
 			canvas = document.getElementById('topMainvisualBg01');
 			mainvisual = document.querySelector('.c-topMainvisualSet01');
 
-			console.log(mainvisual.clientHeight);
 
-			app = new PIXI.Application({
-				width: _g.GLOBAL_WIDTH * 2,
-				height: mainvisual.clientHeight * 2,
-				// backgroundColor: 0x222222,
-				resolution: 1,
-				autoDensity: true,
-				resizeTo: mainvisual,
-				backgroundAlpha: 0
-			});
-
+			if(document.getElementById('l-contentsTop').dataset.top != 'loaded') {
+				app = new PIXI.Application({
+					width: _g.GLOBAL_WIDTH * 2,
+					height: mainvisual.clientHeight * 2,
+					// backgroundColor: 0x222222,
+					resolution: 1,
+					autoDensity: true,
+					resizeTo: mainvisual,
+					backgroundAlpha: 0
+				});
+			}
+			
 			canvas.appendChild(app.view);
 
 			mainvisualBg01 = PIXI.Sprite.from('/images/contents/top_mainvisual_bg01.png');
@@ -86,10 +87,8 @@
 			app.stage.addChild(mainvisualBg02);
 			app.stage.addChild(mainvisualLogo01);
 			app.stage.addChild(mainvisualTitle);
-			
-		
-			app.ticker.add(function(delta){
 
+			app.animationUpdate = function(delta) {
 				if(app.renderer.width > app.renderer.height * 1.5) {
 					mainvisualBg01.width = app.renderer.width;
 					mainvisualBg01.height = app.renderer.width * 900 / 1400;
@@ -119,6 +118,7 @@
 				mainvisualTexture01.width = app.renderer.width;
 				mainvisualTexture01.height = app.renderer.height;
 
+				
 				if(app.renderer.width < 850) {
 					if(app.renderer.width < 460) {
 						mainvisualTitle.style.fontSize = 60;
@@ -146,28 +146,23 @@
 					mainvisualTitle.y = app.renderer.height * 0.25;
 				}
 
-				
-				
-
 				if (scale < 1.2) {
 					scale += 0.0005
 				} else {
 					scale = 1
 				}
-				
+
 				mainvisualBg01.scale.x = scale
 				mainvisualBg01.scale.y = scale
 				mainvisualBg02.scale.x = scale
 				mainvisualBg02.scale.y = scale
+			}
 
-			});
-
-			// app.ticker.autoStart = false;
-			// app.ticker.stop();
-
-			// console.log(mainvisualBg01)
-
-			
+			if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+				app.ticker.remove(app.animationUpdate);
+			} else {
+				app.ticker.add(app.animationUpdate);
+			}
 
 			_g.scroll(function(){
 				if(mainvisual.classList.contains('is-inview') ) {
@@ -176,15 +171,6 @@
 					app.ticker.stop();
 				}
 			})
-			
-
-			// bgImg = new Image();
-			// bgImg.onload = function () {
-				// mainvisualBg01 = new PIXI.Texture.fromImage('/assets/images/contents/top_mainvisual_bg01.png');
-			// };
-			// bgImg.src = '/assets/images/contents/top_mainvisual_bg01.png';
-
-			
 
 		},
 		methods: {

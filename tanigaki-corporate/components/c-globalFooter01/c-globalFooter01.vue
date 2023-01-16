@@ -15,6 +15,7 @@
 									li TEL:078-784-0111 
 					.block.is-map
 						.map
+							iframe(src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13126.738626034177!2d135.056876!3d34.662666!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8cf67612ccf19cde!2z6LC35Z6j5bel5qWt77yI5qCq77yJ!5e0!3m2!1sja!2sjp!4v1673837777759!5m2!1sja!2sjp")
 					.block.is-nav
 						nav.is-global
 							.l-contentsWrapper.is-middle
@@ -107,9 +108,19 @@
 			.block.is-map
 				margin-top 3%
 				.map
+					overflow hidden
+					position relative
 					width 100%
 					height 460px
 					background-color #DFDFDF
+					border-radius 20px
+
+					iframe
+						position absolute
+						top 0
+						left 0
+						width 100%
+						height 100%
 
 					+MQ_MAX(SP_RES_WID01)
 						height 300px

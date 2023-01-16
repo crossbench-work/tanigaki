@@ -105,16 +105,18 @@
 					afterInit: (swiper) => {
 						[].slice.call(slideBgCanvas).forEach(function(element, i) {
 						
-							app[i] = new PIXI.Application({
-								width: element.clientWidth * 2,
-								height: element.clientHeight * 2,
-								// backgroundColor: 0xffffff,
-								resolution: 1,
-								autoDensity: true,
-								transparent: true,
-								backgroundAlpha: 0
-								// resizeTo: window
-							});
+							if(document.getElementById('l-contentsTop').dataset.top != 'loaded') {
+								app[i] = new PIXI.Application({
+									width: element.clientWidth * 2,
+									height: element.clientHeight * 2,
+									// backgroundColor: 0xffffff,
+									resolution: 1,
+									autoDensity: true,
+									transparent: true,
+									backgroundAlpha: 0
+									// resizeTo: window
+								});
+							}
 
 							scale[i] = 1.0;
 							
@@ -144,9 +146,8 @@
 							bgTexture01[i].mask = bgMask01[i];
 
 							bgTexture01[i].blendMode = PIXI.BLEND_MODES.MULTIPLY
-							
 
-							app[i].ticker.add(function(delta){
+							app[i].animationUpdate = function(delta) {
 								bgMask01[i].width = app[i].renderer.width;
 								bgMask01[i].height = app[i].renderer.height;
 
@@ -167,26 +168,18 @@
 									sliderBg[i].scale.x = scale[i];
 									sliderBg[i].scale.y = scale[i];	
 								}
-
 								
 								sliderBg[i].x = app[i].renderer.width / 2;
 								sliderBg[i].y = app[i].renderer.height / 2;
 								bgTexture01[i].width = app[i].renderer.width;
 								bgTexture01[i].height = app[i].renderer.height;
-								
-							});
+							}
 
-							// app[i].ticker.autoStart = false;
-							// app[i].ticker.stop();
-
-							// _g.scroll(function(){
-							// 	if(topIndustry.classList.contains('is-inview') ) {
-							// 		app[i].ticker.start();;
-							// 	} else {
-							// 		app[i].ticker.stop();
-							// 	}
-							// })
-							
+							if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+								app[i].ticker.remove(app[i].animationUpdate);
+							} else {
+								app[i].ticker.add(app[i].animationUpdate);
+							}
 							
 							element.addEventListener('mouseenter',function(e){
 								hover[i] = true;
@@ -201,46 +194,63 @@
 						
 						sliderCount = document.querySelector('.m-topIndustrySet01_count01 .block.is-bg');
 						
-						sliderCountApp = new PIXI.Application({
-							width: sliderCount.clientWidth * 2,
-							height: sliderCount.clientHeight * 2,
-							// backgroundColor: 0xffffff,
-							resolution: 1,
-							autoDensity: true,
-							transparent: true,
-							backgroundAlpha: 0
-							// resizeTo: window
-						});
+						if(document.getElementById('l-contentsTop').dataset.top != 'loaded') {
+							sliderCountApp = new PIXI.Application({
+								width: sliderCount.clientWidth * 2,
+								height: sliderCount.clientHeight * 2,
+								// backgroundColor: 0xffffff,
+								resolution: 1,
+								autoDensity: true,
+								transparent: true,
+								backgroundAlpha: 0
+								// resizeTo: window
+							});
+						}
 
-						sliderCount.appendChild(sliderCountApp.view);
+						for (var j = sliderCountApp.stage.children.length - 1; j >= 0; j--) {
+							sliderCountApp.stage.removeChild(sliderCountApp.stage.children[j]);
+						};
 
-						sliderCountLine01 = new PIXI.Graphics();
+						if(sliderCountApp.stage.children.length < 2) {
+							sliderCount.appendChild(sliderCountApp.view);
 
-						sliderCountLine01.x = 0;
-						sliderCountLine01.y = 0;
+							sliderCountLine01 = new PIXI.Graphics();
 
-						sliderCountLine01.lineStyle(10, 0xD9D9D9, 0.4, 0);
-						sliderCountLine01.drawCircle(sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2);
-						sliderCountLine01.endFill();
+							sliderCountLine01.x = 0;
+							sliderCountLine01.y = 0;
 
-						sliderCountApp.stage.addChild(sliderCountLine01);
+							sliderCountLine01.lineStyle(10, 0xD9D9D9, 0.4, 0);
+							sliderCountLine01.drawCircle(sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2);
+							sliderCountLine01.endFill();
 
-						sliderCountLine02 = new PIXI.Graphics();
-						sliderCountLine02.x = 0;
-						sliderCountLine02.y = 0;
+							sliderCountApp.stage.addChild(sliderCountLine01);
 
-						sliderCountLine02.lineStyle(10, 0xD9D9D9, 1.0, 0);
-						sliderCountLine02.arc(sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, 0, Math.PI * 2 * SLIDER_CURRENT / SLIDER_LENGTH, false);
-						sliderCountLine02.endFill();
+							sliderCountLine02 = new PIXI.Graphics();
+							sliderCountLine02.x = 0;
+							sliderCountLine02.y = 0;
+
+							sliderCountLine02.lineStyle(10, 0xD9D9D9, 1.0, 0);
+							sliderCountLine02.arc(sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, 0, Math.PI * 2 * SLIDER_CURRENT / SLIDER_LENGTH, false);
+							sliderCountLine02.endFill();
+							
+							sliderCountApp.stage.addChild(sliderCountLine02);
+						}
+
 						
-						sliderCountApp.stage.addChild(sliderCountLine02);
 
-						sliderCountApp.ticker.add(function(delta){
+						sliderCountApp.animationUpdate = function(delta) {
 							sliderCountLine02.clear();
 							sliderCountLine02.lineStyle(10, 0xD9D9D9, 1.0, 0);
 							sliderCountLine02.arc(sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, sliderCountApp.renderer.width / 2, 0, Math.PI * 2 * SLIDER_CURRENT / SLIDER_LENGTH, false);
 							sliderCountLine02.endFill();
-						});
+						}
+
+						if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+							sliderCountApp.ticker.remove(sliderCountApp.animationUpdate);
+						} else {
+							sliderCountApp.ticker.add(sliderCountApp.animationUpdate);
+						}
+
 					},
 					slideChange: (swiper) => {
 						SLIDER_CURRENT = swiper.realIndex + 1;

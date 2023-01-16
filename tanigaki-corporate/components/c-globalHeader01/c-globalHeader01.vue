@@ -8,31 +8,33 @@
 				nav.is-global
 					ul
 						li(v-bind:class="[current == 'home' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/")
 								span.is-en HOME
 								span.is-jp ホーム
+							//- a(href="/") 
+								
 						li(v-bind:class="[current == 'company' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/company")
 								span.is-en COMPANY
 								span.is-jp 会社案内
 						li(v-bind:class="[current == 'industry' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/industry")
 								span.is-en INDUSTRY
 								span.is-jp 事業内容
 						li(v-bind:class="[current == 'achievements' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/achievements")
 								span.is-en ACHIEVEMENTS
 								span.is-jp 施工実績
 						li(v-bind:class="[current == 'factory' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/factory")
 								span.is-en FACTORY
 								span.is-jp 工場紹介
 						li(v-bind:class="[current == 'news' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/news")
 								span.is-en NEWS
 								span.is-jp 新着情報
 						li.is-contact(v-bind:class="[current == 'contact' ? 'is-current' : '']")
-							a(href="")
+							nuxt-link(to="/contact")
 								span.is-en CONTACT
 								span.is-jp お問合せ
 			.block.is-btn
