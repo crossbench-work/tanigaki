@@ -20,7 +20,7 @@ export default Vue.extend({
 	name: 'IndexPage',
 	layout: "l-mainWrapper01",
 	mounted() {
-		document.getElementById('l-contentsTop').dataset.top = 'loaded';
+		
 	}
 })
 </script>

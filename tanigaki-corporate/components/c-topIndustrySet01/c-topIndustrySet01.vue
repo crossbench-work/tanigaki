@@ -82,6 +82,8 @@
 
 			_g = window.GLOBAL;
 
+			
+
 			inView({
 				className: '.c-topIndustrySet01',
 				reverse: true
@@ -248,6 +250,7 @@
 						if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
 							sliderCountApp.ticker.remove(sliderCountApp.animationUpdate);
 						} else {
+							document.getElementById('l-contentsTop').dataset.top = 'loaded';
 							sliderCountApp.ticker.add(sliderCountApp.animationUpdate);
 						}
 

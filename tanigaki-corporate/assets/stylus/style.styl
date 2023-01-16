@@ -17,11 +17,21 @@
         &>.l-mqWrapper
             +MQ_MAX(1200px)
                 padding 0 10px
+    &.is-small
+        max-width 1000px
 
 .m-sectionTitle01
     container-type inline-size
     display flex
     flex-direction column
+
+    &.is-middle
+        span
+        
+            &.is-jp
+                font-size clamp(1.3rem, 3cqw, 3.0rem)
+            &.is-en
+                font-size clamp(4.5rem, 7.5cqw, 9.0rem)
 
     span
         display block
@@ -43,6 +53,18 @@
             line-height 0.8
             vertical-align top
             z-index 0
+
+.m-border-leftTitle01
+    container-type inline-size
+    padding-left 1%
+    border-left 4px solid #040278
+    font-size clamp(1.6rem, 2.4cqw, 3.6rem)
+    font-weight bold
+
+.m-baseText01
+    font-size clamp(1.2rem, 1.2cqw, 1.6rem)
+    b
+        font-weight bold
 
 .m-largeText01
     container-type inline-size

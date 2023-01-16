@@ -1,6 +1,10 @@
 <template lang="pug">
 	div.c-factoryPageContents
 		c-globalHeader01(current = "factory")
+		c-pageTitleSet01(jp = '工場紹介', en = 'FACTORY')
+
+		c-contactSet01
+		c-globalFooter01
 
 </template>
 
