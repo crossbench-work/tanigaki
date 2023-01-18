@@ -1,8 +1,10 @@
 <template lang="pug">
-	div.c-factoryPageContents
-		c-globalHeader01(current = "factory")
-		c-pageTitleSet01(jp = '工場紹介', en = 'FACTORY')
-
+	div.c-newsPageContents
+		c-globalHeader01(current = "news")
+		c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
+		
+		c-newsSet01
+		
 		c-contactSet01
 		c-globalFooter01
 
@@ -12,7 +14,7 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-	name: 'FactoryPage',
+	name: 'NewsPage',
 	layout: "l-mainWrapper01",
 	mounted() {
 	}
@@ -21,7 +23,6 @@ export default Vue.extend({
 
 <style lang="stylus">
 	
-
 </style>
 
 

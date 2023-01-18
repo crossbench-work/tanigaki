@@ -82,8 +82,6 @@
 
 			_g = window.GLOBAL;
 
-			
-
 			inView({
 				className: '.c-topIndustrySet01',
 				reverse: true
