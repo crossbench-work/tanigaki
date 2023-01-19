@@ -4,6 +4,63 @@
 @import "_s_mixin"    
 @import "_s_base"
 
+@keyframes updown-anim {
+    0% {
+        transform translate3d(0, 110%, 0)
+    }
+    100% {
+        transform translate3d(0, 0, 0)
+    }
+}
+
+@keyframes left-right {
+    0% {
+        transform translate3d(-200%, 0, 0)
+    }
+    100% {
+        transform translate3d(0, 0, 0)
+    }
+}
+
+@keyframes mask-bg {
+  0% {
+    transform: translate3d(0, 101%, 0)
+  }
+  40%, 60% {
+    transform: translate3d(0, 0%, 0)
+  }
+  100% {
+    transform: translate3d(0, -101%, 0)
+  }
+}
+
+@keyframes slideRightLeftIn {
+  0% {
+    transform: translate3d(101%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0,  0);
+  }
+}
+
+@keyframes slideLeftRightIn {
+  0% {
+    transform: translate3d(-101%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0,  0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1.0;
+  }
+}
+
 .l-contentsWrapper
     max-width 1340px
     margin 0 auto
@@ -22,20 +79,78 @@
 
 .m-sectionTitle01
     container-type inline-size
-    display flex
-    flex-direction column
+
+    &.is-animate
+        span
+            color transparent
+
+            .is-inview &
+                transition color ease 0.3s 0.7s
+
+            &::after
+                .is-inview &
+                    animation-name mask-bg
+                    animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+                    animation-fill-mode forwards
+                    animation-duration 1.0s
+             
+            &.is-jp
+                color transparent
+                .is-inview &
+                   color rgba(#040278, 0.8)
+                &::after
+                    background-color #040278
+            &.is-en
+                color transparent
+                .is-inview &
+                    color rgba(#171663, 0.2)
+                &::after
+                    background-color #171663
+
+    &.is-white
+        &.is-animate
+            span
+                color transparent !important
+
+                &.is-jp
+                    .is-inview &
+                        color rgba(#FFF, 0.8) !important
+                    &::after
+                        background-color #FFF
+                &.is-en
+                    color transparent
+                    .is-inview &
+                        color rgba(#FFF, 0.2) !important
+                    &::after
+                        background-color #FFF
+        span
+            &.is-jp
+                color rgba(#FFF, 0.8)
+            &.is-en
+                color rgba(#FFF, 0.2)
+        
 
     &.is-middle
         span
-        
             &.is-jp
                 font-size clamp(1.3rem, 3cqw, 3.0rem)
             &.is-en
                 font-size clamp(4.5rem, 7.5cqw, 9.0rem)
 
     span
-        display block
+        overflow hidden
+        display table
         position relative
+        
+
+        &::after
+            content ""
+            position absolute
+            top 0
+            left 0
+            width 100%
+            height 100%
+            transform translate3d(0, 101%, 0)
         
         &.is-jp
             color rgba(#040278, 0.8)
@@ -45,14 +160,16 @@
             z-index 100
 
         &.is-en
-            margin-top -0.15em
+            margin-top -0.3em
             color rgba(#171663, 0.2)
             font-family 'Oswald', sans-serif
             font-size clamp(9.0rem, 15cqw, 15.0rem)
             font-weight bold
-            line-height 0.8
+            line-height 1.0
             vertical-align top
             z-index 0
+
+            
 
 .m-border-leftTitle01
     container-type inline-size
@@ -77,18 +194,51 @@
     font-weight bold
 
 
-                    
 
-// .l-mqWrapper
-//     .l-contentsWrapper &
-        
-    // +MQ_MAX(PC_RES_WID01)
-    //     padding 0 10px
-    // +MQ_MAX(SP_RES_WID01)
-    //     padding 0 15px
+.is-slideUpDownInTextAnimation
+    display flex
+    overflow hidden
 
-// body
-// 	background-color #F00
+    span
+
+        display block
+        transform translate3d(0, 110%, 0)
+
+        .is-inview &
+            animation-name updown-anim
+            animation-duration 0.3s
+            animation-timing-function ease-out
+            animation-fill-mode forwards
+
+        for num in (1..200)
+            &:nth-of-type({num})
+                animation-delay (0.1s + num * 0.04)s
+
+
+
+.is-slideLeftRightInTextAnimation
+    
+    display flex
+    span
+        overflow hidden
+        display block
+        span
+            display block
+            transform translate3d(-110%, 0, 0)
+
+            .is-inview &
+                animation-name left-right
+                animation-duration 0.7s
+                animation-timing-function ease-out
+                animation-fill-mode forwards
+
+        for num in (1..200)
+            &:nth-of-type({num})
+                span
+                    animation-delay (0.1)s
+
+
+
 
 // .page-enter
 // 	opacity 0

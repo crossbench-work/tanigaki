@@ -5,55 +5,12 @@
 				.l-mqWrapper
 					.l-contentsWrapper.is-middle
 						ul
-							li
-								a(href="")
+							li(v-for="(achievement, index) of achievements" :key="achievement.id")
+								nuxt-link(:to="'/achievements/' + achievement.id")
 									p.image
 										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
+									h2.title {{achievement.title}}
 									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-							li
-								a(href="")
-									p.image
-										img(src="https://placehold.jp/580x380.png", alt="")
-									h2.title 実績先を記入
-									p.text ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-
 
 </template>
 
@@ -61,6 +18,12 @@
 	
 	export default {
 		name: 'c-achievementsBlockSet01',
+		props: {
+			achievements: {
+				type: Array,
+				required: true,
+			},
+		},
 		mounted() {
 		},
 		methods: {

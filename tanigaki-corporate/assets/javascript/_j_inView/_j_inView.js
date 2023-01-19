@@ -12,6 +12,7 @@ function init(op) {
 			className: '.js-inview',
 			addClassName: 'is-inview',
 			reverse: false, // 繰り返し
+			ajust: 1.0
 		},
 		OPTION: null,
 		ARRAY: {},
@@ -57,19 +58,15 @@ function init(op) {
 				_t.scrollBottomPos = _g.WINDOW_BOTTOM;
 				_t.tgTop = _t.tgRect.top + _t.scrollTopPos;
 				_t.tgBottom = _t.tgTop + _t.tg.clientHeight;
-
-				if(_t.tgBottom >= _t.tgTop + _g.GLOBAL_HEIGHT * 0.5) {
-					_t.tgBottom = _t.tgTop + _g.GLOBAL_HEIGHT * 0.5;
-				}
-
+			
 				if(op.reverse == true) {
-					if(_t.scrollTopPos - 50 < _t.tgTop && _t.tgBottom < _t.scrollBottomPos) {
+					if ( _t.tgTop < _t.scrollTopPos + (_g.GLOBAL_HEIGHT / (2 * op.ajust ) ) &&  _t.scrollTopPos <= _t.tgBottom ) {
 						_t.tg.classList.add(op.addClassName);
 					} else {
 						_t.tg.classList.remove(op.addClassName);
 					}
 				} else {
-					if(_t.tgBottom < _t.scrollBottomPos) {
+					if(_t.tgTop < _t.scrollTopPos +(_g.GLOBAL_HEIGHT / (2 * op.ajust ) ) ) {
 						_t.tg.classList.add(op.addClassName);
 					} 	
 				}

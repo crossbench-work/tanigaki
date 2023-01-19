@@ -15,8 +15,11 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
     "@nuxtjs/style-resources": "^1.2.1",
+    "axios": "^0.27.2",
     "core-js": "^3.19.3",
+    "dayjs": "^1.11.7",
     "nuxt": "^2.15.8",
     "pixi.js": "^4.8.5",
     "pug": "^2.0.4",

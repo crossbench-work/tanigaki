@@ -5,7 +5,7 @@
 				.l-mqWrapper
 					.block.is-title
 						.l-contentsWrapper.is-middle
-							h2.m-sectionTitle01
+							h2.m-sectionTitle01.is-animate
 								span.is-jp 事業案内
 								span.is-en INDUSTRY
 
@@ -16,31 +16,58 @@
 									a(href="") 
 										.block.is-more
 											span MORE
-										.block.is-bg(data-slide = 'top_industory_bg01.png')
-										.block.is-num 01
+										.block.is-bg
+											.area.is-bg(data-slide = 'top_industory_bg01.png')
+										.block.is-num
+											span.is-slideLeftRightInTextAnimation
+												span
+													span 0
+												span
+													span 1
 										.block.is-text
-											h3.title 建築内装設計施工
-											p.text 病院・学校・ホテル・カーディーラーなど、あらゆる商業施設の木工事及び造作家具工事を設計から施工までワンストップで行います。
+											h3.title
+												span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 建築内装設計施工
+											p.text
+												span.is-slideUpDownInTextAnimation
+													span 病院・学校・ホテル・カーディーラーなど、あらゆる商業施設の木工事及び造作家具工事を設計から施工までワンストップで行います。
 							.swiper-slide
 								.m-topIndustrySet01_slide01
 									a(href="") 
 										.block.is-more
 											span MORE
-										.block.is-bg(data-slide = 'top_industory_bg02.png')
-										.block.is-num 02
+										.block.is-bg
+											.area.is-bg(data-slide = 'top_industory_bg02.png')
+										.block.is-num
+											span.is-slideLeftRightInTextAnimation
+												span
+													span 0
+												span
+													span 2
 										.block.is-text
-											h3.title 船舶内装設計施工
-											p.text フェリー・商船・潜水艦・クルーザーなど、あらゆる船舶内装工事を設計から施工までワンストップで行います。
+											h3.title
+												span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 船舶内装設計施工
+											p.text
+												span.is-slideUpDownInTextAnimation
+													span フェリー・商船・潜水艦・クルーザーなど、あらゆる船舶内装工事を設計から施工までワンストップで行います。
 							.swiper-slide
 								.m-topIndustrySet01_slide01
 									a(href="") 
 										.block.is-more
 											span MORE
-										.block.is-bg(data-slide = 'top_industory_bg03.png')
-										.block.is-num 03
+										.block.is-bg
+											.area.is-bg(data-slide = 'top_industory_bg03.png')
+										.block.is-num 
+											span.is-slideLeftRightInTextAnimation
+												span
+													span 0
+												span
+													span 3
 										.block.is-text
-											h3.title 造作家具設計施工
-											p.text 建築内装・船舶内装における造作家具を自社工場で設計・製作します。既製品では出来ない自由な設計と、船舶内装で培った堅牢な家具をご提供します。
+											h3.title
+												span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 造作家具設計施工
+											p.text
+												span.is-slideUpDownInTextAnimation
+													span 建築内装・船舶内装における造作家具を自社工場で設計・製作します。既製品では出来ない自由な設計と、船舶内装で培った堅牢な家具をご提供します。
 					
 					.block.is-pager
 						.m-topIndustrySet01_count01
@@ -48,9 +75,11 @@
 							.block.is-count
 								ul
 									li.child
-										span.m-topIndustrySet01_count01_child 01
+										span.is-slideUpDownInTextAnimation
+											span.m-topIndustrySet01_count01_child 01
 									li.parent
-										span 03
+										span.is-slideUpDownInTextAnimation
+											span 03
 
 						.m-topIndustrySet01_arrows01
 							ul
@@ -69,11 +98,13 @@
 	import Swiper from 'swiper/swiper-bundle.min'
 	import 'swiper/swiper-bundle.css'
 	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
+	import spanWrap from '~/assets/javascript/_j_spanWrap/_j_spanWrap.js'
 
 	let _g;
 	let topIndustry;
 	let slideBgCanvas, app = [], sliderBg = [], bgMask01 = [], texture01 = [], bgTexture01 = [], sliderCount, sliderCountNum, sliderCountApp, sliderCountLine01, sliderCountLine02, hover = [], scale = [];
 	let SLIDER_LENGTH = 3, SLIDER_CURRENT = 1;
+	
 
 	export default {
 		name: 'c-topIndustrySet01',
@@ -81,6 +112,9 @@
 		mounted() {
 
 			_g = window.GLOBAL;
+			
+
+			spanWrap( document.querySelectorAll('.c-topIndustrySet01 .js-slideInTextAnimation') );
 
 			inView({
 				className: '.c-topIndustrySet01',
@@ -89,7 +123,7 @@
 
 			topIndustry = document.querySelector('.c-topIndustrySet01');
 
-			slideBgCanvas = document.querySelectorAll('.m-topIndustrySet01_slide01 .block.is-bg');
+			slideBgCanvas = document.querySelectorAll('.m-topIndustrySet01_slide01 .area.is-bg');
 
 			sliderCountNum = document.querySelector('.m-topIndustrySet01_count01_child');
 
@@ -198,12 +232,10 @@
 							sliderCountApp = new PIXI.Application({
 								width: sliderCount.clientWidth * 2,
 								height: sliderCount.clientHeight * 2,
-								// backgroundColor: 0xffffff,
 								resolution: 1,
 								autoDensity: true,
 								transparent: true,
 								backgroundAlpha: 0
-								// resizeTo: window
 							});
 						}
 
@@ -235,8 +267,6 @@
 							
 							sliderCountApp.stage.addChild(sliderCountLine02);
 						}
-
-						
 
 						sliderCountApp.animationUpdate = function(delta) {
 							sliderCountLine02.clear();
@@ -383,17 +413,44 @@
 				transform translate3d(0, -30%, 0)
 		
 		.block.is-bg
+			overflow hidden
 			position relative
 			width 100%
 			padding-top 120%
 			// background-color #F00
-			canvas
+
+			.area.is-bg
 				position absolute
 				top 0
 				left 0
-				width 100% !important
-				height 100% !important
-				z-index 0
+				width 100%
+				height 100%
+
+				opacity 0
+
+				.is-inview &
+					animation-name fadeIn
+					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+					animation-fill-mode forwards
+					animation-duration 0.4s
+					animation-delay 0.4s
+
+				canvas
+					position absolute
+					top 0
+					left 0
+					width 100% !important
+					height 100% !important
+					z-index 0
+
+					transform translate3d(101%, 0, 0)
+
+					.is-inview &
+						animation-name slideRightLeftIn
+						animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+						animation-fill-mode forwards
+						animation-duration 0.3s
+						animation-delay 0.4s
 		
 		.block.is-num
 			position absolute
@@ -403,7 +460,18 @@
 			font-family 'Oswald', sans-serif
 			font-size clamp(5.0rem, 18cqw, 9.0rem)
 			font-weight 500
-			line-height 0.75
+			line-height 1.0
+
+			.is-slideLeftRightInTextAnimation
+				span
+					span
+						.is-inview &
+							animation-duration 0.3s
+
+					for num in (1..20)
+						&:nth-of-type({num})
+							span
+								animation-delay (0.6 + num * 0.09)s
 
 		.block.is-text
 			container-type inline-size
@@ -421,12 +489,28 @@
 				font-size clamp(1.2rem, 7cqw, 1.8rem)
 				font-weight bold
 
+				.is-slideUpDownInTextAnimation
+
+					span
+						.is-inview &
+							animation-duration 0.3s
+						for num in (1..200)
+							&:nth-of-type({num})
+								animation-delay (1.0 + num * 0.04)s
+
 			.text
 				margin-top 2%
 				font-size clamp(1.0rem, 6cqw, 1.4rem)
+
+				.is-slideUpDownInTextAnimation
+					span
+						.is-inview &
+							animation-duration 0.3s
+							animation-delay (1.5 + 0.04)s
 	
 	.m-topIndustrySet01_count01
 		container-type inline-size
+		overflow hidden
 		display flex
 		justify-content center
 		align-items center
@@ -448,6 +532,15 @@
 			left 0
 			width 100%
 			height 100%
+
+			transform: translate3d(-101%, 0, 0);
+
+			.is-inview &
+				animation-name slideLeftRightIn
+				animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+				animation-fill-mode forwards
+				animation-duration 0.2s
+				animation-delay 1.3s
 
 			canvas
 				position absolute
@@ -475,10 +568,14 @@
 					position absolute
 					top 50%
 					left 50%
-					width 140%
+					width 0
 					height 1px
 					background-color #D9D9D9
 					transform translate3d(-50%, -50%, 0) rotate(-45deg)
+
+					.is-inview &
+						width 140%
+						transition width 0.2s 1.5s ease
 
 				li
 					position absolute
@@ -486,7 +583,7 @@
 					font-family 'Oswald', sans-serif
 					font-size clamp(2.0rem, 15cqw, 3.4rem)
 					font-weight bold
-					line-height 0.75
+					line-height 1.0
 
 					&:nth-of-type(1)
 						top 0
@@ -495,6 +592,15 @@
 					&:nth-of-type(2)
 						right 0
 						bottom 0
+					
+
+					.is-slideUpDownInTextAnimation
+						span
+							.is-inview &
+								animation-duration 0.3s
+							for num in (1..200)
+								&:nth-of-type({num})
+									animation-delay (1.6 + num * 0.04)s
 					
 
 	.m-topIndustrySet01_arrows01
@@ -513,6 +619,7 @@
 			justify-content space-between
 
 			li
+				overflow hidden
 				cursor pointer
 				position static !important
 				width 40%
@@ -524,5 +631,14 @@
 				img
 					width 100%
 					height auto
+
+					transform: translate3d(-101%, 0, 0);
+
+					.is-inview &
+						animation-name slideLeftRightIn
+						animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+						animation-fill-mode forwards
+						animation-duration 0.2s
+						animation-delay 1.3s
 
 </style>

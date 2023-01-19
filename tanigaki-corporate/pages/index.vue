@@ -14,13 +14,13 @@
 <script lang="ts">
 import Vue from 'vue'
 
-
+let slideInTextAnimation;
 
 export default Vue.extend({
 	name: 'IndexPage',
 	layout: "l-mainWrapper01",
 	mounted() {
-		
+		slideInTextAnimation = document.querySelectorAll('.js-slideInTextAnimation');
 	}
 })
 </script>

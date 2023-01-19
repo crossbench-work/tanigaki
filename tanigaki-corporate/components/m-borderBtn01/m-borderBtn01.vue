@@ -112,7 +112,8 @@
 
 				inView({
 					className: '.m-borderBtn01 .is-bg',
-					reverse: true
+					reverse: true,
+					ajust: 0.001
 				});
 
 				_g.scroll(function(){

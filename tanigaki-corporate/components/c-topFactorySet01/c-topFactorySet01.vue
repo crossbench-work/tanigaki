@@ -5,18 +5,19 @@
 				.l-mqWrapper
 					.block.is-title
 						.l-contentsWrapper.is-middle
-							h2.m-sectionTitle01
+							h2.m-sectionTitle01.is-white.is-animate
 								span.is-jp 工場紹介
 								span.is-en FACTORY
 
 					.block.is-text
 						.l-contentsWrapper.is-middle
 							h2.m-largeText01
-								span 設計から製作まで
-									br
-									| ワンストップオーダーが可能な
-									br
-									| 自社工場をご紹介します。
+								span.is-slideUpDownInTextAnimation
+									span 設計から製作まで
+										br
+										| ワンストップオーダーが可能な
+										br
+										| 自社工場をご紹介します。
 					
 					.block.is-btn
 						.l-contentsWrapper.is-middle
@@ -24,25 +25,42 @@
 </template>
 
 <script>
-
+	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 	export default {
 		name: 'c-topFactorySet01',
 		
 		mounted() {
-
+			inView({
+				className: '.c-topFactorySet01',
+				reverse: true
+			});
 		},
 		methods: {
 		}
 	}
 </script>
+
 <style lang="stylus">
 	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
 	.c-topFactorySet01
+		&.is-inview
+			&>.componentWrapper
+				&::after
+					transform translate3d(0, 101%, 0)
+					transition all 0.3s ease-out 0.5s
+				.block.is-text
+					.is-slideUpDownInTextAnimation
+						span
+							animation-duration 0.2s
+							animation-delay (0.7 + 0.04)s
+			
+
 		&>.componentWrapper
 			container-type inline-size
 
+			overflow hidden
 			position relative
 
 			height 100svh
@@ -69,17 +87,23 @@
 				width 100%
 				height 100%
 				background-image url('~/assets/images/contents/top_factory_texture01.png')
+			
+			&::after
+				content ""
+				display block
+				position absolute
+				top 0
+				left 0
+				width 100%
+				height 100%
+				background-color #013FB9
+				transform translate3d(0, 0, 0)
 
 			.block.is-title
+				position relative
 				margin-bottom clamp(30px, 6cqw, 60px)
+				z-index 1000
 				
-				.m-sectionTitle01
-					span
-						&.is-jp
-							color rgba(#FFF, 0.8)
-						&.is-en
-							color rgba(#FFF, 0.2)
-			
 			.block.is-text
 				position relative
 				z-index 100
@@ -87,7 +111,8 @@
 				.m-largeText01
 					span
 						color #FFF
-			
+				
+				
 			.block.is-btn
 				position relative
 				margin-top 5%
