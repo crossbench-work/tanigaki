@@ -5,6 +5,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  privateRuntimeConfig: {
+    apiKey: process.env.API_KEY,
+    serviceId: process.env.SERVICE_ID,
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'tanigaki-corporate',

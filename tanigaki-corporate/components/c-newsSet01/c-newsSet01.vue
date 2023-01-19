@@ -25,7 +25,7 @@
 			},
 		},
 		mounted() {
-			console.log(this.lists)
+			// console.log(this.lists)
 		},
 		methods: {
 			

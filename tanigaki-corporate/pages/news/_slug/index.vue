@@ -37,6 +37,21 @@ export default Vue.extend({
 			list: data
 		};
 	},
+	// async asyncData({ $config, params }) {
+	// 	try {
+	// 		const { data } = await axios
+	// 		.get(
+	// 			$config.serviceId + `news/${params.slug}`,
+	// 			{
+	// 				headers: { 'X-MICROCMS-API-KEY': $config.apiKey }
+	// 			}
+	// 		)
+	// 		return {
+	// 			list: data
+	// 		};
+	// 	} catch (err) {
+	// 	}
+	// },
 	mounted() {
 		// console.log(this.achievement);
 	}

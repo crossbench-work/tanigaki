@@ -33,6 +33,22 @@ export default Vue.extend({
 			achievements: data.contents
 		};
 	},
+
+	// async asyncData({ $config, params }) {
+	// 	try {
+	// 		const { data } = await axios
+	// 		.get(
+	// 			$config.serviceId + 'achievements/',
+	// 			{
+	// 				headers: { 'X-MICROCMS-API-KEY':  $config.apiKey }
+	// 			}
+	// 		)
+	// 		return {
+	// 			achievements: data.contents
+	// 		};
+	// 	} catch (err) {
+	// 	}
+	// },
 	mounted() {
 	}
 })

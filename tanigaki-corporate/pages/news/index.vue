@@ -28,7 +28,7 @@ export default Vue.extend({
 		};
 	},
 	layout: "l-mainWrapper01",
-	async asyncData({ params }) {
+	async asyncData({ $config }) {
 		const { data } = await axios
 		.get(
 			`https://tanigaki.microcms.io/api/v1/news/`,
@@ -40,6 +40,21 @@ export default Vue.extend({
 			items: data.contents
 		};
 	},
+	// async asyncData({ $config, params }) {
+	// 	try {
+	// 		const { data } = await axios
+	// 		.get(
+	// 			$config.serviceId + 'news/',
+	// 			{
+	// 				headers: { 'X-MICROCMS-API-KEY':  $config.apiKey }
+	// 			}
+	// 		)
+	// 		return {
+	// 			items: data.contents
+	// 		};
+	// 	} catch (err) {
+	// 	}
+	// },
 	beforeMount() {
 		dayjs.extend(utc);
 		dayjs.extend(timezone);

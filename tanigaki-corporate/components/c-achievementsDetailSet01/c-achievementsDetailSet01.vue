@@ -38,7 +38,7 @@
 			achievement: {}
 		},
 		mounted() {
-			console.log(this.achievement)
+			// console.log(this.achievement)
 		},
 		methods: {
 		}
