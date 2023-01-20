@@ -1,9 +1,9 @@
 <template lang="pug">
 	div.c-contactPageContents
 		c-globalHeader01(current = "contact")
-		c-pageTitleSet01(jp = 'お問合せ', en = 'CONTACT')
-
-		c-contactSet01
+		main.l-mainWrapper
+			c-pageTitleSet01(jp = 'お問合せ', en = 'CONTACT')
+			c-contactSet01
 		c-globalFooter01
 
 </template>

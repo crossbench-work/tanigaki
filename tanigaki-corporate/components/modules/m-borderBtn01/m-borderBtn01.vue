@@ -1,10 +1,10 @@
 <template lang="pug">
 	.m-borderBtn01
 		p.btn
-			a(href="")
+			nuxt-link(:to='`${url}`')
 				span.is-bg(:class='`${className}`')
 				span.is-slideUpDownInTextAnimation
-					span.is-text DETAIL
+					span.is-text {{ text }}
 
 </template>
 
@@ -22,6 +22,14 @@
 				type: String,
 				default: 'is-type01'
 			},
+			text : {
+				type: String,
+				default: 'DETAIL'
+			},
+			url : {
+				type: String,
+				default: '#'
+			}
 		},
 		mounted() {
 			_g = window.GLOBAL;
@@ -142,13 +150,23 @@
 
 <style lang="stylus">
 	@import "~/assets/stylus/_s_mixin"
+	
+	.page-leave-active
+		.m-borderBtn01
+			a
+				opacity 0
+				transition all 0.3s ease !important
 
 	.m-borderBtn01
+		opacity 0
+		
+
 		.btn
 			container-type inline-size
 			max-width 280px
 			width 30svw
 			min-width 200px
+
 			a
 				display flex
 				justify-content center
@@ -159,6 +177,7 @@
 				padding 10% 15%
 				box-sizing border-box
 				text-decoration none
+				will-change opacity
 				
 				span
 					display block
@@ -184,7 +203,7 @@
 						color #E02400
 						font-family 'Oswald', sans-serif
 						font-weight bold
-						line-height 0.8
+						line-height 1.0
 						font-size clamp(1.0rem, 6cqw, 1.4rem)
 
 

@@ -1,14 +1,15 @@
 <template lang="pug">
 	div.c-achievementsDetailPageContents
 		c-globalHeader01(current = "achievements")
-		c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
-		section.c-newsDetailSet01
-			.componentWrapper
-				.l-contentsWrapper
-					.l-mqWrapper
-						.l-contentsWrapper.is-middle
-							.block.is-title(v-html="list.title")
-							.block.is-contents(v-html="list.content")
+		main.l-mainWrapper
+			c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
+			section.c-newsDetailSet01
+				.componentWrapper
+					.l-contentsWrapper
+						.l-mqWrapper
+							.l-contentsWrapper.is-middle
+								.block.is-title(v-html="list.title")
+								.block.is-contents(v-html="list.content")
 		c-globalFooter01
 
 </template>

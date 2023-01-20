@@ -4,14 +4,7 @@
 @import "_s_mixin"    
 @import "_s_base"
 
-@keyframes updown-anim {
-    0% {
-        transform translate3d(0, 110%, 0)
-    }
-    100% {
-        transform translate3d(0, 0, 0)
-    }
-}
+
 
 @keyframes left-right {
     0% {
@@ -32,6 +25,15 @@
   100% {
     transform: translate3d(0, -101%, 0)
   }
+}
+
+@keyframes slideBottomTopIn {
+    0% {
+        transform translate3d(0, 110%, 0)
+    }
+    100% {
+        transform translate3d(0, 0, 0)
+    }
 }
 
 @keyframes slideRightLeftIn {
@@ -61,6 +63,15 @@
   }
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1.0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .l-contentsWrapper
     max-width 1340px
     margin 0 auto
@@ -77,97 +88,7 @@
     &.is-small
         max-width 1000px
 
-.m-sectionTitle01
-    container-type inline-size
 
-    &.is-animate
-        span
-            color transparent
-
-            .is-inview &
-                transition color ease 0.3s 0.7s
-
-            &::after
-                .is-inview &
-                    animation-name mask-bg
-                    animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
-                    animation-fill-mode forwards
-                    animation-duration 1.0s
-             
-            &.is-jp
-                color transparent
-                .is-inview &
-                   color rgba(#040278, 0.8)
-                &::after
-                    background-color #040278
-            &.is-en
-                color transparent
-                .is-inview &
-                    color rgba(#171663, 0.2)
-                &::after
-                    background-color #171663
-
-    &.is-white
-        &.is-animate
-            span
-                color transparent !important
-
-                &.is-jp
-                    .is-inview &
-                        color rgba(#FFF, 0.8) !important
-                    &::after
-                        background-color #FFF
-                &.is-en
-                    color transparent
-                    .is-inview &
-                        color rgba(#FFF, 0.2) !important
-                    &::after
-                        background-color #FFF
-        span
-            &.is-jp
-                color rgba(#FFF, 0.8)
-            &.is-en
-                color rgba(#FFF, 0.2)
-        
-
-    &.is-middle
-        span
-            &.is-jp
-                font-size clamp(1.3rem, 3cqw, 3.0rem)
-            &.is-en
-                font-size clamp(4.5rem, 7.5cqw, 9.0rem)
-
-    span
-        overflow hidden
-        display table
-        position relative
-        
-
-        &::after
-            content ""
-            position absolute
-            top 0
-            left 0
-            width 100%
-            height 100%
-            transform translate3d(0, 101%, 0)
-        
-        &.is-jp
-            color rgba(#040278, 0.8)
-            font-size clamp(2.0rem, 4cqw, 4.0rem)
-            font-weight bold
-            line-height 1.0
-            z-index 100
-
-        &.is-en
-            margin-top -0.3em
-            color rgba(#171663, 0.2)
-            font-family 'Oswald', sans-serif
-            font-size clamp(9.0rem, 15cqw, 15.0rem)
-            font-weight bold
-            line-height 1.0
-            vertical-align top
-            z-index 0
 
             
 
@@ -205,7 +126,7 @@
         transform translate3d(0, 110%, 0)
 
         .is-inview &
-            animation-name updown-anim
+            animation-name slideBottomTopIn
             animation-duration 0.3s
             animation-timing-function ease-out
             animation-fill-mode forwards
@@ -237,44 +158,16 @@
                 span
                     animation-delay (0.1)s
 
+.l-mainWrapper
+  will-change opacity
 
+.page-enter-active
+.page-leave-active
+    transition-duration 0.8s
 
-
-// .page-enter
-// 	opacity 0
-// 	.c-topBtnSection01
-// 		.componentWrapper
-// 			ul
-// 				li
-// 					transform scale(0) !important
-// 	.c-topBottomBlock01
-// 		transform translate3d(0, 100%, 0) !important
-
-// 	// .l-indexPage01.is-loaded
-// 	// 	.c-topBottomBlock01
-// 	// 		transform translate3d(0, 100%, 0)
-	
-// .page-enter-active
-// 	transition all 0.3s
-// 	.c-topBtnSection01
-// 		.componentWrapper
-// 			ul
-// 				li
-// 					transition-duration 0.3s
-// 					&:nth-of-type(2)
-// 						transition-delay 0.1s
-// 					&:nth-of-type(3)
-// 						transition-delay 0.2s
-// 					&:nth-of-type(4)
-// 						transition-delay 0.3s
-// 					&:nth-of-type(5)
-// 						transition-delay 0.4s
-// 					&:nth-of-type(6)
-// 						transition-delay 0.5s
-// 	.c-topBottomBlock01
-// 		transition-delay 1.0s
-	
-// 	// .l-indexPage01.is-loaded
-// 	// 	.c-topBottomBlock01
-// 	// 		transform translate3d(0, 100%, 0)
+.page-enter
+.page-leave-active
+    .l-mainWrapper
+      opacity 0
+      transition all 0.5s 0.3s cubic-bezier(.82,.03,1,.23)
 

@@ -1,9 +1,10 @@
 <template lang="pug">
 	div.c-achievementsPageContents
 		c-globalHeader01(current = "achievements")
-		c-pageTitleSet01(jp = '施工実績', en = 'ACHIEVEMENTS')
-		c-achievementsBlockSet01(:achievements = 'achievements')
-		c-contactSet01
+		main.l-mainWrapper
+			c-pageTitleSet01(jp = '施工実績', en = 'ACHIEVEMENTS')
+			c-achievementsBlockSet01(:achievements = 'achievements')
+			c-contactSet01
 		c-globalFooter01
 
 </template>

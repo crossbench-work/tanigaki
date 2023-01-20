@@ -1,95 +1,94 @@
 <template lang="pug">
-	section.c-topIndustrySet01
-		.componentWrapper
-			.l-contentsWrapper
-				.l-mqWrapper
-					.block.is-title
-						.l-contentsWrapper.is-middle
-							h2.m-sectionTitle01.is-animate
-								span.is-jp 事業案内
-								span.is-en INDUSTRY
+	.js-inviewPoint.is-topIndustrySet01
+		section.c-topIndustrySet01
+			.componentWrapper
+				.l-contentsWrapper
+					.l-mqWrapper
+						.block.is-title
+							.l-contentsWrapper.is-middle
+								m-sectionTitle01(jp = '事業案内', en = 'INDUSTRY', className = 'is-animate')
 
-					.block.is-slider
-						.swiper-wrapper
-							.swiper-slide
-								.m-topIndustrySet01_slide01
-									a(href="") 
-										.block.is-more
-											span MORE
-										.block.is-bg
-											.area.is-bg(data-slide = 'top_industory_bg01.png')
-										.block.is-num
-											span.is-slideLeftRightInTextAnimation
-												span
-													span 0
-												span
-													span 1
-										.block.is-text
-											h3.title
-												span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 建築内装設計施工
-											p.text
-												span.is-slideUpDownInTextAnimation
-													span 病院・学校・ホテル・カーディーラーなど、あらゆる商業施設の木工事及び造作家具工事を設計から施工までワンストップで行います。
-							.swiper-slide
-								.m-topIndustrySet01_slide01
-									a(href="") 
-										.block.is-more
-											span MORE
-										.block.is-bg
-											.area.is-bg(data-slide = 'top_industory_bg02.png')
-										.block.is-num
-											span.is-slideLeftRightInTextAnimation
-												span
-													span 0
-												span
-													span 2
-										.block.is-text
-											h3.title
-												span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 船舶内装設計施工
-											p.text
-												span.is-slideUpDownInTextAnimation
-													span フェリー・商船・潜水艦・クルーザーなど、あらゆる船舶内装工事を設計から施工までワンストップで行います。
-							.swiper-slide
-								.m-topIndustrySet01_slide01
-									a(href="") 
-										.block.is-more
-											span MORE
-										.block.is-bg
-											.area.is-bg(data-slide = 'top_industory_bg03.png')
-										.block.is-num 
-											span.is-slideLeftRightInTextAnimation
-												span
-													span 0
-												span
-													span 3
-										.block.is-text
-											h3.title
-												span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 造作家具設計施工
-											p.text
-												span.is-slideUpDownInTextAnimation
-													span 建築内装・船舶内装における造作家具を自社工場で設計・製作します。既製品では出来ない自由な設計と、船舶内装で培った堅牢な家具をご提供します。
-					
-					.block.is-pager
-						.m-topIndustrySet01_count01
-							.block.is-bg
-							.block.is-count
+						.block.is-slider
+							.swiper-wrapper
+								.swiper-slide
+									.m-topIndustrySet01_slide01
+										a(href="") 
+											.block.is-more
+												span MORE
+											.block.is-bg
+												.area.is-bg(data-slide = 'top_industory_bg01.png')
+											.block.is-num
+												span.is-slideLeftRightInTextAnimation
+													span
+														span 0
+													span
+														span 1
+											.block.is-text
+												h3.title
+													span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 建築内装設計施工
+												p.text
+													span.is-slideUpDownInTextAnimation
+														span 病院・学校・ホテル・カーディーラーなど、あらゆる商業施設の木工事及び造作家具工事を設計から施工までワンストップで行います。
+								.swiper-slide
+									.m-topIndustrySet01_slide01
+										a(href="") 
+											.block.is-more
+												span MORE
+											.block.is-bg
+												.area.is-bg(data-slide = 'top_industory_bg02.png')
+											.block.is-num
+												span.is-slideLeftRightInTextAnimation
+													span
+														span 0
+													span
+														span 2
+											.block.is-text
+												h3.title
+													span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 船舶内装設計施工
+												p.text
+													span.is-slideUpDownInTextAnimation
+														span フェリー・商船・潜水艦・クルーザーなど、あらゆる船舶内装工事を設計から施工までワンストップで行います。
+								.swiper-slide
+									.m-topIndustrySet01_slide01
+										a(href="") 
+											.block.is-more
+												span MORE
+											.block.is-bg
+												.area.is-bg(data-slide = 'top_industory_bg03.png')
+											.block.is-num 
+												span.is-slideLeftRightInTextAnimation
+													span
+														span 0
+													span
+														span 3
+											.block.is-text
+												h3.title
+													span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 造作家具設計施工
+												p.text
+													span.is-slideUpDownInTextAnimation
+														span 建築内装・船舶内装における造作家具を自社工場で設計・製作します。既製品では出来ない自由な設計と、船舶内装で培った堅牢な家具をご提供します。
+						
+						.block.is-pager
+							.m-topIndustrySet01_count01
+								.block.is-bg
+								.block.is-count
+									ul
+										li.child
+											span.is-slideUpDownInTextAnimation
+												span.m-topIndustrySet01_count01_child 01
+										li.parent
+											span.is-slideUpDownInTextAnimation
+												span 03
+
+							.m-topIndustrySet01_arrows01
 								ul
-									li.child
-										span.is-slideUpDownInTextAnimation
-											span.m-topIndustrySet01_count01_child 01
-									li.parent
-										span.is-slideUpDownInTextAnimation
-											span 03
-
-						.m-topIndustrySet01_arrows01
-							ul
-								li.is-prev.swiper-button-prev
-									img(src="~/assets/images/contents/top_industory_arrow01.png", alt="prev")
-								li.is-next.swiper-button-next
-									img(src="~/assets/images/contents/top_industory_arrow02.png", alt="next")
-					
-					.block.is-btn
-						m-borderBtn01
+									li.is-prev.swiper-button-prev
+										img(src="~/assets/images/contents/top_industory_arrow01.png", alt="prev")
+									li.is-next.swiper-button-next
+										img(src="~/assets/images/contents/top_industory_arrow02.png", alt="next")
+						
+						.block.is-btn
+							m-borderBtn01(url = "/industry/")
 
 
 </template>
@@ -117,8 +116,8 @@
 			spanWrap( document.querySelectorAll('.c-topIndustrySet01 .js-slideInTextAnimation') );
 
 			inView({
-				className: '.c-topIndustrySet01',
-				reverse: true
+				className: '.js-inviewPoint.is-topIndustrySet01',
+				reverse: false
 			});
 
 			topIndustry = document.querySelector('.c-topIndustrySet01');
@@ -304,15 +303,6 @@
 
 	.c-topIndustrySet01
 
-		&.is-inview
-			.block.is-btn
-				.m-borderBtn01
-					animation-name fadeIn
-					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
-					animation-fill-mode forwards
-					animation-duration 0.4s
-					animation-delay 0.8s
-
 		&>.componentWrapper
 			container-type inline-size
 			overflow hidden
@@ -328,6 +318,13 @@
 			position relative
 			width 37%
 			z-index 50
+
+			will-change transform opacity
+
+			.page-leave-active &
+				transition all 0.5s ease-out
+				transform translate3d(15px, 0, 0)
+				opacity 0
 
 			+MQ_MAX(SP_RES_WID01)
 				width 53%
@@ -368,6 +365,12 @@
 			transform translate3d(0, clamp(-120px, -20svw, -200px), 0)
 			z-index 1000
 
+			will-change opacity
+
+			.page-leave-active &
+				transition all 0.2s ease-out
+				opacity 0
+
 			+MQ_MAX(SP_RES_WID01)
 				transform translate3d(0, clamp(-40px, -6svw, -100px), 0)
 
@@ -380,6 +383,12 @@
 
 			.m-borderBtn01
 				opacity 0
+				.is-inview &
+					animation-name fadeIn
+					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+					animation-fill-mode forwards
+					animation-duration 0.4s
+					animation-delay 0.8s
 				
 
 			.is-slideUpDownInTextAnimation

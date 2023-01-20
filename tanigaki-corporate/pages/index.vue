@@ -1,17 +1,17 @@
 <template lang="pug">
 	div.c-topPageContents
 		c-globalHeader01(current = "home")
-		c-topMainvisualSet01
-		c-topNewsSet01
-		c-topIndustrySet01
-		c-topFactorySet01
-		c-topAchievementSet01
-		c-contactSet01
+		main.l-mainWrapper
+			c-topMainvisualSet01
+			c-topIndustrySet01
+			c-topFactorySet01
+			c-topAchievementSet01(:achievements = 'achievements')
+			c-contactSet01
 		c-globalFooter01
 
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 let slideInTextAnimation;
@@ -19,6 +19,18 @@ let slideInTextAnimation;
 export default Vue.extend({
 	name: 'IndexPage',
 	layout: "l-mainWrapper01",
+	async asyncData({ $microcms, params }) {
+		try {
+			const data = await $microcms.get({
+				endpoint: `achievements`,
+				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+			});
+			return {
+				achievements: data.contents
+			}
+		} catch (err) {
+		}
+	},
 	mounted() {
 		slideInTextAnimation = document.querySelectorAll('.js-slideInTextAnimation');
 	}
@@ -26,8 +38,6 @@ export default Vue.extend({
 </script>
 
 <style lang="stylus">
-	
-
 </style>
 
 

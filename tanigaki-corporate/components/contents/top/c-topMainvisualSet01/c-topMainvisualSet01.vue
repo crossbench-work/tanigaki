@@ -1,23 +1,25 @@
 <template lang="pug">
-	section.c-topMainvisualSet01
-		.componentWrapper
-			.block.is-bg
-				.area.is-canvas#topMainvisualBg01
-			
-			.block.is-text
-				h2.title
-					span.is-pc CONNECT TO THE
-						br
-						| NEXT GENERATION
-					span.is-sp CONNECT TO
-						br
-						| THE NEXT
-						br
-						| GENERATION
-				p.text テクノロジーのたゆまぬ進化によって、私たちの生活は「機能的」に豊かになりました。私たちの日常に溶け込む家具やインテリアは「感情的」な豊かさを形成する一部を担っていると考えます。変わりゆく時代の中で、確かな伝統と技術をもって人々の心を豊かにする居住空間をご提供いたします。
-			
-			.block.is-scroll
-				p.scroll
+	.js-inviewPoint.is-topMainvisualSet01
+		section.c-topMainvisualSet01
+			.componentWrapper
+				.block.is-bg
+					.area.is-canvas#topMainvisualBg01
+				
+				.block.is-text
+					h2.title
+						span.is-pc CONNECT TO THE
+							br
+							| NEXT GENERATION
+						span.is-sp CONNECT TO
+							br
+							| THE NEXT
+							br
+							| GENERATION
+					p.text テクノロジーのたゆまぬ進化によって、私たちの生活は「機能的」に豊かになりました。私たちの日常に溶け込む家具やインテリアは「感情的」な豊かさを形成する一部を担っていると考えます。変わりゆく時代の中で、確かな伝統と技術をもって人々の心を豊かにする居住空間をご提供いたします。
+				
+				.block.is-scroll
+					p.scroll
+		c-topNewsSet01
 </template>
 
 <script>
@@ -35,7 +37,13 @@
 			_g = window.GLOBAL;
 
 			inView({
+				className: '.js-inviewPoint.is-topMainvisualSet01',
+				reverse: false
+			});
+
+			inView({
 				className: '.c-topMainvisualSet01',
+				addClassName: 'is-inviewReverse',
 				reverse: true
 			});
 
@@ -165,7 +173,7 @@
 			}
 
 			_g.scroll(function(){
-				if(mainvisual.classList.contains('is-inview') ) {
+				if(mainvisual.classList.contains('is-inviewReverse') ) {
 					app.ticker.start();;
 				} else {
 					app.ticker.stop();
@@ -183,6 +191,7 @@
 
 	section.c-topMainvisualSet01
 		container-type inline-size
+		overflow hidden
 		position relative
 
 		width 100%
@@ -195,6 +204,33 @@
 			max-height 100%
 		
 		.componentWrapper
+
+			&::before
+			&::after
+				content ""
+				display block
+				position absolute
+				top 0
+				left 0
+				width 100%
+				height 100%
+				background-color #0E0BA3
+				z-index 100
+
+				will-change transform
+			
+			&::before
+				transform translate3d(0, -101%, 0)
+				z-index 1000
+
+				.page-leave-active &
+					transform translate3d(0, 0, 0)
+					transition all 0.3s ease-out
+			&::after
+				transform translate3d(0, 0, 0)
+				.is-inview &
+					transform translate3d(0, -101%, 0)
+					transition all 0.3s ease-out 0.2s
 			
 			.block.is-bg, .area.is-canvas, canvas
 				position absolute
@@ -278,6 +314,15 @@
 				// border-radius 200px
 				z-index 100
 
+				transform translate3d(101%, 0, 0)
+
+				.is-inview &
+					animation-name slideRightLeftIn
+					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+					animation-fill-mode forwards
+					animation-duration 0.2s
+					animation-delay 1.0s
+
 				+MQ_MAX(SP_RES_WID01)
 					bottom 14svw
 					width 30svw
@@ -328,10 +373,11 @@
 						background-repeat no-repeat
 						background-size contain
 
-						animation-name rotation
-						animation-duration 30.0s
-						animation-timing-function linear
-						animation-iteration-count infinite
+						.is-inview &
+							animation-name rotation
+							animation-duration 30.0s
+							animation-timing-function linear
+							animation-iteration-count infinite
 
 
 	

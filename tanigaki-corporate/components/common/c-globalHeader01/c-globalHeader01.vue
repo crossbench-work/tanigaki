@@ -47,6 +47,7 @@
 <script>
 	export default {
 		name: 'c-globalHeader01',
+		transition: "header",
 		props: {
 			current: {
 				type: String,
@@ -59,6 +60,11 @@
 	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
+	.page-enter
+	.page-leave-active
+		.c-globalHeader01
+			transform translate3d(0, -100%, 0)
+
 	.c-globalHeader01
 		position fixed
 		top 0
@@ -66,6 +72,11 @@
 		z-index 5000
 
 		width 100%
+
+		transform translate3d(0, 0, 0)
+		transition all 0.5s cubic-bezier(0,-0.06,0,1.01)
+
+		will-change transform
 
 		+MQ_MAX(SP_RES_WID01)
 			padding-top 3%

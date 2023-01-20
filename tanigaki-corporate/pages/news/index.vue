@@ -1,13 +1,10 @@
 <template lang="pug">
 	div.c-newsPageContents
 		c-globalHeader01(current = "news")
-		c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
-		
-		c-newsSet01(:lists = 'items')
-
-		//- p {{ items[0].title }}
-		
-		c-contactSet01
+		main.l-mainWrapper
+			c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
+			c-newsSet01(:lists = 'items')
+			c-contactSet01
 		c-globalFooter01
 
 </template>
@@ -28,27 +25,6 @@ export default Vue.extend({
 		};
 	},
 	layout: "l-mainWrapper01",
-	// async asyncData({ $config, $microcms }) {
-	// 	const data = await $microcms.get({
-	// 		serviceDomain: $config.serviceId,
-	// 		endpoint: 'news/',
-	// 		apiKey: $config.apiKey,
-	// 		// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
-	// 	});
-	// 	return data;
-	// },
-	// async asyncData({ $config }) {
-	// 	const { data } = await axios
-	// 	.get(
-	// 		`https://tanigaki.microcms.io/api/v1/news/`,
-	// 		{
-	// 			headers: { 'X-MICROCMS-API-KEY': '5nX8ZObizV24K0HAHgLgP0b7e9wecpT90yk9' }
-	// 		}
-	// 	)
-	// 	return {
-	// 		items: data.contents
-	// 	};
-	// },
 	
 	async asyncData({ $microcms }) {
 		try {

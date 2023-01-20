@@ -1,27 +1,26 @@
 <template lang="pug">
-	section.c-topFactorySet01
-		.componentWrapper
-			.l-contentsWrapper
-				.l-mqWrapper
-					.block.is-title
-						.l-contentsWrapper.is-middle
-							h2.m-sectionTitle01.is-white.is-animate
-								span.is-jp 工場紹介
-								span.is-en FACTORY
-
-					.block.is-text
-						.l-contentsWrapper.is-middle
-							h2.m-largeText01
-								span.is-slideUpDownInTextAnimation
-									span 設計から製作まで
-										br
-										| ワンストップオーダーが可能な
-										br
-										| 自社工場をご紹介します。
-					
-					.block.is-btn
-						.l-contentsWrapper.is-middle
-							m-borderBtn01(className ="is-white")
+	.js-inviewPoint.is-topFactorySet01
+		section.c-topFactorySet01
+			.componentWrapper
+				.l-contentsWrapper
+					.l-mqWrapper
+						.block.is-title
+							.l-contentsWrapper.is-middle
+								m-sectionTitle01(jp = '工場紹介', en = 'FACTORY', className = 'is-white is-animate')
+								
+						.block.is-text
+							.l-contentsWrapper.is-middle
+								h2.m-largeText01
+									span.is-slideUpDownInTextAnimation
+										span 設計から製作まで
+											br
+											| ワンストップオーダーが可能な
+											br
+											| 自社工場をご紹介します。
+						
+						.block.is-btn
+							.l-contentsWrapper.is-middle
+								m-borderBtn01(className ="is-white", url = "/factory/")
 </template>
 
 <script>
@@ -31,8 +30,8 @@
 		
 		mounted() {
 			inView({
-				className: '.c-topFactorySet01',
-				reverse: true
+				className: '.js-inviewPoint.is-topFactorySet01',
+				reverse: false
 			});
 		},
 		methods: {
@@ -45,17 +44,6 @@
 	@import "~/assets/stylus/_s_mixin"
 
 	.c-topFactorySet01
-		&.is-inview
-			&>.componentWrapper
-				&::after
-					transform translate3d(0, 101%, 0)
-					transition all 0.3s ease-out 0.5s
-				.block.is-text
-					.is-slideUpDownInTextAnimation
-						span
-							animation-duration 0.2s
-							animation-delay (0.7 + 0.04)s
-			
 
 		&>.componentWrapper
 			container-type inline-size
@@ -99,6 +87,10 @@
 				background-color #013FB9
 				transform translate3d(0, 0, 0)
 
+				.is-inview &
+					transform translate3d(0, 101%, 0)
+					transition all 0.3s ease-out 0.5s
+
 			.block.is-title
 				position relative
 				margin-bottom clamp(30px, 6cqw, 60px)
@@ -109,9 +101,20 @@
 				z-index 100
 				
 				.m-largeText01
+					overflow hidden
+
 					span
 						color #FFF
-				
+			
+					.is-slideUpDownInTextAnimation
+						will-change transform
+						.page-leave-active &
+							transform translate3d(0, 101%, 0)
+							transition all 0.3s ease-out
+						span
+							.is-inview &
+								animation-duration 0.2s
+								animation-delay (0.7 + 0.04)s
 				
 			.block.is-btn
 				position relative
@@ -121,5 +124,22 @@
 				a
 					span
 						color #FFF
+				
+				.m-borderBtn01
+					opacity 0
+					.is-inview &
+						animation-name fadeIn
+						animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+						animation-fill-mode forwards
+						animation-duration 0.4s
+						animation-delay 0.8s
+				
+				.is-slideUpDownInTextAnimation
+					span
+						.is-inview &
+							animation-duration 0.3s
+						for num in (1..2)
+							&:nth-of-type({num})
+								animation-delay (1.0 + num * 0.04)s
 
 </style>

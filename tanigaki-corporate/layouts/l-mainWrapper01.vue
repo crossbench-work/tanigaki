@@ -6,8 +6,15 @@
 
 
 </template>
+<script>
+	export default {
+		
+	};
+</script>
 <style lang="stylus">
 	#l-contentsTop
 		overflow hidden
+
+	
 
 </style>

@@ -1,4 +1,5 @@
 <template lang="pug">
+	
 	section.c-topNewsSet01
 		.componentWrapper
 			.block.is-date
@@ -16,11 +17,8 @@
 </template>
 
 <script>
-	import Swiper from 'swiper/swiper-bundle.min'
-
 	export default {
 		name: 'c-topNewsSet01',
-		
 		mounted() {
 		},
 		methods: {
@@ -40,6 +38,17 @@
 		width 100%
 		height 0
 
+		transform translate3d(101%, 0, 0)
+
+		
+
+		.is-inview &
+			animation-name slideRightLeftIn
+			animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+			animation-fill-mode forwards
+			animation-duration 0.5s
+			animation-delay 0.4s
+
 		&>.componentWrapper
 			overflow hidden
 			display flex
@@ -54,6 +63,10 @@
 			border-bottom-left-radius 10px
 			box-shadow 0 4px 20px rgba(#000, 0.1)
 			transform translate3d(0, -50%, 0)
+
+			.page-leave-active &
+				transform translate3d(101%, -50%, 0)
+				transition all 0.3s 0.3s ease-out
 
 			+MQ_MAX(SP_RES_WID01)
 				width 90%

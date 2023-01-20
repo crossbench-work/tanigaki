@@ -12,7 +12,8 @@ function init(op) {
 			className: '.js-inview',
 			addClassName: 'is-inview',
 			reverse: false, // 繰り返し
-			ajust: 1.0
+			ajust: 1.0,
+			stop: false,
 		},
 		OPTION: null,
 		ARRAY: {},
@@ -67,7 +68,10 @@ function init(op) {
 					}
 				} else {
 					if(_t.tgTop < _t.scrollTopPos +(_g.GLOBAL_HEIGHT / (2 * op.ajust ) ) ) {
-						_t.tg.classList.add(op.addClassName);
+						if(op.stop == false) {
+							_t.tg.classList.add(op.addClassName);
+							op.stop = false;
+						}
 					} 	
 				}
 		}
