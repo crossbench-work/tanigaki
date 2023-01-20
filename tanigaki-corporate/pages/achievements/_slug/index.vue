@@ -9,7 +9,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 import axios from 'axios'
 import Vue from 'vue'
 

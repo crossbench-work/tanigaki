@@ -3,7 +3,8 @@
 		p.btn
 			a(href="")
 				span.is-bg(:class='`${className}`')
-				span.is-text DETAIL
+				span.is-slideUpDownInTextAnimation
+					span.is-text DETAIL
 
 </template>
 
@@ -89,11 +90,11 @@
 
 					if(hover[i] == false) {
 						if (addRotation[i] <= 45) {
-							addRotation[i] += 4;
+							addRotation[i] += 3;
 						}
 					} else if (hover[i] == true){
 						if (addRotation[i] >= 13) {
-							addRotation[i] -= 4;
+							addRotation[i] -= 3;
 						}
 					}
 
@@ -143,11 +144,11 @@
 	@import "~/assets/stylus/_s_mixin"
 
 	.m-borderBtn01
-		container-type inline-size
-		max-width 280px
-		width 30%
-		min-width 200px
 		.btn
+			container-type inline-size
+			max-width 280px
+			width 30svw
+			min-width 200px
 			a
 				display flex
 				justify-content center

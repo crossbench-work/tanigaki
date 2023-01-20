@@ -304,6 +304,15 @@
 
 	.c-topIndustrySet01
 
+		&.is-inview
+			.block.is-btn
+				.m-borderBtn01
+					animation-name fadeIn
+					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
+					animation-fill-mode forwards
+					animation-duration 0.4s
+					animation-delay 0.8s
+
 		&>.componentWrapper
 			container-type inline-size
 			overflow hidden
@@ -363,10 +372,24 @@
 				transform translate3d(0, clamp(-40px, -6svw, -100px), 0)
 
 		.block.is-btn
+			
 			display flex
 			justify-content flex-end
 			flex-wrap wrap
 			margin-top 5%
+
+			.m-borderBtn01
+				opacity 0
+				
+
+			.is-slideUpDownInTextAnimation
+				span
+					.is-inview &
+						animation-duration 0.3s
+					for num in (1..2)
+						&:nth-of-type({num})
+							animation-delay (1.0 + num * 0.04)s
+
 
 	.m-topIndustrySet01_slide01
 		container-type inline-size
@@ -507,7 +530,6 @@
 						.is-inview &
 							animation-duration 0.3s
 							animation-delay (1.5 + 0.04)s
-	
 	.m-topIndustrySet01_count01
 		container-type inline-size
 		overflow hidden
