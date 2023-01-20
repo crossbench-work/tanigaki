@@ -21,17 +21,17 @@ export default Vue.extend({
 		};
 	},
 	layout: "l-mainWrapper01",
-	async asyncData({ params }) {
-		const { data } = await axios
-		.get(
-			`https://tanigaki.microcms.io/api/v1/achievements/${params.slug}`,
-			{
-				headers: { 'X-MICROCMS-API-KEY': '5nX8ZObizV24K0HAHgLgP0b7e9wecpT90yk9' }
+	async asyncData({ $microcms, params }) {
+		try {
+			const data = await $microcms.get({
+				endpoint: `achievements/${params.slug}`,
+				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+			});
+			return {
+				achievement: data
 			}
-		)
-		return {
-			achievement: data
-		};
+		} catch (err) {
+		}
 	},
 	mounted() {
 		// console.log(this.achievement);

@@ -13,7 +13,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 import axios from 'axios'
 import Vue from 'vue'
 
@@ -25,33 +25,18 @@ export default Vue.extend({
 		};
 	},
 	layout: "l-mainWrapper01",
-	async asyncData({ params }) {
-		const { data } = await axios
-		.get(
-			`https://tanigaki.microcms.io/api/v1/news/${params.slug}`,
-			{
-				headers: { 'X-MICROCMS-API-KEY': '5nX8ZObizV24K0HAHgLgP0b7e9wecpT90yk9' }
+	async asyncData({ $microcms, params }) {
+		try {
+			const data = await $microcms.get({
+				endpoint: `news/${params.slug}`,
+				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+			});
+			return {
+				list: data
 			}
-		)
-		return {
-			list: data
-		};
+		} catch (err) {
+		}
 	},
-	// async asyncData({ $config, params }) {
-	// 	try {
-	// 		const { data } = await axios
-	// 		.get(
-	// 			$config.serviceId + `news/${params.slug}`,
-	// 			{
-	// 				headers: { 'X-MICROCMS-API-KEY': $config.apiKey }
-	// 			}
-	// 		)
-	// 		return {
-	// 			list: data
-	// 		};
-	// 	} catch (err) {
-	// 	}
-	// },
 	mounted() {
 		// console.log(this.achievement);
 	}

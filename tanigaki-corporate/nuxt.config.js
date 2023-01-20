@@ -7,7 +7,7 @@ export default {
 
   privateRuntimeConfig: {
     apiKey: process.env.API_KEY,
-    serviceId: process.env.SERVICE_ID,
+    serviceId: process.env.SERVICE_DOMAIN,
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -64,7 +64,15 @@ export default {
   modules:
   [
     "@nuxtjs/axios",
+    'nuxt-microcms-module',
   ],
+  microcms: {
+    options: {
+      serviceDomain: process.env.SERVICE_DOMAIN,
+      apiKey: process.env.API_KEY,
+    },
+    mode: process.env.NODE_ENV === 'production' ? 'server' : 'all',
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {

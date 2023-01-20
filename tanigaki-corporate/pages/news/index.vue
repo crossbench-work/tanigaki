@@ -12,7 +12,7 @@
 
 </template>
 
-<script lang="ts">
+<script>
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
@@ -28,38 +28,45 @@ export default Vue.extend({
 		};
 	},
 	layout: "l-mainWrapper01",
-	async asyncData({ $config }) {
-		const { data } = await axios
-		.get(
-			`https://tanigaki.microcms.io/api/v1/news/`,
-			{
-				headers: { 'X-MICROCMS-API-KEY': '5nX8ZObizV24K0HAHgLgP0b7e9wecpT90yk9' }
-			}
-		)
-		return {
-			items: data.contents
-		};
-	},
-	// async asyncData({ $config, params }) {
-	// 	try {
-	// 		const { data } = await axios
-	// 		.get(
-	// 			$config.serviceId + 'news/',
-	// 			{
-	// 				headers: { 'X-MICROCMS-API-KEY':  $config.apiKey }
-	// 			}
-	// 		)
-	// 		return {
-	// 			items: data.contents
-	// 		};
-	// 	} catch (err) {
-	// 	}
+	// async asyncData({ $config, $microcms }) {
+	// 	const data = await $microcms.get({
+	// 		serviceDomain: $config.serviceId,
+	// 		endpoint: 'news/',
+	// 		apiKey: $config.apiKey,
+	// 		// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+	// 	});
+	// 	return data;
 	// },
+	// async asyncData({ $config }) {
+	// 	const { data } = await axios
+	// 	.get(
+	// 		`https://tanigaki.microcms.io/api/v1/news/`,
+	// 		{
+	// 			headers: { 'X-MICROCMS-API-KEY': '5nX8ZObizV24K0HAHgLgP0b7e9wecpT90yk9' }
+	// 		}
+	// 	)
+	// 	return {
+	// 		items: data.contents
+	// 	};
+	// },
+	
+	async asyncData({ $microcms }) {
+		try {
+			const data = await $microcms.get({
+				endpoint: 'news',
+				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+			});
+			return {
+				items: data.contents
+			}
+		} catch (err) {
+		}
+	},
 	beforeMount() {
 		dayjs.extend(utc);
 		dayjs.extend(timezone);
 
-		var publishedAtJp: { [key: string]: any; } = {
+		var publishedAtJp = {
 			'publishedAtJp': ''
 		};
 
