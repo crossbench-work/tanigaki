@@ -24,6 +24,8 @@ export default Vue.extend({
 			const data = await $microcms.get({
 				endpoint: `achievements`,
 				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+				queries: { limit: 10},
+
 			});
 			return {
 				achievements: data.contents

@@ -56,13 +56,25 @@
 	@import "~/assets/stylus/_s_config"
 	@import "~/assets/stylus/_s_mixin"
 
-	.c-globalFooter01
+	.page-enter
+	.page-leave-active
+		.c-globalFooter01
+			.componentWrapper
+				background-color transparent
 
+				.block.is-map
+					opacity 0
+	
+	.c-globalFooter01
+		
 		.componentWrapper
 			display block
 			padding clamp(40px, 6cqw, 100px) 0
 			background-color #000000
 			background-image url('~/assets/images/common/common_footer_texture01.png')
+
+			transition all 0.5s 0.2s ease-in-out
+			will-change color
 
 			.block.is-logo
 				box-sizing border-box
@@ -107,6 +119,10 @@
 								margin-top 1%
 			.block.is-map
 				margin-top 3%
+
+				transition all 0.5s ease-in-out
+				will-change opacity 
+
 				.map
 					overflow hidden
 					position relative

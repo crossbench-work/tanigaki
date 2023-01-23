@@ -1,19 +1,18 @@
 <template lang="pug">
-	.c-pageTitleSet01
-		.componentWrapper
-			.l-contentsWrapper
-				.l-mqWrapper
-					.block.is-title
-						.l-contentsWrapper.is-middle
-							h1.m-sectionTitle01
-								span.is-jp {{jp}}
-								span.is-en {{en}}
+	.js-inviewPoint.is-pageTitleSet01
+		.c-pageTitleSet01
+			.componentWrapper
+				.l-contentsWrapper
+					.l-mqWrapper
+						.block.is-title
+							.l-contentsWrapper.is-middle
+								m-sectionTitle01(:jp = 'jp', :en = 'en', className = 'is-white is-animate')
 
 
 </template>
 
 <script>
-
+	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 	export default {
 		name: 'c-pageTitleSet01',
 		props: {
@@ -27,6 +26,10 @@
 			},
 		},
 		mounted() {
+			inView({
+				className: '.js-inviewPoint.is-pageTitleSet01',
+				reverse: false
+			});
 		},
 		methods: {
 		}
@@ -52,6 +55,7 @@
 		
 
 		&::before
+		&::after
 			content ""
 			display block
 			position absolute
@@ -60,18 +64,28 @@
 			left 0
 			width 100%
 			height 100%
+			
+		&::before
 			background-image url('~/assets/images/common/common_pageTitle_texture01.png')
+		
+		&::after
+			background-color #0E0BA3
+			transform translate3d(0, 0, 0)
+			z-index 1000
+
+			.is-inview &
+				transform translate3d(0, -101%, 0)
+				transition all 0.3s ease-out 0.2s
+
+			.page-leave-active &
+				transform translate3d(0, 0, 0)
+				transition all 0.3s ease-out
 
 		&>.componentWrapper
 			width 100%
 
 		.block.is-title
 			position relative
-			z-index 100
-		.m-sectionTitle01
-			span
-				&.is-jp
-					color rgba(#FFF, 0.8)
-				&.is-en
-					color rgba(#FFF, 0.2)
+			z-index 2000
+		
 </style>

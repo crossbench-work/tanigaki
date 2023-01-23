@@ -39,7 +39,22 @@
 		&>.componentWrapper
 			container-type inline-size
 			overflow hidden
+			position relative
 			padding clamp(40px, 8cqw, 120px) 0 clamp(100px, 20cqw, 260px) 
+
+			&::before
+				content ""
+				display block
+				position absolute
+				top 50%
+				right 0
+				width 45svw
+				height 45svw
+				background-image url('~/assets/images/contents/company_about_bg01.png')
+				background-repeat no-repeat
+				background-size cover
+				background-position center
+				transform translate3d(10%, -50%, 0)
 
 			.block.is-title
 				margin-bottom 2%

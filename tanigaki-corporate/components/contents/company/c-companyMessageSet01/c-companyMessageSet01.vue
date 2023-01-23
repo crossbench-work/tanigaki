@@ -65,7 +65,10 @@
 					&.is-en
 						margin-bottom -0.35em
 			.block.is-bg
-				background-color #DFDFDF
+				background-image url('~/assets/images/contents/company_message_bg01.png')
+				background-repeat no-repeat
+				background-size cover
+				background-position center
 				.l-contentsWrapper.is-middle
 					display flex
 					justify-content flex-end
@@ -86,6 +89,7 @@
 						font-weight bold
 					.text
 						font-size clamp(1.4rem, 1.9cqw, 2.8rem)
+
 			.block.is-text
 				margin-top 5%
 				.l-contentsWrapper.is-small
