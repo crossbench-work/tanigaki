@@ -116,10 +116,6 @@
 				margin-top 5%
 				z-index 100
 
-				a
-					span
-						color #FFF
-
 				.m-borderBtn01
 					opacity 0
 					.is-inview &

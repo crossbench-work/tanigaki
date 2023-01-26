@@ -15,11 +15,24 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 
 export default Vue.extend({
 	name: 'CompanyPage',
 	layout: "l-mainWrapper01",
 	mounted() {
+
+		this.$nextTick(() => {
+			let _t= this;
+			_t.$nuxt.$loading.start()
+			setTimeout(function(){
+				_t.$nuxt.$loading.finish()
+				inView({
+					className: '.js-inviewPoint',
+					reverse: false
+				});
+			}, 1000)
+		})
 	}
 })
 </script>

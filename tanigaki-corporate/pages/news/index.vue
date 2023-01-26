@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc';
 import timezone from 'dayjs/plugin/timezone';
@@ -53,6 +54,17 @@ export default Vue.extend({
 		})
 	},
 	mounted() {
+		this.$nextTick(() => {
+			let _t= this;
+			_t.$nuxt.$loading.start()
+			setTimeout(function(){
+				_t.$nuxt.$loading.finish()
+				inView({
+					className: '.js-inviewPoint',
+					reverse: false
+				});
+			}, 1000)
+		})
 	}
 })
 </script>

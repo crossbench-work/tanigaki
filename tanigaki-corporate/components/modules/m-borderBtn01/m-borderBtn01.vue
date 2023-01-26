@@ -4,7 +4,7 @@
 			nuxt-link(:to='`${url}`')
 				span.is-bg(:class='`${className}`')
 				span.is-slideUpDownInTextAnimation
-					span.is-text {{ text }}
+					span.is-text(:class='`${className}`') {{ text }}
 
 </template>
 
@@ -36,112 +36,112 @@
 			canvas = document.querySelectorAll('.m-borderBtn01 .is-bg');
 			// console.log(canvas.length);
 
-			[].slice.call(canvas).forEach(function(element, i) {
+			// [].slice.call(canvas).forEach(function(element, i) {
 				
-				hover[i] = false;
-				addRotation[i] = 45;
+			// 	hover[i] = false;
+			// 	addRotation[i] = 45;
 
-				if(document.getElementById('l-contentsTop').dataset.top != 'loaded') {
+			// 	if(document.getElementById('l-contentsTop').dataset.top != 'loaded') {
 
-					app[i]	= new PIXI.Application({
-						width: element.clientWidth * 2,
-						height: element.clientHeight * 2,
-						// backgroundColor: 0xffffff,
-						resolution: 1,
-						autoDensity: true,
-						transparent: true,
-						backgroundAlpha: 0
-						// resizeTo: window
-					});
+			// 		app[i]	= new PIXI.Application({
+			// 			width: element.clientWidth * 2,
+			// 			height: element.clientHeight * 2,
+			// 			// backgroundColor: 0xffffff,
+			// 			resolution: 1,
+			// 			autoDensity: true,
+			// 			transparent: true,
+			// 			backgroundAlpha: 0
+			// 			// resizeTo: window
+			// 		});
 
-				}
+			// 	}
 
-				for (var j = app[i].stage.children.length - 1; j >= 0; j--) {
-					app[i].stage.removeChild(app[i].stage.children[j]);
-				};
+			// 	for (var j = app[i].stage.children.length - 1; j >= 0; j--) {
+			// 		app[i].stage.removeChild(app[i].stage.children[j]);
+			// 	};
 
-				if(app[i].stage.children.length < 2) {
-					element.appendChild(app[i].view);
+			// 	if(app[i].stage.children.length < 2) {
+			// 		element.appendChild(app[i].view);
 
-					bgLine01[i] = new PIXI.Graphics();
+			// 		bgLine01[i] = new PIXI.Graphics();
 
-					bgLine01[i].x = 0;
-					bgLine01[i].y = 0;
+			// 		bgLine01[i].x = 0;
+			// 		bgLine01[i].y = 0;
 
-					maskLine01[i] = new PIXI.Graphics();
+			// 		maskLine01[i] = new PIXI.Graphics();
 
-					maskLine01[i].pivot.x = app[i].renderer.width / 2;
-					maskLine01[i].pivot.y = app[i].renderer.height / 2;
+			// 		maskLine01[i].pivot.x = app[i].renderer.width / 2;
+			// 		maskLine01[i].pivot.y = app[i].renderer.height / 2;
 
-					maskLine01[i].x = app[i].renderer.width / 2;
-					maskLine01[i].y = app[i].renderer.height / 2;
+			// 		maskLine01[i].x = app[i].renderer.width / 2;
+			// 		maskLine01[i].y = app[i].renderer.height / 2;
 
-					app[i].stage.addChild(bgLine01[i]);
-					app[i].stage.addChild(maskLine01[i]);
-					bgLine01[i].mask = maskLine01[i];
-				}
+			// 		app[i].stage.addChild(bgLine01[i]);
+			// 		app[i].stage.addChild(maskLine01[i]);
+			// 		bgLine01[i].mask = maskLine01[i];
+			// 	}
 
-				app[i].animationUpdate = function(delta) {
-					bgLine01[i].clear();
-					bgLine01[i].lineStyle(2, (element.classList.contains('is-white') ? 0xFFFFFF : 0xE02400), 1, 0);
-					bgLine01[i].drawRoundedRect(0, 0, app[i].renderer.width, app[i].renderer.height, 200);
-					bgLine01[i].endFill();
+			// 	app[i].animationUpdate = function(delta) {
+			// 		bgLine01[i].clear();
+			// 		bgLine01[i].lineStyle(2, (element.classList.contains('is-white') ? 0xFFFFFF : 0xE02400), 1, 0);
+			// 		bgLine01[i].drawRoundedRect(0, 0, app[i].renderer.width, app[i].renderer.height, 200);
+			// 		bgLine01[i].endFill();
 
-					maskLine01[i].clear();
-					maskLine01[i].beginFill(0xffff00);
-					maskLine01[i].drawRect(0, - app[i].renderer.height / 2 - 20, app[i].renderer.width, app[i].renderer.height);
-					maskLine01[i].endFill();
+			// 		maskLine01[i].clear();
+			// 		maskLine01[i].beginFill(0xffff00);
+			// 		maskLine01[i].drawRect(0, - app[i].renderer.height / 2 - 20, app[i].renderer.width, app[i].renderer.height);
+			// 		maskLine01[i].endFill();
 
-					maskLine01[i].beginFill(0xffff00);
-					maskLine01[i].drawRect(0, app[i].renderer.height / 2 + 20, app[i].renderer.width, app[i].renderer.height);
-					maskLine01[i].endFill();
+			// 		maskLine01[i].beginFill(0xffff00);
+			// 		maskLine01[i].drawRect(0, app[i].renderer.height / 2 + 20, app[i].renderer.width, app[i].renderer.height);
+			// 		maskLine01[i].endFill();
 
-					if(hover[i] == false) {
-						if (addRotation[i] <= 45) {
-							addRotation[i] += 3;
-						}
-					} else if (hover[i] == true){
-						if (addRotation[i] >= 13) {
-							addRotation[i] -= 3;
-						}
-					}
+			// 		if(hover[i] == false) {
+			// 			if (addRotation[i] <= 45) {
+			// 				addRotation[i] += 3;
+			// 			}
+			// 		} else if (hover[i] == true){
+			// 			if (addRotation[i] >= 13) {
+			// 				addRotation[i] -= 3;
+			// 			}
+			// 		}
 
-					maskLine01[i].rotation = Math.PI / addRotation[i];
-				}
+			// 		maskLine01[i].rotation = Math.PI / addRotation[i];
+			// 	}
 
-				if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
-					app[i].ticker.remove(app[i].animationUpdate);
-				} else {
-					app[i].ticker.add(app[i].animationUpdate);
-				}
+			// 	if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+			// 		app[i].ticker.remove(app[i].animationUpdate);
+			// 	} else {
+			// 		app[i].ticker.add(app[i].animationUpdate);
+			// 	}
 
-				app[i].ticker.autoStart = false;
-				app[i].ticker.stop();
+			// 	app[i].ticker.autoStart = false;
+			// 	app[i].ticker.stop();
 				
 
-				inView({
-					className: '.m-borderBtn01 .is-bg',
-					reverse: true,
-					ajust: 0.001
-				});
+			// 	inView({
+			// 		className: '.m-borderBtn01 .is-bg',
+			// 		reverse: true,
+			// 		ajust: 0.001
+			// 	});
 
-				_g.scroll(function(){
-					if(element.classList.contains('is-inview') ) {
-						app[i].ticker.start();;
-					} else {
-						app[i].ticker.stop();
-					}
-				})
+			// 	_g.scroll(function(){
+			// 		if(element.classList.contains('is-inview') ) {
+			// 			app[i].ticker.start();;
+			// 		} else {
+			// 			app[i].ticker.stop();
+			// 		}
+			// 	})
 
-				element.addEventListener('mouseenter',function(e){
-					hover[i] = true;
-				});
+			// 	element.addEventListener('mouseenter',function(e){
+			// 		hover[i] = true;
+			// 	});
 
-				element.addEventListener('mouseleave',function(e){
-					hover[i] = false;
-				});
+			// 	element.addEventListener('mouseleave',function(e){
+			// 		hover[i] = false;
+			// 	});
 
-			});
+			// });
 		},
 		methods: {
 		}
@@ -158,8 +158,7 @@
 				transition all 0.3s ease !important
 
 	.m-borderBtn01
-		opacity 0
-		
+		// opacity 0
 
 		.btn
 			container-type inline-size
@@ -205,6 +204,9 @@
 						font-weight bold
 						line-height 1.0
 						font-size clamp(1.0rem, 6cqw, 1.4rem)
+
+						&.is-white
+							color #FFF
 
 
 </style>

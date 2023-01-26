@@ -33,6 +33,7 @@ export default {
       },
       // { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js' },
       { src: 'https://pixijs.download/release/pixi.js' },
+      // { src: 'https://sdk.form.run/js/v2/embed.js%22%3E' }
     ],
     __dangerouslyDisableSanitizersByTagID: {
       'containerQueryPolyfill': ['innerHTML'],
@@ -83,5 +84,12 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
       // vendor: ['pixi.js']
-  }
+  },
+  loading: '~/components/common/c-loadigSet01/c-loadigSet01.vue',
+  router: {
+    scrollBehavior: function (to, from, savedPosition) {
+      return { x: 0, y: 0 }
+    }
+  },
+  
 }

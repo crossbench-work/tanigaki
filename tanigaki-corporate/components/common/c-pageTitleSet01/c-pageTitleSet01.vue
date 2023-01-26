@@ -26,10 +26,18 @@
 			},
 		},
 		mounted() {
-			inView({
-				className: '.js-inviewPoint.is-pageTitleSet01',
-				reverse: false
-			});
+			this.$nextTick(() => {
+				this.$nuxt.$loading.start()
+				setTimeout(function(){
+					this.$nuxt.$loading.finish()
+					inView({
+						className: '.js-inviewPoint.is-pageTitleSet01',
+						reverse: false
+					});
+				}, 1000)
+			})
+
+			
 		},
 		methods: {
 		}
@@ -46,7 +54,7 @@
 		flex-wrap wrap
 		position relative
 		width 100%
-		height 450px
+		height clamp(200px, 34cqw, 450px)
 		background-image url('~/assets/images/common/common_pageTitle_bg01.png')
 		background-size cover
 		background-position center

@@ -148,7 +148,7 @@
 				margin-top -0.3em
 				color rgba(#171663, 0.2)
 				font-family 'Oswald', sans-serif
-				font-size clamp(9.0rem, 15cqw, 15.0rem)
+				font-size clamp(6.0rem, 13cqw, 15.0rem)
 				font-weight bold
 				line-height 1.0
 				vertical-align top

@@ -1,44 +1,58 @@
 <template lang="pug">
-	section.c-companyMessageSet01
-		.componentWrapper
-			.block.is-title
-				.l-contentsWrapper
-					.l-mqWrapper
-						.l-contentsWrapper.is-middle
-							h2.m-sectionTitle01.is-middle
-								span.is-jp 社長挨拶
-								span.is-en MESSAGE
-			.block.is-bg
-				.l-contentsWrapper
-					.l-mqWrapper
-						.l-contentsWrapper.is-middle
-							.area.is-text
-								p.director 代表取締役社長
-								h3.name 谷垣 正彰
-								p.text キャッチコピーキャッチコピーキャッチコピー
-			.block.is-text
-				.l-contentsWrapper
-					.l-mqWrapper
-						.l-contentsWrapper.is-small
-							.area.is-text
-								p.m-baseText01 私たちは昭和14年の創業以来、船舶建築内装業者として、
-									br
-									| お客様のご支援とご愛顧のもと、
-									br
-									| 今日まで発展してくることができました。
-									br
-									| その原動となるのは「誠実なものづくり」に徹することです。
-								p.m-baseText01  品質の高いインテリアを表現したい
-									br
-									| 完璧な製品を作りたい
-							.area.is-text
-								p.m-baseText01 誠実な想いをもとにひとつずつを作り上げていく中で、
-									br
-									| 日々技術を磨いてまいりました。
-									br
-									| これからも固定概念にとらわれることなく、
-									br
-									| お客様に満足していただけるよう努力してまいります。
+	.js-inviewPoint
+		section.c-companyMessageSet01
+			.componentWrapper
+				.block.is-title
+					.l-contentsWrapper
+						.l-mqWrapper
+							.l-contentsWrapper.is-middle
+								m-sectionTitle01(jp = '社長挨拶', en = 'MESSAGE', className = 'is-middle is-animate')
+								
+				.block.is-bg
+					.l-contentsWrapper
+						.l-mqWrapper
+							.l-contentsWrapper.is-middle
+								.area.is-text
+									.is-slideUpDownInTextAnimation
+										p.director
+											span 代表取締役社長
+									
+									.is-slideUpDownInTextAnimation
+										h3.name
+											span 谷垣 正彰
+									.is-slideUpDownInTextAnimation
+										p.text
+											span キャッチコピーキャッチコピーキャッチコピー
+				.block.is-text
+					.l-contentsWrapper
+						.l-mqWrapper
+							.l-contentsWrapper.is-small
+								.area.is-text
+									.is-slideUpDownInTextAnimation
+										p.m-baseText01 
+											span 私たちは昭和14年の創業以来、船舶建築内装業者として、
+												br
+												| お客様のご支援とご愛顧のもと、
+												br
+												| 今日まで発展してくることができました。
+												br
+												| その原動となるのは「誠実なものづくり」に徹することです。
+									
+									.is-slideUpDownInTextAnimation
+										p.m-baseText01
+											span 品質の高いインテリアを表現したい
+												br
+												| 完璧な製品を作りたい
+								.area.is-text
+									.is-slideUpDownInTextAnimation
+										p.m-baseText01
+											span 誠実な想いをもとにひとつずつを作り上げていく中で、
+												br
+												| 日々技術を磨いてまいりました。
+												br
+												| これからも固定概念にとらわれることなく、
+												br
+												| お客様に満足していただけるよう努力してまいります。
 
 </template>
 
@@ -61,25 +75,56 @@
 		&>.componentWrapper
 			container-type inline-size
 			.block.is-title
+				position relative
+				z-index 600
 				span
 					&.is-en
 						margin-bottom -0.35em
 			.block.is-bg
-				background-image url('~/assets/images/contents/company_message_bg01.png')
-				background-repeat no-repeat
-				background-size cover
-				background-position center
+				position relative
+
+				&::before
+					content ""
+					display block
+					position absolute
+					top 0
+					left 0
+					width 100%
+					height 100%
+					background-image url('~/assets/images/contents/company_message_bg01.png')
+					background-repeat no-repeat
+					background-size cover
+					background-position center
+
+					+MQ_MAX(SP_RES_WID01)
+						position relative
+						height 0
+						padding-top 30%
+
+
 				.l-contentsWrapper.is-middle
+					position relative
+					z-index 100
 					display flex
 					justify-content flex-end
 					align-items center
-					background-color #DFDFDF
+					// background-color #DFDFDF
 					height 36svw
 					max-height 550px
+
+					+MQ_MAX(SP_RES_WID01)
+						justify-content flex-start
+						height auto
 
 					.area.is-text
 						max-width 480px
 						width 40%
+						
+						+MQ_MAX(SP_RES_WID01)
+							width 100%
+							max-width 100%
+							margin-top 4%
+
 
 					.director
 						font-size clamp(1.4rem, 1.2cqw, 1.8rem)
@@ -95,6 +140,27 @@
 				.l-contentsWrapper.is-small
 					display flex
 					justify-content space-between
+
+					+MQ_MAX(SP_RES_WID01)
+						display block
+
 					.area.is-text
 						width 49%
+
+						+MQ_MAX(SP_RES_WID01)
+							width 100%
+							margin-top 3%
+
+							&>div
+								margin-top 3%
+								&:first-child
+									+MQ_MAX(SP_RES_WID01)
+										margin-top 0
+							
+							br
+								display none
+						
+						&:first-child
+							+MQ_MAX(SP_RES_WID01)
+								margin-top 0
 </style>

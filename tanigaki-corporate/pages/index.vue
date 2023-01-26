@@ -13,6 +13,7 @@
 
 <script>
 import Vue from 'vue'
+import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 
 let slideInTextAnimation;
 
@@ -21,6 +22,7 @@ export default Vue.extend({
 	layout: "l-mainWrapper01",
 	async asyncData({ $microcms, params }) {
 		try {
+			
 			const data = await $microcms.get({
 				endpoint: `achievements`,
 				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
@@ -30,11 +32,18 @@ export default Vue.extend({
 			return {
 				achievements: data.contents
 			}
-		} catch (err) {
+		}
+		catch (err) {
 		}
 	},
 	mounted() {
 		slideInTextAnimation = document.querySelectorAll('.js-slideInTextAnimation');
+
+		// this.$nextTick(() => {
+		// 	this.$nuxt.$loading.start()
+		// 	console.log(this.$nuxt.$loading.show)
+		// 	setTimeout(() => this.$nuxt.$loading.finish(), 1000)
+		// })
 	}
 })
 </script>

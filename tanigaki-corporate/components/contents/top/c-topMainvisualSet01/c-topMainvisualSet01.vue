@@ -34,18 +34,23 @@
 		
 		mounted() {
 
+			this.$nextTick(() => {
+				this.$nuxt.$loading.start()
+				inView({
+					className: '.c-topMainvisualSet01',
+					addClassName: 'is-inviewReverse',
+					reverse: true
+				});
+				setTimeout(function(){
+					this.$nuxt.$loading.finish()
+					inView({
+						className: '.js-inviewPoint.is-topMainvisualSet01',
+						reverse: false
+					});
+				}, 1000)
+			})
+
 			_g = window.GLOBAL;
-
-			inView({
-				className: '.js-inviewPoint.is-topMainvisualSet01',
-				reverse: false
-			});
-
-			inView({
-				className: '.c-topMainvisualSet01',
-				addClassName: 'is-inviewReverse',
-				reverse: true
-			});
 
 			canvas = document.getElementById('topMainvisualBg01');
 			mainvisual = document.querySelector('.c-topMainvisualSet01');

@@ -10,6 +10,7 @@
 									nuxt-link(:to="'/news/' + list.id")
 										dt.date {{list.publishedAtJp}}
 										dd.text {{list.title}}
+										
 								
 
 </template>
@@ -25,7 +26,7 @@
 			},
 		},
 		mounted() {
-			// console.log(this.lists)
+			console.log(this.lists)
 		},
 		methods: {
 			
@@ -59,9 +60,9 @@
 				dt.date
 					margin-top 2%
 					color #E02400
-					font-size clamp(1.0rem, 6cqw, 1.4rem)
+					font-size clamp(1.0rem, 2.2cqw, 1.4rem)
 					font-weight bold
 				dd.text
 					margin-top 1%
-					font-size clamp(1.0rem, 7cqw, 1.6rem)
+					font-size clamp(1.0rem, 2.6cqw, 1.6rem)
 </style>

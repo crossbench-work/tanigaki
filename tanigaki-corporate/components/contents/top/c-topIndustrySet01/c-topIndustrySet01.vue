@@ -120,6 +120,12 @@
 				reverse: false
 			});
 
+			inView({
+				className: '.c-topIndustrySet01',
+				addClassName: 'is-inviewReverse',
+				reverse: true
+			});
+
 			topIndustry = document.querySelector('.c-topIndustrySet01');
 
 			slideBgCanvas = document.querySelectorAll('.m-topIndustrySet01_slide01 .area.is-bg');

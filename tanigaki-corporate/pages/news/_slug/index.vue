@@ -3,13 +3,8 @@
 		c-globalHeader01(current = "achievements")
 		main.l-mainWrapper
 			c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
-			section.c-newsDetailSet01
-				.componentWrapper
-					.l-contentsWrapper
-						.l-mqWrapper
-							.l-contentsWrapper.is-middle
-								.block.is-title(v-html="list.title")
-								.block.is-contents(v-html="list.content")
+			c-newsDetailSet01(:list = 'list')
+
 		c-globalFooter01
 
 </template>
@@ -17,6 +12,7 @@
 <script>
 import axios from 'axios'
 import Vue from 'vue'
+import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 
 export default Vue.extend({
 	name: 'NewsDetailPage',
@@ -30,7 +26,6 @@ export default Vue.extend({
 		try {
 			const data = await $microcms.get({
 				endpoint: `news/${params.slug}`,
-				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
 			});
 			return {
 				list: data
@@ -39,13 +34,24 @@ export default Vue.extend({
 		}
 	},
 	mounted() {
-		// console.log(this.achievement);
+		this.$nextTick(() => {
+			let _t= this;
+			_t.$nuxt.$loading.start()
+			setTimeout(function(){
+				_t.$nuxt.$loading.finish()
+				inView({
+					className: '.js-inviewPoint',
+					reverse: false
+				});
+			}, 1000)
+		})
 	}
 })
 </script>
 
 <style lang="stylus">
 	
+
 </style>
 
 

@@ -13,6 +13,7 @@
 
 import axios from 'axios'
 import Vue from 'vue'
+import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 
 export default Vue.extend({
 	name: 'AchievementsPage',
@@ -35,6 +36,17 @@ export default Vue.extend({
 		}
 	},
 	mounted() {
+		this.$nextTick(() => {
+			let _t= this;
+			_t.$nuxt.$loading.start()
+			setTimeout(function(){
+				_t.$nuxt.$loading.finish()
+				inView({
+					className: '.js-inviewPoint',
+					reverse: false
+				});
+			}, 1000)
+		})
 	}
 })
 </script>
