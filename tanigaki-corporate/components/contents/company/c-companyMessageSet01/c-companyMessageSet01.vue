@@ -13,14 +13,14 @@
 						.l-mqWrapper
 							.l-contentsWrapper.is-middle
 								.area.is-text
-									.is-slideUpDownInTextAnimation
+									.is-fadeInAnimation
 										p.director
 											span 代表取締役社長
 									
-									.is-slideUpDownInTextAnimation
+									.is-fadeInAnimation
 										h3.name
 											span 谷垣 正彰
-									.is-slideUpDownInTextAnimation
+									.is-fadeInAnimation
 										p.text
 											span キャッチコピーキャッチコピーキャッチコピー
 				.block.is-text
@@ -28,7 +28,7 @@
 						.l-mqWrapper
 							.l-contentsWrapper.is-small
 								.area.is-text
-									.is-slideUpDownInTextAnimation
+									.is-fadeInAnimation
 										p.m-baseText01 
 											span 私たちは昭和14年の創業以来、船舶建築内装業者として、
 												br
@@ -38,13 +38,13 @@
 												br
 												| その原動となるのは「誠実なものづくり」に徹することです。
 									
-									.is-slideUpDownInTextAnimation
+									.is-fadeInAnimation
 										p.m-baseText01
 											span 品質の高いインテリアを表現したい
 												br
 												| 完璧な製品を作りたい
 								.area.is-text
-									.is-slideUpDownInTextAnimation
+									.is-fadeInAnimation
 										p.m-baseText01
 											span 誠実な想いをもとにひとつずつを作り上げていく中で、
 												br

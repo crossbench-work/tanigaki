@@ -11,7 +11,7 @@
 						.block.is-text
 							.l-contentsWrapper.is-middle
 								h2.m-largeText01
-									span.is-slideUpDownInTextAnimation
+									span.is-fadeInAnimation
 										span 設計から製作まで
 											br
 											| ワンストップオーダーが可能な
@@ -29,10 +29,17 @@
 	export default {
 		name: 'c-contactSet01',
 		mounted() {
-			inView({
-				className: '.js-inviewPoint.is-contactSet01',
-				reverse: false
-			});
+
+			this.$nextTick(() => {
+				this.$nuxt.$loading.start()
+				setTimeout(function(){
+					this.$nuxt.$loading.finish()
+					inView({
+						className: '.js-inviewPoint.is-contactSet01',
+						reverse: false
+					});
+				}, 1000)
+			})
 		},
 		methods: {
 		}
@@ -87,7 +94,7 @@
 
 				.is-inview &
 					transform translate3d(0, 101%, 0)
-					transition all 0.3s ease-out 0.5s
+					transition all 0.8s cubic-bezier(0.8, 0, 0.170, 1) 0.5s
 
 			.block.is-title
 				margin-bottom clamp(30px, 6cqw, 60px)
@@ -101,14 +108,14 @@
 					span
 						color #FFF
 				
-					.is-slideUpDownInTextAnimation
+					.is-fadeInAnimation
 						will-change transform
 						.page-leave-active &
 							transform translate3d(0, 101%, 0)
-							transition all 0.3s ease-out
+							transition all 0.8s ease-out
 						span
 							.is-inview &
-								animation-duration 0.2s
+								animation-duration 0.8s
 								animation-delay (0.7 + 0.04)s
 
 			.block.is-btn
@@ -125,12 +132,12 @@
 						animation-duration 0.4s
 						animation-delay 0.8s
 				
-				.is-slideUpDownInTextAnimation
-					span
-						.is-inview &
-							animation-duration 0.3s
-						for num in (1..2)
-							&:nth-of-type({num})
-								animation-delay (1.0 + num * 0.04)s
+				// .is-slideUpDownInTextAnimation
+				// 	span
+				// 		.is-inview &
+				// 			animation-duration 0.3s
+				// 		for num in (1..2)
+				// 			&:nth-of-type({num})
+				// 				animation-delay (1.0 + num * 0.04)s
 
 </style>

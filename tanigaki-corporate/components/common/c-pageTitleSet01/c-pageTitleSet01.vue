@@ -83,11 +83,11 @@
 
 			.is-inview &
 				transform translate3d(0, -101%, 0)
-				transition all 0.3s ease-out 0.2s
+				transition all 0.8s ease-out 0.2s
 
 			.page-leave-active &
 				transform translate3d(0, 0, 0)
-				transition all 0.3s ease-out
+				transition all 0.8s ease-out
 
 		&>.componentWrapper
 			width 100%

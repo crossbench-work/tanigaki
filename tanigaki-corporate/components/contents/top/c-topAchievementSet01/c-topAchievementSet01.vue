@@ -14,13 +14,21 @@
 									nuxt-link(:to="'/achievements/' + achievement.id")
 										.m-topAchievementSet01_slide01
 											.block.is-image
-												img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
+												p.image
+													span(:style="`background-image: url(${achievement.mainImage.url})`")
+												//- img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
 											.block.is-text
 												h3.title.js-slideInTextAnimation.is-slideUpDownInTextAnimation {{achievement.title}}
-												p.text.is-slideUpDownInTextAnimation
-													span ここにはコメントが入りますここにはコメントが入りますここにはコメントが入りますここにはコメント入ります
-									
-
+												dl.is-slideUpDownInTextAnimation
+													.wrapper
+														dt 竣工年月：
+														dd {{ achievement.date }}
+														dt 所在地：
+														dd {{ achievement.location }}
+														dt クライアント：
+														dd {{ achievement.client }}
+														dt 担当業務：
+														dd {{ achievement.role }}
 						.block.is-progress
 							span
 </template>
@@ -43,10 +51,16 @@
 			},
 		},
 		mounted() {
-			inView({
-				className: '.js-inviewPoint.is-topAchievementSet01',
-				reverse: false
-			});
+			this.$nextTick(() => {
+				this.$nuxt.$loading.start()
+				setTimeout(function(){
+					this.$nuxt.$loading.finish()
+					inView({
+						className: '.js-inviewPoint.is-topAchievementSet01',
+						reverse: false
+					});
+				}, 1000)
+			})
 
 			progress = document.querySelector('.block.is-progress span')
 			SLIDER_LENGTH = document.querySelectorAll('.m-topAchievementSet01_slide01').length;
@@ -94,7 +108,7 @@
 				will-change transform opacity
 
 				.page-leave-active &
-					transition all 0.5s ease-out
+					transition all 0.8s ease-out
 					transform translate3d(15px, 0, 0)
 					opacity 0
 
@@ -149,10 +163,10 @@
 
 					.is-inview &
 						transform scaleX(1.0)
-						transition all 0.3s ease 2.1s
+						transition all 0.8s ease-in-out 2.1s
 
 						.page-leave-active &
-							transition all 0.2s ease-out
+							transition all 0.8s ease-out
 							transform scaleX(0)
 				
 
@@ -166,7 +180,7 @@
 			animation-name fadeIn
 			animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 			animation-fill-mode forwards
-			animation-duration 0.3s
+			animation-duration 0.8s
 			animation-delay 0.9s
 
 		&:hover
@@ -184,13 +198,29 @@
 				animation-name slideRightLeftIn
 				animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 				animation-fill-mode forwards
-				animation-duration 0.2s
+				animation-duration 0.8s
 				animation-delay 0.9s
 
-			img
-				width 100%
-				height auto
-				transition all 0.3s ease
+				.image
+					overflow hidden
+					position relative
+					width 100%
+					padding-top 60%
+					border-radius 20px
+					
+					+MQ_MAX(600px)
+						border-radius 10px
+
+					span
+						position absolute
+						top 0
+						left 0
+						width 100%
+						height 100%
+						background-size cover
+						background-position center
+						background-repeat no-repeat
+						transition all 0.3s ease
 		
 		.block.is-text
 			.title
@@ -206,17 +236,27 @@
 						for num in (1..20)
 							&:nth-of-type({num})
 								animation-delay (1.0 + num * 0.04)s
-			.text
-				margin-top 2%
-				font-size clamp(1.0rem, 3cqw, 1.4rem)
-
+			
+			dl
+				margin-top 1%
+				dt
+					font-weight bold
+				dd
+					margin-right 1em
+				
 				&.is-slideUpDownInTextAnimation
-					span
+					.wrapper
+						display flex
+						flex-wrap wrap
+						font-size clamp(1.0rem, 3cqw, 1.4rem)
 						.is-inview &
 							animation-duration 0.15s
 						for num in (1..20)
 							&:nth-of-type({num})
 								animation-delay (1.4 + num * 0.04)s
+			
+
+				
 	
 
 </style>

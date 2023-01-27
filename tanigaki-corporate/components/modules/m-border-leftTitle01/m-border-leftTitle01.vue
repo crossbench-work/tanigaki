@@ -58,17 +58,17 @@
 
 				.is-inview &
 					color inherit
-					transition color ease 0.3s 0.7s
+					transition color ease 0.8s 0.7s
 				
 				.page-leave-active &
-					transition all 0.2s 0.3s ease
+					transition all 0.8s 0.3s ease
 					color transparent
 					
 				&::before
 					width 100%
 					height 100%
 					transform translate3d(-101%, 0, 0)
-					transition all 0.5s cubic-bezier(0,0.8,0.8,0)
+					transition all 0.8s cubic-bezier(0,0.8,0.8,0)
 
 					will-change transform
 					.page-leave-active &

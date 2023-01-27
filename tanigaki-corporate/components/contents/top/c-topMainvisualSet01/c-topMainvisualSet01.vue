@@ -19,7 +19,7 @@
 				
 				.block.is-scroll
 					p.scroll
-		c-topNewsSet01
+		c-topNewsSet01(:news = 'news')
 </template>
 
 <script>
@@ -31,7 +31,12 @@
 
 	export default {
 		name: 'c-topMainvisualSet',
-		
+		props: {
+			news: {
+				type: Array,
+				required: true,
+			},
+		},
 		mounted() {
 
 			this.$nextTick(() => {
@@ -171,11 +176,11 @@
 				mainvisualBg02.scale.y = scale
 			}
 
-			if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
-				app.ticker.remove(app.animationUpdate);
-			} else {
+			// if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+			// 	app.ticker.remove(app.animationUpdate);
+			// } else {
 				app.ticker.add(app.animationUpdate);
-			}
+			// }
 
 			_g.scroll(function(){
 				if(mainvisual.classList.contains('is-inviewReverse') ) {

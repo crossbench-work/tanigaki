@@ -6,7 +6,7 @@
 					.l-contentsWrapper
 						.l-mqWrapper
 							.block.is-content
-								.area.is-image
+								.area.is-image.is-fadeInAnimation
 									.box.is-image
 										p.image
 											img(src="~/assets/images/contents/factory_main_image01.png", alt="設計部 本社事務所棟").is-pc
@@ -14,13 +14,13 @@
 								.area.is-text
 									.box.is-title
 										m-border-leftTitle01(text = "設計部", smallText = "本社事務所棟" className = "is-animate")
-									.box.is-text
+									.box.is-text.is-fadeInAnimation
 										h3.title 蓄積された実績により
 											br
 											| ご要望をカタチにする頭脳集団
 										p.text 全ての仕事は設計から始まります。 お客様との打ち合わせにより、ご要望を図面に表現します。 蓄積された実績により、機能性・意匠性・コスト効率性を最適化したご提案をします。
 									.box.is-btn
-							.block.is-lists
+							.block.is-lists.is-fadeInAnimation
 								.swiper-wrapper
 									.swiper-slide
 										p.image
@@ -48,7 +48,7 @@
 					.l-contentsWrapper
 						.l-mqWrapper
 							.block.is-content
-								.area.is-image
+								.area.is-image.is-fadeInAnimation
 									.box.is-image
 										p.image
 											img(src="~/assets/images/contents/factory_main_image02.png", alt="家具工房 本社工場").is-pc
@@ -57,13 +57,13 @@
 									.box.is-title
 										m-border-leftTitle01(text = "家具工房", smallText = "本社工場" className = "is-animate")
 
-									.box.is-text
+									.box.is-text.is-fadeInAnimation
 										h3.title 蓄積された実績により
 											br
 											| ご要望をカタチにする頭脳集団
 										p.text 全ての仕事は設計から始まります。 お客様との打ち合わせにより、ご要望を図面に表現します。 蓄積された実績により、機能性・意匠性・コスト効率性を最適化したご提案をします。
 									.box.is-btn
-							.block.is-lists
+							.block.is-lists.is-fadeInAnimation
 								.swiper-wrapper
 									.swiper-slide
 										p.image

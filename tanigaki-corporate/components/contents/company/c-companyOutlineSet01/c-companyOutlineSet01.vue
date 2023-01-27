@@ -14,7 +14,7 @@
 									dl
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 会社名
 											dd
@@ -22,7 +22,7 @@
 													p.m-baseText01 谷垣工業株式会社
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 事業所
 											dd
@@ -46,7 +46,7 @@
 
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 資本金
 											dd
@@ -54,7 +54,7 @@
 													p.m-baseText01 ３,240万円
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 創業
 											dd
@@ -62,7 +62,7 @@
 													p.m-baseText01 昭和14年12月
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 設立
 											dd
@@ -70,7 +70,7 @@
 													p.m-baseText01 昭和47年2月5日
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 役員一覧
 											dd
@@ -98,7 +98,7 @@
 
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 事業内容
 											dd
@@ -106,7 +106,7 @@
 													p.m-baseText01 船舶内装設計施工事業、建築内装設計施工事業、造作家具設計施工事業
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 建設業許可
 											dd
@@ -116,7 +116,7 @@
 														| 建築工事業・内装仕上工事業・大工工事業
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 主要取引先
 											dd
@@ -124,7 +124,7 @@
 													p.m-baseText01 昭和47年2月5日
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 設立
 											dd
@@ -134,7 +134,7 @@
 														| 高島屋スペースクリエイツ株式会社、株式会社Ｊ.フロント建装　　　(敬称略・順不同)
 										.block.is-column
 											dt
-												.is-slideUpDownInTextAnimation
+												.is-fadeInAnimation
 													p.title
 														span 取引金融機関
 											dd

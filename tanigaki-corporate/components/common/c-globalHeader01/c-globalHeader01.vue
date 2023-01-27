@@ -8,11 +8,12 @@
 				nav.is-global
 					ul
 						li(v-bind:class="[current == 'home' ? 'is-current' : '']")
-							nuxt-link(to="/")
+							//- nuxt-link(to="/")
+							//- 	span.is-en HOME
+							//- 	span.is-jp ホーム
+							a(href="/") 
 								span.is-en HOME
 								span.is-jp ホーム
-							//- a(href="/") 
-								
 						li(v-bind:class="[current == 'company' ? 'is-current' : '']")
 							nuxt-link(to="/company/")
 								span.is-en COMPANY
@@ -141,6 +142,49 @@
 
 		will-change transform
 
+		&.is-blue
+			.componentWrapper
+				.block.is-nav
+
+					nav
+
+						li
+							color #040278
+
+							&.is-current
+							&.is-contact
+								color #FFF
+							
+							a
+								background-color rgba(#FFF, 0.2)
+				.block.is-logo
+					p.logo
+						img
+							&.is-white
+								filter: invert(0%) sepia(80%) saturate(7475%) hue-rotate(333deg) brightness(98%) contrast(104%);
+		
+		&.is-white
+			.componentWrapper
+				.block.is-nav
+
+					nav
+
+						li
+							color #000
+
+							&.is-current
+							&.is-contact
+								color #FFF
+							
+							a
+								background-color rgba(#FFF, 0.2)
+
+				.block.is-logo
+					p.logo
+						img
+							&.is-white
+								filter: invert(0%) sepia(80%) saturate(7475%) hue-rotate(333deg) brightness(98%) contrast(104%);
+
 		+MQ_MAX(SP_RES_WID01)
 			padding-top 3%
 
@@ -221,7 +265,7 @@
 							width 100%
 							height 100%
 							color inherit
-							background-color rgba(#000, 0)
+							background-color rgba(#000, 0.05)
 							border-bottom 1px solid rgba(#FFFFFF, 0.2)
 							border-left 1px solid rgba(#FFFFFF, 0.2)
 							text-decoration none
@@ -229,6 +273,7 @@
 							transition all 0.3s ease
 
 							&:hover
+								color #FFF !important
 								background-color rgba(#000, 0.6)
 
 

@@ -1,31 +1,32 @@
 <template lang="pug">
-	aside.c-industryInnerLinkSet01
-		.componentWrapper
-			.l-contentsWrapper
-				.block.is-list
-					.l-contentsWrapper.is-small
-						ul
-							li
-								a(href="#section01") 
-									p.image
-										img(src="~/assets/images/contents/industry_link_bg01.png", alt="建築内装")
-									p.text
-										span.is-num 01
-										span.is-text 建築内装
-							li
-								a(href="#section02")
-									p.image
-										img(src="~/assets/images/contents/industry_link_bg02.png", alt="船舶内装")
-									p.text
-										span.is-num 02
-										span.is-text 船舶内装
-							li
-								a(href="#section03")
-									p.image
-										img(src="~/assets/images/contents/industry_link_bg03.png", alt="造作家具")
-									p.text
-										span.is-num 03
-										span.is-text 造作家具
+	.js-inviewPoint
+		aside.c-industryInnerLinkSet01
+			.componentWrapper
+				.l-contentsWrapper
+					.block.is-list
+						.l-contentsWrapper.is-small.is-fadeInAnimation
+							ul
+								li
+									a(href="#section01") 
+										p.image
+											img(src="~/assets/images/contents/industry_link_bg01.png", alt="建築内装")
+										p.text
+											span.is-num 01
+											span.is-text 建築内装
+								li
+									a(href="#section02")
+										p.image
+											img(src="~/assets/images/contents/industry_link_bg02.png", alt="船舶内装")
+										p.text
+											span.is-num 02
+											span.is-text 船舶内装
+								li
+									a(href="#section03")
+										p.image
+											img(src="~/assets/images/contents/industry_link_bg03.png", alt="造作家具")
+										p.text
+											span.is-num 03
+											span.is-text 造作家具
 
 
 </template>
@@ -130,5 +131,5 @@
 									
 									&.is-text
 										color #FFF
-										font-size clamp(1.4rem, 8cqw, 2.4rem)
+										font-size clamp(1.8rem, 8cqw, 2.4rem)
 </style>

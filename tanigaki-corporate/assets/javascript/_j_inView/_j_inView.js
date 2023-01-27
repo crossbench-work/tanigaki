@@ -12,8 +12,10 @@ function init(op) {
 			className: '.js-inview',
 			addClassName: 'is-inview',
 			reverse: false, // 繰り返し
+			range: 'block',
 			ajust: 1.0,
 			stop: false,
+			afterChange: function(el){}
 		},
 		OPTION: null,
 		ARRAY: {},
@@ -61,19 +63,41 @@ function init(op) {
 				_t.tgBottom = _t.tgTop + _t.tg.clientHeight;
 			
 				if(op.reverse == true) {
-					if ( _t.tgTop < _t.scrollTopPos + (_g.GLOBAL_HEIGHT / (2 * op.ajust ) ) &&  _t.scrollTopPos <= _t.tgBottom ) {
-						_t.tg.classList.add(op.addClassName);
-					} else {
-						_t.tg.classList.remove(op.addClassName);
-					}
-				} else {
-					if(_t.tgTop < _t.scrollTopPos +(_g.GLOBAL_HEIGHT / (2 * op.ajust ) ) ) {
-						if(op.stop == false) {
+
+					if(op.range == 'block') {
+						if ( _t.tgTop < _t.scrollTopPos + (_g.GLOBAL_HEIGHT / 2) * op.ajust &&  _t.scrollTopPos <= _t.tgBottom ) {
 							_t.tg.classList.add(op.addClassName);
-							op.stop = false;
+						} else {
+							_t.tg.classList.remove(op.addClassName);
 						}
-					} 	
+					}
+					if(op.range == 'window') {
+						if ( _t.scrollTopPos <= _t.tgTop && _t.tgBottom <= _t.scrollBottomPos) {
+							_t.tg.classList.add(op.addClassName);
+						} else {
+							_t.tg.classList.remove(op.addClassName);
+						}
+					}
+					
+				} else {
+					if(op.range == 'block') {
+						if(_t.tgTop < _t.scrollTopPos +(_g.GLOBAL_HEIGHT / 2) * op.ajust ) {
+							if(op.stop == false) {
+								_t.tg.classList.add(op.addClassName);
+								op.stop = false;
+							}
+						}
+					}
+					if(op.range == 'window') {
+						if ( _t.tgTop >= _t.scrollTopPos && _t.tgBottom <= _t.scrollBottomPos) {
+							if(op.stop == false) {
+								_t.tg.classList.add(op.addClassName);
+								op.stop = false;
+							}
+						}
+					}
 				}
+				op.afterChange(_t)
 		}
 	}
 	C_INVIEW.init(op);

@@ -1,24 +1,25 @@
 <template lang="pug">
-	section.c-achievementsBlockSet01
-		.componentWrapper
-			.l-contentsWrapper
-				.l-mqWrapper
-					.l-contentsWrapper.is-middle
-						ul
-							li(v-for="(achievement, index) of achievements" :key="achievement.id")
-								nuxt-link(:to="'/achievements/' + achievement.id")
-									p.image
-										span(:style="`background-image: url(${achievement.mainImage.url})`")
-									h2.title {{achievement.title}}
-									dl
-										dt 竣工年月：
-										dd {{ achievement.date }}
-										dt 所在地：
-										dd {{ achievement.location }}
-										dt クライアント：
-										dd {{ achievement.client }}
-										dt 担当業務：
-										dd {{ achievement.role }}
+	.js-inviewPoint
+		section.c-achievementsBlockSet01
+			.componentWrapper
+				.l-contentsWrapper
+					.l-mqWrapper
+						.l-contentsWrapper.is-middle.is-fadeInAnimation
+							ul
+								li(v-for="(achievement, index) of achievements" :key="achievement.id")
+									nuxt-link(:to="'/achievements/' + achievement.id")
+										p.image
+											span(:style="`background-image: url(${achievement.mainImage.url})`")
+										h2.title {{achievement.title}}
+										dl
+											dt 竣工年月：
+											dd {{ achievement.date }}
+											dt 所在地：
+											dd {{ achievement.location }}
+											dt クライアント：
+											dd {{ achievement.client }}
+											dt 担当業務：
+											dd {{ achievement.role }}
 									
 
 </template>

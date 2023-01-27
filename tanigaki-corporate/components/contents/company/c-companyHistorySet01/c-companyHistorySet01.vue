@@ -299,7 +299,7 @@
 				
 				.block.is-contents
 					opacity 1.0
-					transition opacity 0.1s 0.8s ease
+					transition opacity 0.8s 0.8s ease
 					
 
 		.componentWrapper

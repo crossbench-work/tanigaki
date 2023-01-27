@@ -1,36 +1,38 @@
 <template lang="pug">
-	section.c-achievementsDetailSet01
-		.componentWrapper
-			.l-contentsWrapper
-				.l-mqWrapper
-					.block.is-mainvisual
-						.area.is-image
-							p.image(:style="`background-image: url(${achievement.mainImage.url})`")
-						.area.is-text
-							h2.title
-								span {{ achievement.title }}
-							dl
-								dt 竣工年月：
-								dd {{ achievement.date }}
-								dt 所在地：
-								dd {{ achievement.location }}
-								dt クライアント：
-								dd {{ achievement.client }}
-								dt 担当業務：
-								dd {{ achievement.role }}
+	.js-inviewPoint
+		section.c-achievementsDetailSet01.is-fadeInAnimation
+			.componentWrapper
+				.l-contentsWrapper
+					.l-mqWrapper
+						.block.is-mainvisual
+							.area.is-image
+								p.image(:style="`background-image: url(${achievement.mainImage.url})`")
+							.area.is-text
+								h2.title
+									span {{ achievement.title }}
+								dl
+									dt 竣工年月：
+									dd {{ achievement.date }}
+									dt 所在地：
+									dd {{ achievement.location }}
+									dt クライアント：
+									dd {{ achievement.client }}
+									dt 担当業務：
+									dd {{ achievement.role }}
 
-					.block.is-text
-						.l-contentsWrapper.is-small
-							.area.is-text(v-for="(content, index) of achievement.content" :key="content.id")
-								p.text {{ content.achievement_content }}
+						.block.is-text
+							.l-contentsWrapper.is-small
+								.area.is-text(v-for="(content, index) of achievement.content" :key="content.id")
+									p.text {{ content.achievement_content }}
 
-					.block.is-list
-						.l-contentsWrapper.is-small
-							ul
-								li(v-for="(image, index) of achievement.images" :key="image.id")
-									p.image(:style="`background-image: url(${image.image.url})`")
+						.block.is-list
+							.l-contentsWrapper.is-small
+								ul
+									li(v-for="(image, index) of achievement.images" :key="image.id")
+										p.image(:style="`background-image: url(${image.image.url})`")
 
-					.block.is-btn
+						.block.is-btn
+							m-borderBtn01(url = "/achievements/", text="BACK")
 </template>
 
 <script>
@@ -144,6 +146,8 @@
 						
 
 			.block.is-btn
+				display flex
+				justify-content center
 				margin-top 6%
 
 			

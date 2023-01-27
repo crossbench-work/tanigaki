@@ -10,7 +10,7 @@
 								
 						.block.is-text
 							.l-contentsWrapper.is-middle
-								.is-slideUpDownInTextAnimation
+								.is-fadeInAnimation
 									p.m-baseText01
 										span テクノロジーの弛まぬ進化によって、私たちの生活は「機能的に豊か」になりました。
 											br

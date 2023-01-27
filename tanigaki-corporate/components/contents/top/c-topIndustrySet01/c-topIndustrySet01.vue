@@ -27,7 +27,7 @@
 												h3.title
 													span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 建築内装設計施工
 												p.text
-													span.is-slideUpDownInTextAnimation
+													span.is-fadeInAnimation
 														span 病院・学校・ホテル・カーディーラーなど、あらゆる商業施設の木工事及び造作家具工事を設計から施工までワンストップで行います。
 								.swiper-slide
 									.m-topIndustrySet01_slide01
@@ -46,7 +46,7 @@
 												h3.title
 													span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 船舶内装設計施工
 												p.text
-													span.is-slideUpDownInTextAnimation
+													span.is-fadeInAnimation
 														span フェリー・商船・潜水艦・クルーザーなど、あらゆる船舶内装工事を設計から施工までワンストップで行います。
 								.swiper-slide
 									.m-topIndustrySet01_slide01
@@ -65,7 +65,7 @@
 												h3.title
 													span.js-slideInTextAnimation.is-slideUpDownInTextAnimation 造作家具設計施工
 												p.text
-													span.is-slideUpDownInTextAnimation
+													span.is-fadeInAnimation
 														span 建築内装・船舶内装における造作家具を自社工場で設計・製作します。既製品では出来ない自由な設計と、船舶内装で培った堅牢な家具をご提供します。
 						
 						.block.is-pager
@@ -74,10 +74,10 @@
 								.block.is-count
 									ul
 										li.child
-											span.is-slideUpDownInTextAnimation
+											span.is-fadeInAnimation
 												span.m-topIndustrySet01_count01_child 01
 										li.parent
-											span.is-slideUpDownInTextAnimation
+											span.is-fadeInAnimation
 												span 03
 
 							.m-topIndustrySet01_arrows01
@@ -115,16 +115,27 @@
 
 			spanWrap( document.querySelectorAll('.c-topIndustrySet01 .js-slideInTextAnimation') );
 
-			inView({
-				className: '.js-inviewPoint.is-topIndustrySet01',
-				reverse: false
-			});
+			
 
-			inView({
-				className: '.c-topIndustrySet01',
-				addClassName: 'is-inviewReverse',
-				reverse: true
-			});
+			
+
+			this.$nextTick(() => {
+				this.$nuxt.$loading.start()
+				inView({
+					className: '.c-topIndustrySet01',
+					addClassName: 'is-inviewReverse',
+					reverse: true
+				});
+				setTimeout(function(){
+					this.$nuxt.$loading.finish()
+					inView({
+						className: '.js-inviewPoint.is-topIndustrySet01',
+						reverse: false
+					});
+				}, 1000)
+			})
+
+			
 
 			topIndustry = document.querySelector('.c-topIndustrySet01');
 
@@ -280,12 +291,14 @@
 							sliderCountLine02.endFill();
 						}
 
-						if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
-							sliderCountApp.ticker.remove(sliderCountApp.animationUpdate);
-						} else {
-							document.getElementById('l-contentsTop').dataset.top = 'loaded';
-							sliderCountApp.ticker.add(sliderCountApp.animationUpdate);
-						}
+						// if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+						// 	sliderCountApp.ticker.remove(sliderCountApp.animationUpdate);
+						// } else {
+						// 	document.getElementById('l-contentsTop').dataset.top = 'loaded';
+						// 	sliderCountApp.ticker.add(sliderCountApp.animationUpdate);
+						// }
+
+						sliderCountApp.ticker.add(sliderCountApp.animationUpdate);
 
 					},
 					slideChange: (swiper) => {
@@ -328,7 +341,7 @@
 			will-change transform opacity
 
 			.page-leave-active &
-				transition all 0.5s ease-out
+				transition all 0.8s ease-out
 				transform translate3d(15px, 0, 0)
 				opacity 0
 
@@ -336,7 +349,7 @@
 				width 53%
 
 				+MQ_MAX(450px)
-					width 80%
+					width 100%
 
 			.swiper-slide
 				width 40vw
@@ -346,7 +359,7 @@
 					width 50vw
 
 					+MQ_MAX(450px)
-						width 75vw
+						width 90vw
 				
 				&:nth-of-type(2)
 					.m-topIndustrySet01_slide01
@@ -374,7 +387,7 @@
 			will-change opacity
 
 			.page-leave-active &
-				transition all 0.2s ease-out
+				transition all 0.6s ease-out
 				opacity 0
 
 			+MQ_MAX(SP_RES_WID01)
@@ -393,14 +406,14 @@
 					animation-name fadeIn
 					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 					animation-fill-mode forwards
-					animation-duration 0.4s
+					animation-duration 0.8s
 					animation-delay 0.8s
 				
 
 			.is-slideUpDownInTextAnimation
 				span
 					.is-inview &
-						animation-duration 0.3s
+						animation-duration 1.0s
 					for num in (1..2)
 						&:nth-of-type({num})
 							animation-delay (1.0 + num * 0.04)s
@@ -434,7 +447,7 @@
 			font-weight bold
 			line-height 0.75
 			transform translate3d(-50%, -50%, 0)
-			transition opacity 0.3s ease
+			transition opacity 0.8s ease
 
 			&::after
 				content ""
@@ -470,7 +483,7 @@
 					animation-name fadeIn
 					animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 					animation-fill-mode forwards
-					animation-duration 0.4s
+					animation-duration 0.8s
 					animation-delay 0.4s
 
 				canvas
@@ -487,7 +500,7 @@
 						animation-name slideRightLeftIn
 						animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 						animation-fill-mode forwards
-						animation-duration 0.3s
+						animation-duration 0.6s
 						animation-delay 0.4s
 		
 		.block.is-num
@@ -504,7 +517,7 @@
 				span
 					span
 						.is-inview &
-							animation-duration 0.3s
+							animation-duration 0.4s
 
 					for num in (1..20)
 						&:nth-of-type({num})
@@ -540,11 +553,12 @@
 				margin-top 2%
 				font-size clamp(1.0rem, 6cqw, 1.4rem)
 
-				.is-slideUpDownInTextAnimation
+				.is-fadeInAnimation
 					span
 						.is-inview &
-							animation-duration 0.3s
+							animation-duration 0.8s
 							animation-delay (1.5 + 0.04)s
+	
 	.m-topIndustrySet01_count01
 		container-type inline-size
 		overflow hidden
@@ -570,13 +584,13 @@
 			width 100%
 			height 100%
 
-			transform: translate3d(-101%, 0, 0);
+			opacity 0
 
 			.is-inview &
-				animation-name slideLeftRightIn
+				animation-name fadeIn
 				animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 				animation-fill-mode forwards
-				animation-duration 0.2s
+				animation-duration 0.8s
 				animation-delay 1.3s
 
 			canvas
@@ -612,7 +626,7 @@
 
 					.is-inview &
 						width 140%
-						transition width 0.2s 1.5s ease
+						transition width 0.8s 1.5s ease
 
 				li
 					position absolute
@@ -631,11 +645,11 @@
 						bottom 0
 					
 
-					.is-slideUpDownInTextAnimation
+					.is-fadeInAnimation
 						span
 							.is-inview &
-								animation-duration 0.3s
-							for num in (1..200)
+								animation-duration 0.8s
+							for num in (1..2)
 								&:nth-of-type({num})
 									animation-delay (1.6 + num * 0.04)s
 					
@@ -675,7 +689,7 @@
 						animation-name slideLeftRightIn
 						animation-timing-function cubic-bezier(0.8, 0, 0.170, 1)
 						animation-fill-mode forwards
-						animation-duration 0.2s
+						animation-duration 0.8s
 						animation-delay 1.3s
 
 </style>

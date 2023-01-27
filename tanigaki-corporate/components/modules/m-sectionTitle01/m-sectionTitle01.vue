@@ -47,7 +47,7 @@
 				color transparent
 
 				.is-inview &
-					transition color ease 0.3s 0.7s
+					transition color ease-in-out 0.8s 0.7s
 
 				&::after
 					.is-inview &
@@ -111,11 +111,11 @@
 			span
 				will-change opacity
 				.page-leave-active &
-					transition all 0.5s ease
+					transition opacity 0.8s ease
 					opacity 0
 			
 
-			&::before
+			// &::before
 			&::after
 				content ""
 				position absolute
@@ -126,7 +126,7 @@
 
 			&::before
 				transform translate3d(0, -101%, 0)
-				transition all 0.3s cubic-bezier(0,0.8,0.8,0)
+				transition all 0.8s cubic-bezier(0,0.8,0.8,0)
 
 				will-change transform
 				

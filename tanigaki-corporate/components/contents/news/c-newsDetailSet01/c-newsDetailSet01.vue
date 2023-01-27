@@ -1,14 +1,16 @@
 <template lang="pug">
-	section.c-newsDetailSet01
-		.componentWrapper
-			.l-contentsWrapper
-				.l-mqWrapper
-					.l-contentsWrapper.is-middle
-						.block.is-title
-							h2.title(v-html="list.title")
-						.block.is-contents(v-html="list.content")
-						p {{ list.text }}
-										
+	.js-inviewPoint
+		section.c-newsDetailSet01.is-fadeInAnimation
+			.componentWrapper
+				.l-contentsWrapper
+					.l-mqWrapper
+						.l-contentsWrapper.is-middle
+							.block.is-title
+								h2.title(v-html="list.title")
+							.block.is-contents(v-html="list.content")
+							
+							.block.is-btn
+								m-borderBtn01(url = "/news/", text="BACK")
 								
 
 </template>
@@ -70,4 +72,9 @@
 				
 				*:first-child
 					margin-top 0
+			
+			.block.is-btn
+				display flex
+				justify-content center
+				margin-top 6%
 </style>

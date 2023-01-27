@@ -32,8 +32,8 @@
 			}
 		},
 		mounted() {
-			_g = window.GLOBAL;
-			canvas = document.querySelectorAll('.m-borderBtn01 .is-bg');
+			// _g = window.GLOBAL;
+			// canvas = document.querySelectorAll('.m-borderBtn01 .is-bg');
 			// console.log(canvas.length);
 
 			// [].slice.call(canvas).forEach(function(element, i) {
@@ -122,7 +122,7 @@
 			// 	inView({
 			// 		className: '.m-borderBtn01 .is-bg',
 			// 		reverse: true,
-			// 		ajust: 0.001
+			// 		range: 'window',
 			// 	});
 
 			// 	_g.scroll(function(){
@@ -177,6 +177,20 @@
 				box-sizing border-box
 				text-decoration none
 				will-change opacity
+
+				&:hover
+					span
+						&.is-bg
+							background-color #E02400
+							
+							&.is-white
+								background-color #FFF
+
+						&.is-text
+							color #FFF
+							&.is-white
+								color #E02400
+				
 				
 				span
 					display block
@@ -187,6 +201,12 @@
 						left 0
 						width 100%
 						height 100%
+						border 1px solid #E02400
+						border-radius 100px
+						transition all 0.3s ease
+
+						&.is-white
+							border 1px solid #FFF
 
 						canvas
 							position absolute
@@ -204,6 +224,7 @@
 						font-weight bold
 						line-height 1.0
 						font-size clamp(1.0rem, 6cqw, 1.4rem)
+						transition all 0.3s ease
 
 						&.is-white
 							color #FFF

@@ -17,6 +17,10 @@
 
 @keyframes mask-bg {
   0% {
+    opacity 0
+    transform: translate3d(0, 101%, 0)
+  }
+  1% {
     transform: translate3d(0, 101%, 0)
   }
   40%, 60% {
@@ -105,12 +109,12 @@
     font-weight bold
 
 .is-fadeInAnimation
-    &>div, &>span, &>p, &>h3
+    &>div, &>span, &>p, &>h3, &>ul
         opacity 0
 
         .is-inview &
             animation-name fadeIn
-            animation-duration 0.3s
+            animation-duration 0.8s
             animation-timing-function ease-out
             animation-fill-mode forwards
 
@@ -125,7 +129,7 @@
 
         .is-inview &
             animation-name slideBottomTopIn
-            animation-duration 0.3s
+            animation-duration 0.8s
             animation-timing-function ease-out
             animation-fill-mode forwards
 
@@ -137,7 +141,7 @@
         span
           .page-leave-active &
               opacity 0
-              transition opacity 0.3s ease
+              transition opacity 0.8s ease
               will-change opacity
 
 .is-slideLeftRightInTextAnimation
@@ -161,7 +165,7 @@
                 span
                     animation-delay (0.1)s
 
-.l-mainWrapper
+.l-mainContainer
   will-change opacity
 
 .page-enter-active
@@ -170,7 +174,7 @@
 
 .page-enter
 .page-leave-active
-    .l-mainWrapper
+    .l-mainContainer
       opacity 0
       transition opacity 0.5s 0.3s cubic-bezier(.82,.03,1,.23)
 

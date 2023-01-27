@@ -1,7 +1,7 @@
 <template lang="pug">
 	.c-industryBlockSet01_wrapper
 		.js-inviewPoint#section01
-			section.c-industryBlockSet01
+			section.c-industryBlockSet01.is-fadeInAnimation
 				.componentWrapper
 					.l-contentsWrapper
 						.l-mqWrapper
@@ -42,7 +42,7 @@
 											img(src="https://placehold.jp/300x300.png", alt="")
 
 		.js-inviewPoint#section02
-			section.c-industryBlockSet01.is-contentsLeft
+			section.c-industryBlockSet01.is-contentsLeft.is-fadeInAnimation
 				.componentWrapper
 					.l-contentsWrapper
 						.l-mqWrapper
@@ -82,7 +82,7 @@
 										.image
 											img(src="https://placehold.jp/300x300.png", alt="")
 		.js-inviewPoint#section03
-			section.c-industryBlockSet01
+			section.c-industryBlockSet01.is-fadeInAnimation
 				.componentWrapper
 					.l-contentsWrapper
 						.l-mqWrapper
@@ -141,6 +141,11 @@
 				thumbnailSlider[i] =  new Swiper(element, {
 					slidesPerView: 'auto',
 					loop: true,
+					speed: 6000,
+					allowTouchMove: false,
+					autoplay: {
+						delay: 0,
+					},
 				})
 			});
 		},
@@ -245,6 +250,8 @@
 				margin-top clamp(-180px, -18svw, -260px)
 				+MQ_MAX(SP_RES_WID01)
 					margin-top 5%
+				.swiper-wrapper
+					transition-timing-function linear
 				.swiper-slide
 					width 22svw
 					max-width 300px

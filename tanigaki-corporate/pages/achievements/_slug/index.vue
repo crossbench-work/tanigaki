@@ -1,9 +1,13 @@
 <template lang="pug">
 	div.c-achievementsDetailPageContents
 		c-globalHeader01(current = "achievements")
-		main.l-mainWrapper
-			c-pageTitleSet01(jp = '施工実績', en = 'ACHIEVEMENTS')
-			c-achievementsDetailSet01(:achievement = 'achievement')
+		main.l-mainContainer
+			.js-headerTypeSet
+				c-pageTitleSet01(jp = '施工実績', en = 'ACHIEVEMENTS')
+			.js-headerTypeSet.is-white
+				c-achievementsDetailSet01(:achievement = 'achievement')
+			.js-headerTypeSet
+				c-contactSet01
 		c-globalFooter01
 
 </template>
@@ -34,6 +38,26 @@ export default Vue.extend({
 		}
 	},
 	mounted() {
+		inView({
+			className: '.js-headerTypeSet',
+			reverse: true,
+			ajust: 0.001,
+			afterChange: function(el){
+				if(el.tg.classList.contains('is-inview')) {
+					if(el.tg.classList.contains('is-blue')) {
+						document.querySelector('.c-globalHeader01').classList.add('is-blue');
+					} else {
+						document.querySelector('.c-globalHeader01').classList.remove('is-blue');
+					}
+
+					if(el.tg.classList.contains('is-white')) {
+						document.querySelector('.c-globalHeader01').classList.add('is-white');
+					} else {
+						document.querySelector('.c-globalHeader01').classList.remove('is-white');
+					}
+				}
+			},
+		});
 		this.$nextTick(() => {
 			let _t= this;
 			_t.$nuxt.$loading.start()
