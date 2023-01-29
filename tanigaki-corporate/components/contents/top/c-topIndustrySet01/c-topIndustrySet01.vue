@@ -16,7 +16,7 @@
 											.block.is-more
 												span MORE
 											.block.is-bg
-												.area.is-bg(data-slide = 'top_industory_bg01.png')
+												.area.is-bg(data-slide = 'top_industory_bg01.jpg')
 											.block.is-num
 												span.is-slideLeftRightInTextAnimation
 													span
@@ -35,7 +35,7 @@
 											.block.is-more
 												span MORE
 											.block.is-bg
-												.area.is-bg(data-slide = 'top_industory_bg02.png')
+												.area.is-bg(data-slide = 'top_industory_bg02.jpg')
 											.block.is-num
 												span.is-slideLeftRightInTextAnimation
 													span
@@ -54,7 +54,7 @@
 											.block.is-more
 												span MORE
 											.block.is-bg
-												.area.is-bg(data-slide = 'top_industory_bg03.png')
+												.area.is-bg(data-slide = 'top_industory_bg03.jpg')
 											.block.is-num 
 												span.is-slideLeftRightInTextAnimation
 													span
@@ -469,6 +469,19 @@
 			width 100%
 			padding-top 120%
 			// background-color #F00
+
+			&::after
+				content ""
+				display block
+				position absolute
+				top 0
+				left 0
+				width 100%
+				height 100%
+				background-color transparent
+				z-index 200
+
+				will-change transform
 
 			.area.is-bg
 				position absolute

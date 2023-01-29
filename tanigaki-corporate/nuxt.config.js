@@ -73,7 +73,12 @@ export default {
   [
     "@nuxtjs/axios",
     'nuxt-microcms-module',
+    '@aceforth/nuxt-optimized-images',
   ],
+  optimizedImages: {
+    optimizeImages: true,
+    optimizeImagesInDev: true,
+  },
   microcms: {
     options: {
       serviceDomain: process.env.SERVICE_DOMAIN,

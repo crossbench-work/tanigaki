@@ -15,7 +15,7 @@
 										.m-topAchievementSet01_slide01
 											.block.is-image
 												p.image
-													span(:style="`background-image: url(${achievement.mainImage.url})`")
+													span(:style="`background-image: url(${achievement.mainImage.url}?w=640&fm=webp)`")
 												//- img(src="~/assets/images/contents/top_achievement_image01.png", alt="")
 											.block.is-text
 												h3.title.js-slideInTextAnimation.is-slideUpDownInTextAnimation {{achievement.title}}

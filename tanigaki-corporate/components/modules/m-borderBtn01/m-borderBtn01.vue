@@ -10,7 +10,7 @@
 
 <script>
 	import 'swiper/swiper-bundle.css'
-	import inView from '~/assets/javascript/_j_inView/_j_inView.js'
+	// import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 	let _g;
 			
 	let canvas, app = [], bgLine01 = [], maskLine01 = [], hover = [], rotation = Math.PI / 45, addRotation = [];

@@ -55,7 +55,7 @@
 		position relative
 		width 100%
 		height clamp(200px, 34cqw, 450px)
-		background-image url('~/assets/images/common/common_pageTitle_bg01.png')
+		background-image url('~/assets/images/common/common_pageTitle_bg01.jpg')
 		background-size cover
 		background-position center
 		background-repeat no-repeat

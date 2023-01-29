@@ -6,7 +6,7 @@
 					.l-mqWrapper
 						.block.is-mainvisual
 							.area.is-image
-								p.image(:style="`background-image: url(${achievement.mainImage.url})`")
+								p.image(:style="`background-image: url(${achievement.mainImage.url}?w=1360&fm=webp)`")
 							.area.is-text
 								h2.title
 									span {{ achievement.title }}
@@ -29,7 +29,7 @@
 							.l-contentsWrapper.is-small
 								ul
 									li(v-for="(image, index) of achievement.images" :key="image.id")
-										p.image(:style="`background-image: url(${image.image.url})`")
+										p.image(:style="`background-image: url(${image.image.url}?w=490&fm=webp)`")
 
 						.block.is-btn
 							m-borderBtn01(url = "/achievements/", text="BACK")

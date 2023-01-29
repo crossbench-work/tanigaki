@@ -9,7 +9,7 @@
 								li(v-for="(achievement, index) of achievements" :key="achievement.id")
 									nuxt-link(:to="'/achievements/' + achievement.id")
 										p.image
-											span(:style="`background-image: url(${achievement.mainImage.url})`")
+											span(:style="`background-image: url(${achievement.mainImage.url}?w=580&fm=webp)`")
 										h2.title {{achievement.title}}
 										dl
 											dt 竣工年月：

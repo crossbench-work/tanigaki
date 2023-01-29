@@ -21,25 +21,25 @@
 							.l-contentsWrapper.is-middle
 								ul
 									li
-										a(href="")
+										a(href="/")
 											span.is-jp ホーム
 									li
-										a(href="")
+										nuxt-link(to="/company/")
 											span.is-jp 会社案内
 									li
-										a(href="")
+										nuxt-link(to="/industry/")
 											span.is-jp 事業内容
 									li
-										a(href="")
+										nuxt-link(to="/achievements/")
 											span.is-jp 施工実績
 									li
-										a(href="")
+										nuxt-link(to="/factory/")
 											span.is-jp 工場紹介
 									li
-										a(href="")
+										nuxt-link(to="/news/")
 											span.is-jp 新着情報
 									li
-										a(href="")
+										nuxt-link(to="/contact/")
 											span.is-jp お問合せ
 					.block.is-copyright
 						.l-contentsWrapper.is-middle

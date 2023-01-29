@@ -20,7 +20,7 @@
 
 						.block.is-btn
 							.l-contentsWrapper.is-middle
-								m-borderBtn01(className ="is-white")
+								m-borderBtn01(className ="is-white", url="/contact")
 					
 </template>
 
@@ -60,7 +60,7 @@
 			padding clamp(60px, 10cqw, 190px) 0
 			box-sizing border-box
 			background-color #DFDFDF
-			background-image url('~/assets/images/common/common_contact_bg01.png')
+			background-image url('~/assets/images/common/common_contact_bg01.jpg')
 			background-repeat no-repeat
 			background-size cover
 			background-position center

@@ -9,8 +9,7 @@
 								.area.is-image.is-fadeInAnimation
 									.box.is-image
 										p.image
-											img(src="~/assets/images/contents/factory_main_image01.png", alt="設計部 本社事務所棟").is-pc
-											img(src="~/assets/images/contents/factory_main_image01_sp.png", alt="設計部 本社事務所棟").is-sp
+											m-basePicture(:sources="[{ srcset: 'factory_main_image01_sp.png', type: 'image/png', media: '640px'}]", src="factory_main_image01.png", alt="設計部 本社事務所棟")
 								.area.is-text
 									.box.is-title
 										m-border-leftTitle01(text = "設計部", smallText = "本社事務所棟" className = "is-animate")
@@ -51,8 +50,7 @@
 								.area.is-image.is-fadeInAnimation
 									.box.is-image
 										p.image
-											img(src="~/assets/images/contents/factory_main_image02.png", alt="家具工房 本社工場").is-pc
-											img(src="~/assets/images/contents/factory_main_image02_sp.png", alt="家具工房 本社工場").is-sp
+											m-basePicture(:sources="[{ srcset: 'factory_main_image02_sp.png', type: 'image/png', media: '640px'}]", src="factory_main_image02.png", alt="家具工房 本社工場")
 								.area.is-text
 									.box.is-title
 										m-border-leftTitle01(text = "家具工房", smallText = "本社工場" className = "is-animate")

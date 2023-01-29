@@ -9,21 +9,24 @@
 								li
 									a(href="#section01") 
 										p.image
-											img(src="~/assets/images/contents/industry_link_bg01.png", alt="建築内装")
+											m-basePicture(src="industry_link_bg01.png")
+											//- img(src="~/assets/images/contents/industry_link_bg01.png", alt="建築内装")
 										p.text
 											span.is-num 01
 											span.is-text 建築内装
 								li
 									a(href="#section02")
 										p.image
-											img(src="~/assets/images/contents/industry_link_bg02.png", alt="船舶内装")
+											m-basePicture(src="industry_link_bg02.png")
+											//- img(src="~/assets/images/contents/industry_link_bg02.png", alt="船舶内装")
 										p.text
 											span.is-num 02
 											span.is-text 船舶内装
 								li
 									a(href="#section03")
 										p.image
-											img(src="~/assets/images/contents/industry_link_bg03.png", alt="造作家具")
+											m-basePicture(src="industry_link_bg03.png")
+											//- img(src="~/assets/images/contents/industry_link_bg03.png", alt="造作家具")
 										p.text
 											span.is-num 03
 											span.is-text 造作家具

@@ -11,8 +11,9 @@
 										p 01
 									.box.is-image
 										p.image
-											img(src="~/assets/images/contents/industry_block_main_image01.png", alt="建築内装設計施工").is-pc
-											img(src="~/assets/images/contents/industry_block_main_image01_sp.png", alt="建築内装設計施工").is-sp
+											m-basePicture(:sources="[{ srcset: 'industry_block_main_image01_sp.png', type: 'image/png', media: '640px'}]", src="industry_block_main_image01.png", alt="建築内装設計施工")
+											//- img(src="~/assets/images/contents/industry_block_main_image01.png", alt="建築内装設計施工").is-pc
+											//- img(src="~/assets/images/contents/industry_block_main_image01_sp.png", alt="建築内装設計施工").is-sp
 								.area.is-text
 									.box.is-title
 										m-border-leftTitle01(text = "建築内装設計施工", className = "is-animate")
@@ -52,8 +53,7 @@
 										p 02
 									.box.is-image
 										p.image
-											img(src="~/assets/images/contents/industry_block_main_image02.png", alt="船舶内装設計施工").is-pc
-											img(src="~/assets/images/contents/industry_block_main_image02_sp.png", alt="船舶内装設計施工").is-sp
+											m-basePicture(:sources="[{ srcset: 'industry_block_main_image02_sp.png', type: 'image/png', media: '640px'}]", src="industry_block_main_image02.png", alt="船舶内装設計施工")
 								.area.is-text
 									.box.is-title
 										m-border-leftTitle01(text = "船舶内装設計施工", className = "is-animate")
@@ -92,8 +92,7 @@
 										p 03
 									.box.is-image
 										p.image
-											img(src="~/assets/images/contents/industry_block_main_image03.png", alt="造作家具設計施工").is-pc
-											img(src="~/assets/images/contents/industry_block_main_image03_sp.png", alt="造作家具設計施工").is-sp
+											m-basePicture(:sources="[{ srcset: 'industry_block_main_image03_sp.png', type: 'image/png', media: '640px'}]", src="industry_block_main_image03.png", alt="造作家具設計施工")
 								.area.is-text
 									.box.is-title
 										m-border-leftTitle01(text = "造作家具設計施工", className = "is-animate")

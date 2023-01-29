@@ -75,12 +75,12 @@
 			
 			canvas.appendChild(app.view);
 
-			mainvisualBg01 = PIXI.Sprite.from('/images/contents/top_mainvisual_bg01.png');
+			mainvisualBg01 = PIXI.Sprite.from('/images/contents/top_mainvisual_bg01.jpg');
 			mainvisualBg01.anchor.x = 0.5;
 			mainvisualBg01.anchor.y = 0.5;
 			
 
-			mainvisualBg02 = PIXI.Sprite.from('/images/contents/top_mainvisual_bg01.png');
+			mainvisualBg02 = PIXI.Sprite.from('/images/contents/top_mainvisual_bg01.jpg');
 			mainvisualBg02.anchor.x = 0.5;
 			mainvisualBg02.anchor.y = 0.5;
 
@@ -247,6 +247,20 @@
 				width 100% !important
 				height 100% !important
 				z-index 0
+			
+			.block.is-bg
+				&::after
+					content ""
+					display block
+					position absolute
+					top 0
+					left 0
+					width 100%
+					height 100%
+					background-color transparent
+					z-index 200
+
+					will-change transform
 			
 			.block.is-text
 				
