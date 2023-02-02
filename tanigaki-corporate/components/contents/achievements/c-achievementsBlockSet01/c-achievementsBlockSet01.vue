@@ -51,6 +51,7 @@
 				display flex
 				justify-content space-between
 				flex-wrap wrap
+				row-gap 5%
 
 				li
 					width 48%
@@ -58,6 +59,9 @@
 					+MQ_MAX(600px)
 						width 100%
 
+					&:nth-of-type(n + 3)
+						margin-top 4%
+						
 					&:nth-of-type(n+2)
 						+MQ_MAX(600px)
 							margin-top 3%

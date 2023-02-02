@@ -50,6 +50,7 @@ export default {
   plugins: [
     { src: '~/plugins/globalSet', mode: 'client' },
     { src: '~/plugins/spanWrap', mode: 'client' },
+    { src: '~/plugins/VueModalTor', mode: 'client' },
     // { src: '~/plugins/pixiPlugins', ssr: false },
   ],
 

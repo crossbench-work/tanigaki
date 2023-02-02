@@ -91,7 +91,7 @@
 					left 0
 					width 100%
 					height 100%
-					background-image url('~/assets/images/contents/company_message_bg01.png')
+					background-image url(" require(`~/assets/images/contents/company_message_bg01.png?webp`) ")
 					background-repeat no-repeat
 					background-size cover
 					background-position center

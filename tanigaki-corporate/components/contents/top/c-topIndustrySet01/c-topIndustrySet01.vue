@@ -102,7 +102,7 @@
 	let _g;
 	let topIndustry;
 	let slideBgCanvas, app = [], sliderBg = [], bgMask01 = [], texture01 = [], bgTexture01 = [], sliderCount, sliderCountNum, sliderCountApp, sliderCountLine01, sliderCountLine02, hover = [], scale = [];
-	let SLIDER_LENGTH = 3, SLIDER_CURRENT = 1;
+	let SLIDER_LENGTH = 3, SLIDER_CURRENT = 1, SCALE = 2.0;
 	
 
 	export default {
@@ -168,7 +168,7 @@
 								});
 							}
 
-							scale[i] = 1.0;
+							scale[i] = SCALE;
 							
 							element.appendChild(app[i].view);
 
@@ -197,6 +197,9 @@
 
 							bgTexture01[i].blendMode = PIXI.BLEND_MODES.MULTIPLY
 
+							
+							
+							
 							app[i].animationUpdate = function(delta) {
 								bgMask01[i].width = app[i].renderer.width;
 								bgMask01[i].height = app[i].renderer.height;
@@ -206,13 +209,13 @@
 
 								if(hover[i] == false) {
 									sliderBg[i].width = app[i].renderer.width - scale;
-									if (scale[i] > 1.0) {
+									if (scale[i] > SCALE) {
 										scale[i] -= 0.005;
 									}
 									sliderBg[i].scale.x = scale[i];
 									sliderBg[i].scale.y = scale[i];
 								} else if (hover[i] == true){
-									if (scale[i] < 1.1) {
+									if (scale[i] < SCALE + 0.1) {
 										scale[i] += 0.005;
 									}
 									sliderBg[i].scale.x = scale[i];
@@ -225,12 +228,15 @@
 								bgTexture01[i].height = app[i].renderer.height;
 							}
 
-							if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
-								app[i].ticker.remove(app[i].animationUpdate);
+							if(_g.UA == 'pc') {
+								if(document.getElementById('l-contentsTop').dataset.top == 'loaded') {
+									app[i].ticker.remove(app[i].animationUpdate);
+								} else {
+									app[i].ticker.add(app[i].animationUpdate);
+								}
 							} else {
-								app[i].ticker.add(app[i].animationUpdate);
+								app[i].animationUpdate();
 							}
-							
 							element.addEventListener('mouseenter',function(e){
 								hover[i] = true;
 							});
@@ -470,18 +476,20 @@
 			padding-top 120%
 			// background-color #F00
 
-			&::after
-				content ""
-				display block
-				position absolute
-				top 0
-				left 0
-				width 100%
-				height 100%
-				background-color transparent
-				z-index 200
+			
+			+MQ_MAX(SP_RES_WID01)
+				&::after
+					content ""
+					display block
+					position absolute
+					top 0
+					left 0
+					width 100%
+					height 100%
+					background-color transparent
+					z-index 200
 
-				will-change transform
+					will-change transform
 
 			.area.is-bg
 				position absolute

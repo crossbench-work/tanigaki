@@ -56,7 +56,7 @@
 				max-width 700px
 				height 45svw
 				max-height 700px
-				background-image url('~/assets/images/contents/company_about_bg01.png')
+				background-image url(" require(`~/assets/images/contents/company_about_bg01.png?webp`) ")
 				background-repeat no-repeat
 				background-size cover
 				background-position center
