@@ -17,10 +17,16 @@
 
 							.page(v-for="n of Math.ceil(totalCount / limit)" :key="n")
 
-								nuxt-link(v-if = "(n < Number(page) + view && n >= Number(page) &&  n != Number(page)) || ((n == 1) && page != 1)" :to="`/achievements/${n}`").wrapper
+								.dot(v-if = "page < Math.ceil(totalCount / limit) - 2 && n == Math.ceil(totalCount / limit) && Math.ceil(totalCount / limit) > 3")
+									span ...
+								
+								nuxt-link(v-if = "(n < Number(page) + view && n >= Number(page) &&  n != Number(page)) || ((n == 1) && page != 1) || (n == Math.ceil(totalCount / limit) && page != Math.ceil(totalCount / limit) || (Math.ceil(totalCount / limit) - page < 3 && n > Math.ceil(totalCount / limit) - 3 && n != page) )  " :to="`/achievements/${n}`").wrapper
 									span {{ n }}
 								.wrapper(v-if = "n == Number(page)")
 									span {{ n }}
+								
+								.dot(v-if = "page > 2 && n == 1 && Math.ceil(totalCount / limit) > 3")
+									span ...
 
 							.page.is-next
 								nuxt-link(v-if = "Number(page) < Math.ceil(totalCount / limit) " :to="`/achievements/${Number(page) + 1}`").wrapper
@@ -112,6 +118,8 @@ export default Vue.extend({
 				flex-wrap wrap
 				justify-content flex-end
 				.page
+					display flex
+					flex-wrap wrap
 					.wrapper
 						container-type inline-size
 						display flex
@@ -134,6 +142,15 @@ export default Vue.extend({
 							background-color #E2E2E2
 					a.wrapper
 						background-color #040278
+					
+					.dot
+						display flex
+						justify-content center
+						align-items center
+						width 4svw
+						color #B1AAAA
+						font-size clamp(1.4rem, 2cqw, 3.6rem)
+						font-weight bold
 
 					&.is-prev, &.is-next
 						span
