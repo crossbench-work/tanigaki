@@ -7,7 +7,7 @@
 						.l-contentsWrapper.is-middle.is-fadeInAnimation
 							ul
 								li(v-for="(achievement, index) of achievements" :key="achievement.id")
-									nuxt-link(:to="'/achievements/' + achievement.id")
+									nuxt-link(:to="'/achievements/detail/' + achievement.id")
 										p.image
 											span(:style="`background-image: url(${achievement.mainImage.url}?w=580&fm=webp)`")
 										h2.title {{achievement.title}}

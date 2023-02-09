@@ -24,6 +24,12 @@ export default Vue.extend({
 			achievement: {}
 		};
 	},
+	props: {
+		pageCount: {
+			type: Number,
+			default: 2
+		},
+	},
 	layout: "l-mainWrapper01",
 	async asyncData({ $microcms, params }) {
 		try {

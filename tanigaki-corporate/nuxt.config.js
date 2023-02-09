@@ -98,6 +98,15 @@ export default {
   //     return { x: 0, y: 0 }
   //   }
   // },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        path: '/achievements/:p',
+        component: resolve(__dirname, 'pages/achievements/index.vue'),
+        name: 'AchievementsPage',
+      })
+    },
+  },
   gtm: {
     id: process.env.GTM_ID,
     pageTracking: true
