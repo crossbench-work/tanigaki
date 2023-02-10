@@ -23,7 +23,6 @@
 			list: {}
 		},
 		mounted() {
-			console.log(this.lists)
 		},
 		methods: {
 			

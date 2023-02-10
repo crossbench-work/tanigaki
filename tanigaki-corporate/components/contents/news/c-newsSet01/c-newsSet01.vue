@@ -8,7 +8,7 @@
 							.block.is-news
 								dl
 									.area.is-news(v-for="(list, index) of lists")
-										nuxt-link(:to="'/news/' + list.id")
+										nuxt-link(:to="'/news/detail/' + list.id")
 											dt.date {{list.publishedAtJp}}
 											dd.text {{list.title}}
 										
@@ -27,7 +27,6 @@
 			},
 		},
 		mounted() {
-			console.log(this.lists)
 		},
 		methods: {
 			
@@ -43,7 +42,7 @@
 	.c-newsSet01
 		&>.componentWrapper
 			padding clamp(30px, 4cqw, 60px) 0
-			background-image url('~/assets/images/contents/top_industry_texture01.png')
+			// background-image url('~/assets/images/contents/top_industry_texture01.png')
 
 			dl
 				.area.is-news

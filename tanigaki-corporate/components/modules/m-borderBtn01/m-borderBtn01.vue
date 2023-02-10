@@ -1,7 +1,12 @@
 <template lang="pug">
 	.m-borderBtn01
 		p.btn
-			nuxt-link(:to='`${url}`')
+			nuxt-link(v-if = 'blank == false' :to='`${url}`')
+				span.is-bg(:class='`${className}`')
+				span.is-slideUpDownInTextAnimation
+					span.is-text(:class='`${className}`') {{ text }}
+			
+			a(v-if = 'blank == true' :href='`${url}`', target = '_blank')
 				span.is-bg(:class='`${className}`')
 				span.is-slideUpDownInTextAnimation
 					span.is-text(:class='`${className}`') {{ text }}
@@ -18,6 +23,10 @@
 	export default {
 		name: 'm-borderBtn01',
 		props: {
+			blank: {
+				type: Boolean,
+				default: false
+			},
 			className: {
 				type: String,
 				default: 'is-type01'

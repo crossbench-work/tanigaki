@@ -6,6 +6,7 @@
 				c-pageTitleSet01(jp = '新着情報', en = 'NEWS')
 			.js-headerTypeSet.is-blue
 				c-newsSet01(:lists = 'items')
+				c-pagerSet01(:totalCount = 'totalCount', :page = 'page' url = 'news')
 			.js-headerTypeSet
 				c-contactSet01
 		c-globalFooter01
@@ -24,19 +25,32 @@ export default Vue.extend({
 	name: 'NewsPage',
 	data() {
 		return {
-			items: []
+			items: [],
+			totalCount: 0,
+			limit: 0,
+			page: 0,
 		};
 	},
 	layout: "l-mainWrapper01",
-	
-	async asyncData({ $microcms }) {
+	head: {
+		title: '新着情報 | 谷垣工業株式会社',
+		meta: [
+			{ hid: 'description', name: 'description', content: '谷垣工業では、建築内装及び造作家具において自社で設計・デザイン・施工を行うことにより、 斬新で機能的な空間デザインを提案させていただいております。また、船舶内装という特殊な艤 装工事でも、その技術力を生かし高く評価されております。今後も固定観念にとらわれる事なく 、お客様に満足していただけますよう努力してまいります。' }
+		]
+	},
+	async asyncData({ $microcms, params }) {
 		try {
+			const page = params.p || '1';
+    		const limit = 6;
 			const data = await $microcms.get({
 				endpoint: 'news',
-				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
+				queries: { limit: limit, offset: (page - 1) * limit},
 			});
 			return {
-				items: data.contents
+				items: data.contents,
+				totalCount: data.totalCount,
+				limit: limit,
+				page: page,
 			}
 		} catch (err) {
 		}

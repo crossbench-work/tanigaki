@@ -22,7 +22,9 @@
 											span 谷垣 正彰
 									.is-fadeInAnimation
 										p.text
-											span キャッチコピーキャッチコピーキャッチコピー
+											span 船舶内装業者として磨いた技術、
+												br
+												| 誠実なものづくり
 				.block.is-text
 					.l-contentsWrapper
 						.l-mqWrapper
@@ -38,7 +40,6 @@
 												br
 												| その原動となるのは「誠実なものづくり」に徹することです。
 									
-									.is-fadeInAnimation
 										p.m-baseText01
 											span 品質の高いインテリアを表現したい
 												br
@@ -119,6 +120,8 @@
 					.area.is-text
 						max-width 480px
 						width 40%
+
+						
 						
 						+MQ_MAX(SP_RES_WID01)
 							width 100%
@@ -150,15 +153,14 @@
 						+MQ_MAX(SP_RES_WID01)
 							width 100%
 							margin-top 3%
-
-							&>div
-								margin-top 3%
-								&:first-child
-									+MQ_MAX(SP_RES_WID01)
-										margin-top 0
 							
 							br
 								display none
+						
+						.m-baseText01
+							margin-top 3%
+							&:first-child
+								margin-top 0
 						
 						&:first-child
 							+MQ_MAX(SP_RES_WID01)

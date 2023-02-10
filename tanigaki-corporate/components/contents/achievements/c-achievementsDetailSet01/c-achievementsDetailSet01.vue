@@ -15,7 +15,7 @@
 									dd {{ achievement.date }}
 									dt 所在地：
 									dd {{ achievement.location }}
-									dt クライアント：
+									dt 施工：
 									dd {{ achievement.client }}
 									dt 担当業務：
 									dd {{ achievement.role }}
@@ -73,7 +73,6 @@
 			// [].slice.call(document.querySelectorAll('.js-imageGroup')).forEach(function(element, i) {
 			// 	_t.open[i] = false;
 			// });
-			console.log(this.open);
 		},
 		methods: {
 		}

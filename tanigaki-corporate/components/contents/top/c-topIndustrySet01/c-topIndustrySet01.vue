@@ -12,7 +12,7 @@
 							.swiper-wrapper
 								.swiper-slide
 									.m-topIndustrySet01_slide01
-										a(href="") 
+										nuxt-link(to="/industry/#section01")
 											.block.is-more
 												span MORE
 											.block.is-bg
@@ -31,7 +31,7 @@
 														span 病院・学校・ホテル・カーディーラーなど、あらゆる商業施設の木工事及び造作家具工事を設計から施工までワンストップで行います。
 								.swiper-slide
 									.m-topIndustrySet01_slide01
-										a(href="") 
+										nuxt-link(to="/industry/#section02")
 											.block.is-more
 												span MORE
 											.block.is-bg
@@ -50,7 +50,7 @@
 														span フェリー・商船・潜水艦・クルーザーなど、あらゆる船舶内装工事を設計から施工までワンストップで行います。
 								.swiper-slide
 									.m-topIndustrySet01_slide01
-										a(href="") 
+										nuxt-link(to="/industry/#section03")
 											.block.is-more
 												span MORE
 											.block.is-bg

@@ -19,6 +19,12 @@ import inView from '~/assets/javascript/_j_inView/_j_inView.js'
 export default Vue.extend({
 	name: 'FactoryPage',
 	layout: "l-mainWrapper01",
+	head: {
+		title: '工場紹介 | 谷垣工業株式会社',
+		meta: [
+			{ hid: 'description', name: 'description', content: '谷垣工業では、建築内装及び造作家具において自社で設計・デザイン・施工を行うことにより、 斬新で機能的な空間デザインを提案させていただいております。また、船舶内装という特殊な艤 装工事でも、その技術力を生かし高く評価されております。今後も固定観念にとらわれる事なく 、お客様に満足していただけますよう努力してまいります。' }
+		]
+	},
 	mounted() {
 		inView({
 			className: '.js-headerTypeSet',

@@ -38,7 +38,7 @@
 																	br
 																	| FAX（078）-782-6270
 															.area.is-btn
-																m-borderBtn01(className ="is-white", text='MAP')
+																m-borderBtn01(blank = true, className ="is-white", text='MAP', url = 'https://goo.gl/maps/vaafxyaDDKHJHTCK7')
 														.area.is-image.is-floatRight
 															p.image
 																img(src="~/assets/images/contents/company_outline_image01.png", alt="〈本社 / 本社工場〉")

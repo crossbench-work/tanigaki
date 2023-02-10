@@ -163,7 +163,7 @@
 
 					.is-inview &
 						transform scaleX(1.0)
-						transition all 0.8s ease-in-out 2.1s
+						transition all 0.8s ease-in-out 
 
 						.page-leave-active &
 							transition all 0.8s ease-out

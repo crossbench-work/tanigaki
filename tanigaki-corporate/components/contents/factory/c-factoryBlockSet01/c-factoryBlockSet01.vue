@@ -23,24 +23,24 @@
 								.swiper-wrapper
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory01_image01.png", alt="家具工場とのスムーズな連携")
+										h4.title 家具工場とのスムーズな連携
+										p.text 設計部と家具工場が併設されており、図面で表しにくい細かい納まりの検討が製作段階でスムーズに行えます。
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory01_image02.png", alt="居住空間から細部までご提案")
+										h4.title 居住空間から細部までご提案
+										p.text 船舶内装設計では居住空間のレイアウトから細かな納まりまでトータルで最適なご提案をします。
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory01_image03.png", alt="培ったノウハウを活かす提案力")
+										h4.title 培ったノウハウを活かす提案力
+										p.text 長年培ってきたノウハウにより、カラーコーディネートや各内装材の使用用途における適材適所のご提案をします。
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory01_image04.png", alt="原設計図を元に詳細図を作成")
+										h4.title 原設計図を元に詳細図を作成
+										p.text 建築内装設計では、設計事務所様からの原設計図を基に、木工事・家具工事に関する図面を施工レベルの詳細図に。
 		.js-inviewPoint
 			section.c-factoryBlockSet01
 				.componentWrapper
@@ -56,33 +56,33 @@
 										m-border-leftTitle01(text = "家具工房", smallText = "本社工場" className = "is-animate")
 
 									.box.is-text.is-fadeInAnimation
-										h3.title 蓄積された実績により
+										h3.title 多様なオーダーメイド家具を
 											br
-											| ご要望をカタチにする頭脳集団
-										p.text 全ての仕事は設計から始まります。 お客様との打ち合わせにより、ご要望を図面に表現します。 蓄積された実績により、機能性・意匠性・コスト効率性を最適化したご提案をします。
+											| 心を込めて製作する職人集団
+										p.text 設計から図面を引き受け、家具の製作を行います。 ベテランから若手まで切磋琢磨して技術を磨き続けています。 熟練のワザにより魂のこもった家具をご提供します。
 									.box.is-btn
 							.block.is-lists.is-fadeInAnimation
 								.swiper-wrapper
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory02_image01.png", alt="熟練の職人が心を込めて製作")
+										h4.title 熟練の職人が心を込めて製作
+										p.text 箱状の家具から曲線形状の家具まであらゆる形状の家具を熟練の家具職人が心を込めて製作します。
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory02_image02.png", alt="堅牢で丁寧な組み立て")
+										h4.title 堅牢で丁寧な組み立て
+										p.text 祖業である船舶内装で培った堅牢な家具を熟練の職人が丁寧に心を込めて組み立てていきます。
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory02_image03.png", alt="パネルソーを3台設備")
+										h4.title パネルソーを3台設備
+										p.text パネルソーを3台設備しています。ベニヤ板や化粧合板を製作する家具に合わせてカットしていきます。
 									.swiper-slide
 										p.image
-											img(src="https://placehold.jp/380x300.png", alt="")
-										h4.title 紹介する部門の強み
-										p.text 設計部の強みやできることを写真を使って端的に伝えます。設計部の強みやできることを写真を使って端的に伝えます。
+											m-basePicture(src="factory02_image04.png", alt="塗装品にも対応")
+										h4.title 塗装品にも対応
+										p.text 工場3階に塗装ブースを設けておりますので、塗装品にも対応可能です。
 
 </template>
 

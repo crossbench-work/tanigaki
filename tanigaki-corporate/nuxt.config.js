@@ -103,7 +103,12 @@ export default {
       routes.push({
         path: '/achievements/:p',
         component: resolve(__dirname, 'pages/achievements/index.vue'),
-        name: 'AchievementsPage',
+        name: 'achievementsPage',
+      }),
+      routes.push({
+        path: '/news/:p',
+        component: resolve(__dirname, 'pages/news/index.vue'),
+        name: 'newsPage',
       })
     },
   },
