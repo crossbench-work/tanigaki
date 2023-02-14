@@ -268,6 +268,7 @@
 					loop: true,
 					speed: 6000,
 					allowTouchMove: false,
+					centeredSlides : true,
 					autoplay: {
 						delay: 0,
 						reverseDirection: (i == 1) ? true : false,
