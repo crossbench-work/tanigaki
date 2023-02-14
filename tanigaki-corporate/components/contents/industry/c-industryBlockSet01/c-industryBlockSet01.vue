@@ -48,6 +48,30 @@
 									.swiper-slide
 										.image
 											m-basePicture(src="industry01_thumbnail08.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail09.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail10.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail11.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail12.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail13.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail14.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail15.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry01_thumbnail16.png")
 
 
 		.js-inviewPoint#section02
@@ -110,6 +134,37 @@
 									.swiper-slide
 										.image
 											m-basePicture(src="industry02_thumbnail12.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail13.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail14.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail15.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail16.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail17.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail18.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail19.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail20.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail21.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry02_thumbnail22.png")
+									
 		.js-inviewPoint#section03
 			section.c-industryBlockSet01.is-fadeInAnimation
 				.componentWrapper
@@ -144,9 +199,57 @@
 									.swiper-slide
 										.image
 											m-basePicture(src="industry03_thumbnail03.png")
-
-				
-
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail04.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail05.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail06.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail07.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail08.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail09.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail10.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail11.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail12.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail13.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail14.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail15.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail16.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail17.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail18.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail19.png")
+									.swiper-slide
+										.image
+											m-basePicture(src="industry03_thumbnail20.png")
 </template>
 
 <script>
