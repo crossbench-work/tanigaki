@@ -53,7 +53,7 @@
 											m-basePicture(:sources="[{ srcset: 'factory_main_image02_sp.png', type: 'image/png', media: '640px'}]", src="factory_main_image02.png", alt="家具工房 本社工場")
 								.area.is-text
 									.box.is-title
-										m-border-leftTitle01(text = "家具工房", smallText = "本社工場" className = "is-animate")
+										m-border-leftTitle01(text = "家具工場", smallText = "本社工場" className = "is-animate")
 
 									.box.is-text.is-fadeInAnimation
 										h3.title 多様なオーダーメイド家具を
@@ -76,8 +76,8 @@
 									.swiper-slide
 										p.image
 											m-basePicture(src="factory02_image03.png", alt="パネルソーを3台設備")
-										h4.title パネルソーを3台設備
-										p.text パネルソーを3台設備しています。ベニヤ板や化粧合板を製作する家具に合わせてカットしていきます。
+										h4.title 質の高い納まりの家具製作
+										p.text 現場実測に基づいた最適な寸法で家具を製作することにより、造作家具ならではの質の高い納まりを実現します。
 									.swiper-slide
 										p.image
 											m-basePicture(src="factory02_image04.png", alt="塗装品にも対応")

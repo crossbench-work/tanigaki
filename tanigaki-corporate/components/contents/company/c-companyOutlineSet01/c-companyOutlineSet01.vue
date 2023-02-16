@@ -121,7 +121,9 @@
 														span 主要取引先
 											dd
 												.is-fadeInAnimation
-													p.m-baseText01 昭和47年2月5日
+													p.m-baseText01 清水建設株式会社、三菱重工業株式会社神戸造船所、三菱造船株式会社、阪九フェリー株式会社 
+														br
+														| 高島屋スペースクリエイツ株式会社、株式会社Ｊ.フロント建装　　　(敬称略・順不同)
 										.block.is-column
 											dt
 												.is-fadeInAnimation
@@ -129,9 +131,7 @@
 														span 設立
 											dd
 												.is-fadeInAnimation
-													p.m-baseText01 清水建設株式会社、三菱重工業株式会社神戸造船所、三菱造船株式会社、阪九フェリー株式会社 
-														br
-														| 高島屋スペースクリエイツ株式会社、株式会社Ｊ.フロント建装　　　(敬称略・順不同)
+													p.m-baseText01 昭和47年2月5日
 										.block.is-column
 											dt
 												.is-fadeInAnimation
