@@ -23,7 +23,7 @@
 						.block.is-text
 							.l-contentsWrapper.is-small
 								.area.is-text(v-for="(content, index) of achievement.content" :key="content.id")
-									p.text {{ content.achievement_content }}
+									//- p.text {{ content.achievement_content }}
 
 						.block.is-list
 							.l-contentsWrapper.is-small
