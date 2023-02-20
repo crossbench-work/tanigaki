@@ -78,7 +78,7 @@ export default {
     '@nuxtjs/google-gtag',
   ],
   "google-gtag": {
-    id: process.env.GTM_ID,
+    id: "G-TN0Z7RDKZ4",
     debug: true
   },
   optimizedImages: {
