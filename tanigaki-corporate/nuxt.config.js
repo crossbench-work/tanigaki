@@ -75,6 +75,7 @@ export default {
     "@nuxtjs/axios",
     'nuxt-microcms-module',
     '@aceforth/nuxt-optimized-images',
+    '@nuxtjs/gtm',
   ],
   optimizedImages: {
     optimizeImages: true,
@@ -116,4 +117,11 @@ export default {
     id: process.env.GTM_ID,
     pageTracking: true
   },
+  // 動的変数を使う場合（本番と分ける時など）には追加
+  publicRuntimeConfig: {
+    gtm: {
+      id: process.env.GTM_ID,
+      pageTracking: true
+    }
+  }
 }
