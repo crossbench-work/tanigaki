@@ -23,22 +23,26 @@
 								.swiper-wrapper
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory01_image01.png", alt="家具工場とのスムーズな連携")
+											img(src="~/assets/images/contents/factory01_image01.png", alt="家具工場とのスムーズな連携")
+											//- m-basePicture(src="factory01_image01.png", alt="家具工場とのスムーズな連携")
 										h4.title 家具工場とのスムーズな連携
 										p.text 設計部と家具工場が併設されており、図面で表しにくい細かい納まりの検討が製作段階でスムーズに行えます。
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory01_image02.png", alt="居住空間から細部までご提案")
+											img(src="~/assets/images/contents/factory01_image02.png", alt="居住空間から細部までご提案")
+											//- m-basePicture(src="factory01_image02.png", alt="居住空間から細部までご提案")
 										h4.title 居住空間から細部までご提案
 										p.text 船舶内装設計では居住空間のレイアウトから細かな納まりまでトータルで最適なご提案をします。
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory01_image03.png", alt="培ったノウハウを活かす提案力")
+											img(src="~/assets/images/contents/factory01_image03.png", alt="培ったノウハウを活かす提案力")
+											//- m-basePicture(src="factory01_image03.png", alt="培ったノウハウを活かす提案力")
 										h4.title 培ったノウハウを活かす提案力
 										p.text 長年培ってきたノウハウにより、カラーコーディネートや各内装材の使用用途における適材適所のご提案をします。
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory01_image04.png", alt="原設計図を元に詳細図を作成")
+											img(src="~/assets/images/contents/factory01_image04.png", alt="原設計図を元に詳細図を作成")
+											//- m-basePicture(src="factory01_image04.png", alt="原設計図を元に詳細図を作成")
 										h4.title 原設計図を元に詳細図を作成
 										p.text 建築内装設計では、設計事務所様からの原設計図を基に、木工事・家具工事に関する図面を施工レベルの詳細図に。
 		.js-inviewPoint
@@ -53,7 +57,7 @@
 											m-basePicture(:sources="[{ srcset: 'factory_main_image02_sp.png', type: 'image/png', media: '640px'}]", src="factory_main_image02.png", alt="家具工房 本社工場")
 								.area.is-text
 									.box.is-title
-										m-border-leftTitle01(text = "家具工房", smallText = "本社工場" className = "is-animate")
+										m-border-leftTitle01(text = "家具工場", smallText = "本社工場" className = "is-animate")
 
 									.box.is-text.is-fadeInAnimation
 										h3.title 多様なオーダーメイド家具を
@@ -65,22 +69,26 @@
 								.swiper-wrapper
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory02_image01.png", alt="熟練の職人が心を込めて製作")
+											img(src="~/assets/images/contents/factory02_image01.png", alt="熟練の職人が心を込めて製作")
+											//- m-basePicture(src="factory02_image01.png", alt="熟練の職人が心を込めて製作")
 										h4.title 熟練の職人が心を込めて製作
 										p.text 箱状の家具から曲線形状の家具まであらゆる形状の家具を熟練の家具職人が心を込めて製作します。
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory02_image02.png", alt="堅牢で丁寧な組み立て")
+											img(src="~/assets/images/contents/factory02_image02.png", alt="堅牢で丁寧な組み立て")
+											//- m-basePicture(src="factory02_image02.png", alt="堅牢で丁寧な組み立て")
 										h4.title 堅牢で丁寧な組み立て
 										p.text 祖業である船舶内装で培った堅牢な家具を熟練の職人が丁寧に心を込めて組み立てていきます。
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory02_image03.png", alt="パネルソーを3台設備")
-										h4.title パネルソーを3台設備
-										p.text パネルソーを3台設備しています。ベニヤ板や化粧合板を製作する家具に合わせてカットしていきます。
+											img(src="~/assets/images/contents/factory02_image03.png", alt="パネルソーを3台設備")
+											//- m-basePicture(src="factory02_image03.png", alt="パネルソーを3台設備")
+										h4.title 質の高い納まりの家具製作
+										p.text 現場実測に基づいた最適な寸法で家具を製作することにより、造作家具ならではの質の高い納まりを実現します。
 									.swiper-slide
 										p.image
-											m-basePicture(src="factory02_image04.png", alt="塗装品にも対応")
+											img(src="~/assets/images/contents/factory02_image04.png", alt="塗装品にも対応")
+											//- m-basePicture(src="factory02_image04.png", alt="塗装品にも対応")
 										h4.title 塗装品にも対応
 										p.text 工場3階に塗装ブースを設けておりますので、塗装品にも対応可能です。
 
