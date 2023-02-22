@@ -4,7 +4,7 @@
 		.componentWrapper
 			.block.is-current
 				.area.is-date(v-bind:class="btnSet")
-					p.date(v-if = "news[0].publishedAtJp")
+					p.date
 						span {{ news[0].publishedAtJp }}
 				.area.is-text
 					nuxt-link(:to="'/news/' + news[0].id")
@@ -19,7 +19,7 @@
 				dl
 					.area.is-news(v-for="(list, index) of news" v-if = "index != 0")
 						nuxt-link(:to="'/news/' + list.id")
-							dt.date(v-if = "news[0].publishedAtJp")
+							dt.date
 								span {{list.publishedAtJp}}
 							dd.text
 								span {{list.title}}
