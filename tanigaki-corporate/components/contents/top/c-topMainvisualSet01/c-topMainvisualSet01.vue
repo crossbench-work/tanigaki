@@ -37,14 +37,6 @@
 				required: true,
 			},
 		},
-		beforeMount() {
-			var publishedAtJp = {
-				'publishedAtJp': '0000.00.00'
-			};
-			this.news.forEach(function(element, index){
-				Object.assign(element, publishedAtJp);
-			})
-		},
 		mounted() {
 
 			this.$nextTick(() => {

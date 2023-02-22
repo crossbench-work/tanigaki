@@ -1,32 +1,32 @@
 <template lang="pug">
 	
 	section.c-topNewsSet01
-		.componentWrapper(v-if = "news[0].publishedAtJp")
-		//- 	.block.is-current
-		//- 		.area.is-date(v-bind:class="btnSet")
-		//- 			p.date
-		//- 				span {{ news[0].publishedAtJp }}
-		//- 		.area.is-text
-		//- 			nuxt-link(:to="'/news/' + news[0].id")
-		//- 				p.text
-		//- 					span {{ news[0].title }}
-		//- 		.area.is-btn(v-bind:class="btnSet" @click="btn = !btn")
-		//- 			p.btn
-		//- 				span
-		//- 				span
-		//- 				span
-		//- 	.block.is-before(v-bind:class="btnSet")
-		//- 		dl
-		//- 			.area.is-news(v-for="(list, index) of news" v-if = "index != 0")
-		//- 				nuxt-link(:to="'/news/' + list.id")
-		//- 					dt.date
-		//- 						span {{list.publishedAtJp}}
-		//- 					dd.text
-		//- 						span {{list.title}}
+		.componentWrapper
+			.block.is-current
+				.area.is-date(v-bind:class="btnSet")
+					p.date
+						//- span {{ news[0].publishedAtJp }}
+				.area.is-text
+					nuxt-link(:to="'/news/' + news[0].id")
+						p.text
+							span {{ news[0].title }}
+				.area.is-btn(v-bind:class="btnSet" @click="btn = !btn")
+					p.btn
+						span
+						span
+						span
+			.block.is-before(v-bind:class="btnSet")
+				dl
+					.area.is-news(v-for="(list, index) of news" v-if = "index != 0")
+						nuxt-link(:to="'/news/' + list.id")
+							dt.date
+								//- span {{list.publishedAtJp}}
+							dd.text
+								span {{list.title}}
 						
-		//- 		.area.is-more
-		//- 			nuxt-link(:to="'/news/'")
-		//- 				p.text MORE
+				.area.is-more
+					nuxt-link(:to="'/news/'")
+						p.text MORE
 
 </template>
 
