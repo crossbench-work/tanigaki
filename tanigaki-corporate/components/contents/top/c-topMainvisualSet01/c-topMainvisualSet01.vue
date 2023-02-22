@@ -19,7 +19,7 @@
 				
 				.block.is-scroll
 					p.scroll
-		c-topNewsSet01(:news = 'news')
+		//- c-topNewsSet01(:news = 'news')
 </template>
 
 <script>
