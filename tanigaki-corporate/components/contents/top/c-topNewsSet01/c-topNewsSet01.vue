@@ -1,7 +1,7 @@
 <template lang="pug">
 	
 	section.c-topNewsSet01
-		//- .componentWrapper(v-if = "news[0].publishedAtJp")
+		.componentWrapper(v-if = "news[0].publishedAtJp")
 		//- 	.block.is-current
 		//- 		.area.is-date(v-bind:class="btnSet")
 		//- 			p.date
