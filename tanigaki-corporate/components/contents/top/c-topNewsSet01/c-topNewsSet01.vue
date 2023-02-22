@@ -1,11 +1,11 @@
 <template lang="pug">
 	
 	section.c-topNewsSet01
-		.componentWrapper(v-if = "news")
+		.componentWrapper(v-if = "news.length > 0 ")
 			.block.is-current
 				.area.is-date(v-bind:class="btnSet")
 					p.date
-						//- span {{ news[0].publishedAtJp }}
+						span {{ news[0].publishedAtJp }}
 				.area.is-text
 					nuxt-link(:to="'/news/' + news[0].id")
 						p.text
@@ -20,7 +20,7 @@
 					.area.is-news(v-for="(list, index) of news" v-if = "index != 0")
 						nuxt-link(:to="'/news/' + list.id")
 							dt.date
-								//- span {{list.publishedAtJp}}
+								span {{list.publishedAtJp}}
 							dd.text
 								span {{list.title}}
 						
