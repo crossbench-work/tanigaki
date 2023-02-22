@@ -34,7 +34,7 @@
 		props: {
 			news: {
 				type: Array,
-				required: true,
+				required: false,
 			},
 		},
 		mounted() {
