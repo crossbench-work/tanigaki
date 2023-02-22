@@ -98,10 +98,6 @@ export default {
       // vendor: ['pixi.js']
   },
   loading: '~/components/common/c-loadigSet01/c-loadigSet01.vue',
-  // router: {
-  //   scrollBehavior: function (to, from, savedPosition) {
-  //     return { x: 0, y: 0 }
-  //   }
   // },
   router: {
     extendRoutes(routes, resolve) {
