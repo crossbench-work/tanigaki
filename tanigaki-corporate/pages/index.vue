@@ -42,13 +42,13 @@ export default Vue.extend({
 			const data01 = await $microcms.get({
 				endpoint: `achievements`,
 				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
-				queries: { limit: 10},
+				queries: { limit: 1},
 
 			});
 			const data02 = await $microcms.get({
 				endpoint: `news`,
 				// queries: { limit: 20, filters: 'createdAt[greater_than]2021' },
-				queries: { limit: 5},
+				queries: { limit: 1},
 
 			});
 			return {
