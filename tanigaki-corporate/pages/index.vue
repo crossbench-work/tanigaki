@@ -3,7 +3,7 @@
 		c-globalHeader01(current = "home")
 		main.l-mainContainer
 			.js-headerTypeSet
-				c-topMainvisualSet01(:news = 'news')
+				//- c-topMainvisualSet01(:news = 'news')
 			.js-headerTypeSet.is-white
 				c-topIndustrySet01
 			.js-headerTypeSet
