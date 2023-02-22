@@ -75,12 +75,7 @@ export default {
     "@nuxtjs/axios",
     'nuxt-microcms-module',
     '@aceforth/nuxt-optimized-images',
-    '@nuxtjs/google-gtag',
   ],
-  "google-gtag": {
-    id: "G-TN0Z7RDKZ4",
-    debug: true
-  },
   optimizedImages: {
     optimizeImages: true,
     optimizeImagesInDev: true,
@@ -117,16 +112,8 @@ export default {
       })
     },
   },
-  // gtm: {
-  //   id: process.env.GTM_ID,
-  //   debug: true, // Enable to track in dev mode.
-  //   pageTracking: true,
-  // },
-  // // 動的変数を使う場合（本番と分ける時など）には追加
-  // publicRuntimeConfig: {
-  //   gtm: {
-  //     id: process.env.GTM_ID,
-  //     pageTracking: true,
-  //   }
-  // }
+  gtm: {
+    id: process.env.GTM_ID,
+    pageTracking: true
+  },
 }
