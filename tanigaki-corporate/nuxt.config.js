@@ -111,10 +111,6 @@ export default {
         name: 'achievementsPage',
       }),
       routes.push({
-        path: '/index.html',
-        redirect: '/',
-      }),
-      routes.push({
         path: '/news/:p',
         component: resolve(__dirname, 'pages/news/index.vue'),
         name: 'newsPage',
