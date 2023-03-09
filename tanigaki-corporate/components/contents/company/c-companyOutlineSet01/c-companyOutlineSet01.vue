@@ -128,14 +128,6 @@
 											dt
 												.is-fadeInAnimation
 													p.title
-														span 設立
-											dd
-												.is-fadeInAnimation
-													p.m-baseText01 昭和47年2月5日
-										.block.is-column
-											dt
-												.is-fadeInAnimation
-													p.title
 														span 取引金融機関
 											dd
 												.is-fadeInAnimation
